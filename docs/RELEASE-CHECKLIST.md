@@ -7,6 +7,8 @@ The requested deliverable is a final, usable distribution. It is not complete un
 - [x] Publish a public HTTPS upstream manifest pinned to 709 project commits.
 - [x] Publish 11 reviewed upstream patch sets with base commits, hashes and preserved notices.
 - [ ] Publish the complete reviewed device tree and all remaining required port changes.
+  - [x] Publish and exercise staging of 34 indexed device files plus two locally generated GLES inputs, with product/board/rootdir/audio/lights/storage integration.
+  - [ ] Verify source-built namespace library copy modules and remaining firmware/kernel packaging in the full Android build.
 - [ ] Provide the complete corresponding source, configuration, toolchain and build/installation inputs for the selected modified kernel, including changes temporarily applied during kernel build #18.
   - [x] Reconstruct and verify 99 source modifications from the exact official archive, including all three build-time #18 overrides; preserve GPL/donor notices and the configuration.
   - [x] Build a fresh kernel and matching BCM43241 module using the public tool, retaining signature enforcement and generating the signing key locally.
@@ -18,6 +20,8 @@ The requested deliverable is a final, usable distribution. It is not complete un
   - [ ] Complete source-built private libraries, firmware, Wi-Fi module/calibration and full build integration.
 - [ ] Resolve the provenance and licensing of generated Intel export/connection code.
 - [ ] Provide a build product that does not redistribute unapproved Google applications.
+  - [x] Remove Google packages and automatic TCP ADB from the public source product; retain authenticated ADB defaults.
+  - [ ] Verify those exclusions/defaults in the complete built artifacts.
 - [ ] Audit the complete ROM's licenses and contents; do not treat boot audit success as publication approval.
 
 ## Privacy and security

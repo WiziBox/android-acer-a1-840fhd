@@ -12,6 +12,18 @@ LOCAL_HEADER_LIBRARIES := libhardware_headers
 LOCAL_CFLAGS := -Wall -Wextra -Werror
 include $(BUILD_SHARED_LIBRARY)
 
+# The audio bridge is project source; stock audio libraries remain owner inputs.
+include $(CLEAR_VARS)
+LOCAL_MODULE := audio.primary.ducati2fhd
+LOCAL_MODULE_RELATIVE_PATH := hw
+LOCAL_SRC_FILES := audio_namespace.c audio_abi.c
+LOCAL_MULTILIB := 32
+LOCAL_CXX_STL := none
+LOCAL_SHARED_LIBRARIES := libdl liblog
+LOCAL_HEADER_LIBRARIES := libhardware_headers
+LOCAL_CFLAGS := -Wall -Wextra -Werror
+include $(BUILD_SHARED_LIBRARY)
+
 include $(CLEAR_VARS)
 LOCAL_MODULE := libacer_legacy_loader
 LOCAL_SRC_FILES := legacy_loader.c
@@ -54,3 +66,5 @@ LOCAL_SRC_FILES := legacy_runtime.c
 LOCAL_MULTILIB := 32
 LOCAL_CFLAGS := -Wall -Wextra -Werror
 include $(BUILD_SHARED_LIBRARY)
+
+include $(LOCAL_PATH)/source-copies.mk

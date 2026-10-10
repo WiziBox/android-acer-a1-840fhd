@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+# WiziBox Android 9 port configuration; modified 2026-10-11.
+# Restore only standard permission views after vold and Zygote are ready.
+on property:sys.boot_completed=1
+    exec -- /system/bin/acer_storage_policy

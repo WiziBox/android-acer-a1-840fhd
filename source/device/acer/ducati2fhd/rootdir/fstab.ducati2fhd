@@ -1,0 +1,13 @@
+# SPDX-License-Identifier: Apache-2.0
+# WiziBox Android 9 port configuration; modified 2026-10-11.
+# Measured Acer GPT layout. Keep the stock encryption footer; never force-format.
+# Direct nodes avoid depending on the KitKat-specific intel/by-label creator.
+/dev/block/mmcblk0p4 /factory ext4 nosuid,nodev,noatime,barrier=1,data=ordered wait
+/dev/block/mmcblk0p9 /system ext4 ro,noatime wait
+/dev/block/mmcblk0p7 /cache ext4 nosuid,nodev,noatime,barrier=1,data=ordered,errors=panic wait,check
+# Android 9 owns /config for configfs; do not hide it under the stock ext4.
+/dev/block/mmcblk0p6 /acer-config ext4 nosuid,nodev,noatime,barrier=1,data=ordered wait
+/dev/block/mmcblk0p10 /data ext4 nosuid,nodev,noatime,discard,barrier=1,data=ordered,noauto_da_alloc,errors=panic wait,check,latemount,encryptable=/factory/userdata_footer
+/dev/block/mmcblk0p8 /logs ext4 nosuid,nodev,barrier=1,data=ordered wait
+/devices/*/block/sd* auto auto defaults voldmanaged=usb_storage:auto
+/devices/*/mmc_host/mmc1/* auto auto defaults voldmanaged=sdcard1:auto

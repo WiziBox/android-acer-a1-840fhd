@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: Apache-2.0
+# WiziBox Android 9 port configuration; modified 2026-10-11.
+# Android 9 bring-up candidate, not the stock KitKat service list.
+# Graphics/audio/Wi-Fi integration and SELinux policy are separate work items.
+on early-init
+    export MESA_EXTENSION_OVERRIDE "+GL_OES_EGL_image_external -GL_ARB_framebuffer_object"
+    export force_s3tc_enable true
+
+on init
+    start acer-watchdogd
+    mkdir /factory 0755 root root
+    mkdir /acer-config 0755 root root
+    mkdir /logs 0755 root root
+    mkdir /mnt/libreg 0700 root root
+    write /sys/class/graphics/fbcon/cursor_blink 0
+
+on fs
+    mount_all /fstab.ducati2fhd --early
+
+on late-fs
+    mount_all /fstab.ducati2fhd --late
+
+on boot
+    chown system system /sys/class/drm/card0/power/i915_videostatus
+
+# Do not duplicate surfaceflinger, servicemanager, vold, or zygote services.
+# Do not load stock external modules into a newly compiled kernel.
+
+# The stock ramdisk feeds the BayTrail TCO watchdog. Keep that service on Pie.
+service acer-watchdogd /sbin/watchdogd 10 20
+    class core
+    user root
+    group root
+    seclabel u:r:watchdogd:s0
+
+# Bring-up: expose ADB independently of old KitKat persistent USB settings.
+on boot
+    setprop sys.usb.config adb

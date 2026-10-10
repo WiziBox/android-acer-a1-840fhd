@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+# WiziBox Android 9 port configuration; modified 2026-10-11.
+# Scoped library also checks the real kernel's earlysuspend marker.
+on post-fs-data
+    setprop debug.acer.legacy_earlysuspend 1

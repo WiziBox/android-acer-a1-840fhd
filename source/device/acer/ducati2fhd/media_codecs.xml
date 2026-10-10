@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<!-- WiziBox Android 9 port configuration; modified 2026-10-11. -->
+<!-- Register shipped Pie software components. Intel OMX requires separate ABI validation. -->
+<MediaCodecs>
+    <Include href="media_codecs_google_audio.xml" />
+    <Include href="media_codecs_google_video.xml" />
+</MediaCodecs>

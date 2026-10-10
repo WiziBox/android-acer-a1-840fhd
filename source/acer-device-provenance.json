@@ -1,0 +1,323 @@
+{
+  "schema": 1,
+  "device": "acer-a1-840fhd",
+  "codename": "ducati2fhd",
+  "date": "2026-10-11",
+  "scope": "project-developed Android 9 product configuration and namespace/interface adapters; no stock binary implementation",
+  "license": "Apache-2.0 for project source; existing notices retained; not a license grant for owner-supplied blobs",
+  "changes": [
+    "Original port configuration based on measured hardware and public Android interfaces; not the stock KitKat service list.",
+    "Preserve existing adapter declarations; add explicit project license identifiers to remaining port inputs.",
+    "Remove Google packages and automatic network ADB integration from the public product.",
+    "Use combined owner-input COPY_FILES only once; stage source-built private libraries as separate modules."
+  ],
+  "candidate_inputs": [
+    {
+      "path": "AndroidProducts.mk",
+      "development_sha256": "c054cb54e5977ddd89f44ce860e1ccfc05c3074109779fb65bb0ca5b2814f9e2",
+      "review_candidate_sha256": "c054cb54e5977ddd89f44ce860e1ccfc05c3074109779fb65bb0ca5b2814f9e2"
+    },
+    {
+      "path": "BoardConfig.mk",
+      "development_sha256": "7ebbf235e0efefbd143310f18651e1a0a10510deb93e1c81dab46834bceb96d3",
+      "review_candidate_sha256": "7ebbf235e0efefbd143310f18651e1a0a10510deb93e1c81dab46834bceb96d3"
+    },
+    {
+      "path": "lineage_ducati2fhd.mk",
+      "development_sha256": "0c3bb0f7c070b887d3cd10cee9203824c061836696b5b2c8483e1c9960229982",
+      "review_candidate_sha256": "0c3bb0f7c070b887d3cd10cee9203824c061836696b5b2c8483e1c9960229982"
+    },
+    {
+      "path": "device.mk",
+      "development_sha256": "e363779e2ec5a551a8c7ab4dbbb2bc0802e6cfe86f9f04a11a9e9a8286889512",
+      "review_candidate_sha256": "8c420292ee1c2bdf59e83bf22add51e0d32730fa8ea66232c9a7b73b4c40eca9"
+    },
+    {
+      "path": "manifest.xml",
+      "development_sha256": "dd1524acf10629f2286fd223e433e183779f0a213bd130bc6a5b370e7709a5ee",
+      "review_candidate_sha256": "dd1524acf10629f2286fd223e433e183779f0a213bd130bc6a5b370e7709a5ee"
+    },
+    {
+      "path": "config.fs",
+      "development_sha256": "198c8a833c1dc3e94520e71e1175017dfd793c9841ab16ecf234b2e13ea6c552",
+      "review_candidate_sha256": "198c8a833c1dc3e94520e71e1175017dfd793c9841ab16ecf234b2e13ea6c552"
+    },
+    {
+      "path": "media_codecs.xml",
+      "development_sha256": "0d950411b69e92e6897d5b99ca863d10535e2e34a24c4d11b6b04c47fb9635ad",
+      "review_candidate_sha256": "0d950411b69e92e6897d5b99ca863d10535e2e34a24c4d11b6b04c47fb9635ad"
+    },
+    {
+      "path": "acer-approved-gpu-access.rc",
+      "development_sha256": "2b307d01abdc56c5967b7931e839f5ffe6fba6845fdf99eea15413d289a35f5d",
+      "review_candidate_sha256": "2b307d01abdc56c5967b7931e839f5ffe6fba6845fdf99eea15413d289a35f5d"
+    },
+    {
+      "path": "acer-backlight.rc",
+      "development_sha256": "83c72d492469c6e4847c4b9b0b5e109441fcdc83735722c349190d03a2f4d789",
+      "review_candidate_sha256": "83c72d492469c6e4847c4b9b0b5e109441fcdc83735722c349190d03a2f4d789"
+    },
+    {
+      "path": "acer-graphics-sync.rc",
+      "development_sha256": "139f0733476a08218b6a22249e22c6b4d3a5ca81cac85241836792b41257bcdd",
+      "review_candidate_sha256": "139f0733476a08218b6a22249e22c6b4d3a5ca81cac85241836792b41257bcdd"
+    },
+    {
+      "path": "acer-client-composition-bringup.rc",
+      "development_sha256": "2d8304a0b279d1027a0c54a4c24cdb649c428ee17b7856f6711e020bb38edd39",
+      "review_candidate_sha256": "2d8304a0b279d1027a0c54a4c24cdb649c428ee17b7856f6711e020bb38edd39"
+    },
+    {
+      "path": "acer-legacy-resume.rc",
+      "development_sha256": "376075f9591d57f18ac9eb8d7fdc0812938343d3e464357b415d4800f389849c",
+      "review_candidate_sha256": "376075f9591d57f18ac9eb8d7fdc0812938343d3e464357b415d4800f389849c"
+    },
+    {
+      "path": "acer-storage-policy.rc",
+      "development_sha256": "f4fe5f80c81a3186cb73a33332f9d15ce7414879d70eefad109acf76e35e5390",
+      "review_candidate_sha256": "f4fe5f80c81a3186cb73a33332f9d15ce7414879d70eefad109acf76e35e5390"
+    },
+    {
+      "path": "acer-wifi.rc",
+      "development_sha256": "4934b9b3390bcc62a1458ac3794c16ee6c141e83ea5ed7b12711ae56144519d8",
+      "review_candidate_sha256": "4934b9b3390bcc62a1458ac3794c16ee6c141e83ea5ed7b12711ae56144519d8"
+    },
+    {
+      "path": "rootdir/init.ducati2fhd.rc",
+      "development_sha256": "efaa38ccad7d6a0bde08f72c664a1d2d73d5c52b0bdb1eba4d4097a9acfc77ae",
+      "review_candidate_sha256": "efaa38ccad7d6a0bde08f72c664a1d2d73d5c52b0bdb1eba4d4097a9acfc77ae"
+    },
+    {
+      "path": "rootdir/init.usb.rc",
+      "development_sha256": "0ab1da6b44be47d588979ca7ce71ab250ea861f72173ade77725aa9f6cba7dc0",
+      "review_candidate_sha256": "0ab1da6b44be47d588979ca7ce71ab250ea861f72173ade77725aa9f6cba7dc0"
+    },
+    {
+      "path": "rootdir/fstab.ducati2fhd",
+      "development_sha256": "a3d285f1e856967f4d66de55c6d01bbd2a0474f420ee4555e9432916c6742c4e",
+      "review_candidate_sha256": "a3d285f1e856967f4d66de55c6d01bbd2a0474f420ee4555e9432916c6742c4e"
+    },
+    {
+      "path": "rootdir/ueventd.ducati2fhd.rc",
+      "development_sha256": "74c7218e1e9770775f9da7d46fbc78ac6fe66ebf00805fd2b2c00728f5c9709e",
+      "review_candidate_sha256": "74c7218e1e9770775f9da7d46fbc78ac6fe66ebf00805fd2b2c00728f5c9709e"
+    },
+    {
+      "path": "overlay/frameworks/base/core/res/res/values/config.xml",
+      "development_sha256": "858c2a69676a5225cbcab118bcce693ff90a5341a2eb92955507bf5f99729235",
+      "review_candidate_sha256": "858c2a69676a5225cbcab118bcce693ff90a5341a2eb92955507bf5f99729235"
+    },
+    {
+      "path": "legacy-hwc/audio_namespace.c",
+      "development_sha256": "f952a47d46e955b6689bc6a7e26e886c031dc5ca3922edb07a07c97e0ce600d9",
+      "review_candidate_sha256": "f952a47d46e955b6689bc6a7e26e886c031dc5ca3922edb07a07c97e0ce600d9"
+    },
+    {
+      "path": "legacy-hwc/audio_abi.c",
+      "development_sha256": "8d46b542d03dea48f70b02a1853d3ef0ff0e5e590c403f97c0ddc880f3ab1341",
+      "review_candidate_sha256": "8d46b542d03dea48f70b02a1853d3ef0ff0e5e590c403f97c0ddc880f3ab1341"
+    },
+    {
+      "path": "lights/Android.mk",
+      "development_sha256": "74b98b8fe9f5c02f1f9d6a58dc552333a63a1b4308b03e516210516123820865",
+      "review_candidate_sha256": "74b98b8fe9f5c02f1f9d6a58dc552333a63a1b4308b03e516210516123820865"
+    },
+    {
+      "path": "lights/lights.c",
+      "development_sha256": "5653bea29f552a12a6e81b3db6eeecfab58afa02c941b38ae0c6444ab11cfd92",
+      "review_candidate_sha256": "5653bea29f552a12a6e81b3db6eeecfab58afa02c941b38ae0c6444ab11cfd92"
+    },
+    {
+      "path": "storage-policy/Android.mk",
+      "development_sha256": "f23859b1e72c63305c44b3f2b089ae2a7963dd2e9aa3a53e82a31e20297fb274",
+      "review_candidate_sha256": "f23859b1e72c63305c44b3f2b089ae2a7963dd2e9aa3a53e82a31e20297fb274"
+    },
+    {
+      "path": "storage-policy/storage_policy.c",
+      "development_sha256": "f1d00c59dfd061aa36294630ad693af756d4634bbfe81edc40fccc13c1790e97",
+      "review_candidate_sha256": "f1d00c59dfd061aa36294630ad693af756d4634bbfe81edc40fccc13c1790e97"
+    }
+  ],
+  "files": [
+    {
+      "path": "acer-approved-gpu-access.rc",
+      "sha256": "04109aa6e2d8e6ec5fad74c0c40b3144067461ec4b7bcecd605f1d18d01498f9",
+      "bytes": 264
+    },
+    {
+      "path": "acer-backlight.rc",
+      "sha256": "e9989573f4ea60b05a070f18484a9996a8e038a1aaac2ebe49aa1ae3e42926ee",
+      "bytes": 405
+    },
+    {
+      "path": "acer-client-composition-bringup.rc",
+      "sha256": "f787f2c84c1df5b0d17caa5a1935f4cd5bbfde303ce60aede736d42f16cafb1c",
+      "bytes": 368
+    },
+    {
+      "path": "acer-graphics-sync.rc",
+      "sha256": "426c6e1adcbf2fa80d057ab4a3973cfd130030fc0245c7917c8b750a786cfe51",
+      "bytes": 256
+    },
+    {
+      "path": "acer-legacy-resume.rc",
+      "sha256": "7cb4bb8f3ac63055feb2f3c4fe04ffccf45193314d4fda09901cc78e412448c8",
+      "bytes": 228
+    },
+    {
+      "path": "acer-storage-policy.rc",
+      "sha256": "ebafa2ccf0290a7c83b1ade91595d2e15736f7c5c301619b65a1fd72e8ffcc06",
+      "bytes": 250
+    },
+    {
+      "path": "acer-wifi.rc",
+      "sha256": "a4bb4cd03791bb03c198b50e96555fba6ca543297d6f2498133d2c58b96be0f4",
+      "bytes": 714
+    },
+    {
+      "path": "AndroidProducts.mk",
+      "sha256": "b182942b9e7630e9e84ae9633ed7fe55c0ae61fa0e4d83c8420134b3a362125d",
+      "bytes": 209
+    },
+    {
+      "path": "BoardConfig.mk",
+      "sha256": "2dacd6c747a6f15fd9fdaee2902b794dff3445b2b3134c2ce81b2af64a568818",
+      "bytes": 2277
+    },
+    {
+      "path": "config.fs",
+      "sha256": "6043d93107724a0cf9479f42674ddc78c0be9a7fc8dd626993be11918a5536b5",
+      "bytes": 565
+    },
+    {
+      "path": "device.mk",
+      "sha256": "350cf1f0a1edc9bb76d58bb4c1b27ac9bfaac2b166ce1f9cb275b946540d527d",
+      "bytes": 5840
+    },
+    {
+      "path": "lineage_ducati2fhd.mk",
+      "sha256": "9b249b354261eace7fca70a79d4e892c4b4248115a6c7416fc9e23c32a2e2a94",
+      "bytes": 705
+    },
+    {
+      "path": "manifest.xml",
+      "sha256": "43eccdb2151d1d365bea91d68cc84f02904cb72b32796d3040104db902b8beee",
+      "bytes": 2417
+    },
+    {
+      "path": "media_codecs.xml",
+      "sha256": "5f1838950c28a3466b1d158db0c4529f438d530fd855c8e583a78b28a1132b2a",
+      "bytes": 382
+    },
+    {
+      "path": "legacy-hwc/Android.mk",
+      "sha256": "0c99689d46f501d660ba5dbb8bbd8821caf71a2b11d02640fcd51d7535b676ae",
+      "bytes": 2299
+    },
+    {
+      "path": "legacy-hwc/audio_abi.c",
+      "sha256": "f9325f77b95a2a63158b47a813471b46922438d603ae8a7785dbf98903f0e4fb",
+      "bytes": 7253
+    },
+    {
+      "path": "legacy-hwc/audio_namespace.c",
+      "sha256": "f952a47d46e955b6689bc6a7e26e886c031dc5ca3922edb07a07c97e0ce600d9",
+      "bytes": 2946
+    },
+    {
+      "path": "legacy-hwc/gles_namespace.c",
+      "sha256": "75c990b6c011aae4d75151cd25334d9ad5e43241cdc58a12e20f68b2e721272f",
+      "bytes": 1261
+    },
+    {
+      "path": "legacy-hwc/gralloc_namespace.c",
+      "sha256": "846bc07eaf76a5c41928fc1ccf5267db6a5b61031ea490e04a43e780205c2420",
+      "bytes": 6987
+    },
+    {
+      "path": "legacy-hwc/gralloc_perform_x86.S",
+      "sha256": "cc73c0f23991549732644c78c0e7c834f6470b3530c38d9de3f4afce7ab03cec",
+      "bytes": 971
+    },
+    {
+      "path": "legacy-hwc/hwcomposer_namespace.c",
+      "sha256": "9c4ccfe1ea696d92aeb67e040750bdd5cf734d4766778992b96ab72ec01bc8a2",
+      "bytes": 6333
+    },
+    {
+      "path": "legacy-hwc/legacy_loader.c",
+      "sha256": "d053ad984c57529fe3aa79979d7fd708de6b17ecf4abb1f407ff791ecd424b62",
+      "bytes": 3205
+    },
+    {
+      "path": "legacy-hwc/legacy_loader.h",
+      "sha256": "6ed2bec652bf5264b41200ac16d69d5c274b9162d6937b733e1061c1ddcbe597",
+      "bytes": 191
+    },
+    {
+      "path": "legacy-hwc/legacy_runtime.c",
+      "sha256": "5267cb0ea57f25b453b7b0ffb50d31d6ce45cec1f70e1b5e710d628f66df6353",
+      "bytes": 2464
+    },
+    {
+      "path": "legacy-hwc/source-copies.mk",
+      "sha256": "471c1782ba29dbff03b3245c8b2a022408ec72fd4a8c088bb94d08a20b6d8005",
+      "bytes": 1472
+    },
+    {
+      "path": "lights/Android.mk",
+      "sha256": "882ccad47fdb9e6e611b518ff06f39a5667115ebf05c6d9c13e5f4ba7b3edb07",
+      "bytes": 376
+    },
+    {
+      "path": "lights/lights.c",
+      "sha256": "5f130e498f1f7cfa28365614acfce9cbcb78a918ae67b59f3eaedf65e2d60c8c",
+      "bytes": 2831
+    },
+    {
+      "path": "overlay/frameworks/base/core/res/res/values/config.xml",
+      "sha256": "f0c3cfe19732ddff3672caea28082448c7241ed57bcdad529de655ad803f1efd",
+      "bytes": 282
+    },
+    {
+      "path": "rootdir/fstab.ducati2fhd",
+      "sha256": "ebd7855c586c7ed8cc5c7b167ad89b62e25f3a2cd50536e4bfa9dd0a4ab520e3",
+      "bytes": 1043
+    },
+    {
+      "path": "rootdir/init.ducati2fhd.rc",
+      "sha256": "1502841305e2a8aa6eaed19bdcf279d5536c8f819e9a48b19f47f3921e8eb47c",
+      "bytes": 1244
+    },
+    {
+      "path": "rootdir/init.usb.rc",
+      "sha256": "8d2138b37b7d6ca1fb01e0856eb7d6c16283a73c9648073643e21148666d7667",
+      "bytes": 3140
+    },
+    {
+      "path": "rootdir/ueventd.ducati2fhd.rc",
+      "sha256": "9565986ab5fa744c3cad6bf28d5da6fc0d8c934923104f9751c526692b378f27",
+      "bytes": 499
+    },
+    {
+      "path": "storage-policy/Android.mk",
+      "sha256": "0c727297f646bdf291043dda25a406c50e1da21d96cae29679b351f08dd3964b",
+      "bytes": 309
+    },
+    {
+      "path": "storage-policy/storage_policy.c",
+      "sha256": "1f995ad07a5f5bd8b6f9d852d7b67ff1ede5a76e7f82304e4b3e09c3f312b4f7",
+      "bytes": 1495
+    }
+  ],
+  "generated_inputs_not_published": [
+    "legacy-hwc/gles_symbols.h",
+    "legacy-hwc/gles_exports_x86.S"
+  ],
+  "google_apps_included": false,
+  "automatic_network_adb_included": false,
+  "private_keys_included": false,
+  "clean_android_build_verified": false,
+  "device_installation_verified": false,
+  "image_publication_approved": false
+}

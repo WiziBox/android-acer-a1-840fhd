@@ -21,7 +21,9 @@ class GraphicsSourceTests(unittest.TestCase):
             self.assertIn(b'SPDX-License-Identifier: Apache-2.0', payload[:300])
         component = ROOT / 'source/device/acer/ducati2fhd/legacy-hwc'
         makefile = (component / 'Android.mk').read_text()
-        self.assertEqual(len(re.findall(r'^LOCAL_MODULE := ', makefile, re.M)), 5)
+        self.assertEqual(set(re.findall(r'^LOCAL_MODULE := (.+)$', makefile, re.M)), {
+            'hwcomposer.ducati2fhd', 'gralloc.ducati2fhd', 'libacer_legacy_loader',
+            'libGLES_intel7', 'libacer_legacy_runtime', 'audio.primary.ducati2fhd'})
         generated = set(index['generated_inputs'])
         for line in re.findall(r'^LOCAL_SRC_FILES := (.+)$', makefile, re.M):
             for name in line.split():

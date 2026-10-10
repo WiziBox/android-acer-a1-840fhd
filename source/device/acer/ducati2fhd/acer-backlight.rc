@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
+# WiziBox Android 9 port configuration; modified 2026-10-11.
+# Only the measured brightness control is writable by the Lights HAL user.
+# max_brightness/actual_brightness remain read-only; no world-write permission.
+on post-fs-data
+    chown system system /sys/class/backlight/intel_backlight/brightness
+    chmod 0660 /sys/class/backlight/intel_backlight/brightness

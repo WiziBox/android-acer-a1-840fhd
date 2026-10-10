@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: Apache-2.0
+# WiziBox Android 9 port configuration; modified 2026-10-11.
+# User-approved legacy Intel primary DRM access; control node stays restricted.
+on post-fs-data
+    chmod 0666 /dev/dri/card0
+
+on boot
+    chmod 0666 /dev/dri/card0

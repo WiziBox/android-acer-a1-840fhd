@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
+# WiziBox Android 9 port configuration; modified 2026-10-11.
+# Bring-up mitigation, not a completed Intel HWC fence fix.
+# The matching SurfaceFlinger candidate reads this in its constructor.
+# Set before class core starts: switching only after registration is too late.
+on post-fs-data
+    setprop debug.acer.client_from_start 1

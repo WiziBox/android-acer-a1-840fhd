@@ -1,0 +1,85 @@
+# SPDX-License-Identifier: Apache-2.0
+# WiziBox Android 9 port configuration; modified 2026-10-11.
+# Product replacement for generic init.usb.rc (legacy android_usb, not configfs).
+# Wait for Android 9 adbd to publish FunctionFS endpoints before enabling USB.
+on init
+    setprop sys.usb.configfs 0
+    write /sys/class/android_usb/android0/iSerial ${ro.serialno}
+
+on fs
+    mkdir /dev/usb-ffs 0770 shell shell
+    mkdir /dev/usb-ffs/adb 0770 shell shell
+    mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
+    write /sys/class/android_usb/android0/f_ffs/aliases adb
+
+on post-fs-data
+    mkdir /data/misc/adb 02750 system shell
+    mkdir /data/adb 0700 root root
+
+service adbd /system/bin/adbd --root_seclabel=u:r:su:s0
+    class core
+    socket adbd stream 660 system system
+    disabled
+    seclabel u:r:adbd:s0
+
+on property:sys.usb.config=none
+    write /sys/class/android_usb/android0/enable 0
+    stop adbd
+    setprop sys.usb.ffs.ready 0
+    write /sys/class/android_usb/android0/bDeviceClass 0
+    setprop sys.usb.state none
+
+on property:init.svc.adbd=stopped
+    setprop sys.usb.ffs.ready 0
+
+on property:sys.usb.config=adb
+    start adbd
+
+on property:sys.usb.config=mtp,adb
+    start adbd
+
+on property:sys.usb.config=ptp,adb
+    start adbd
+
+on property:sys.usb.ffs.ready=1 && property:sys.usb.config=adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 18d1
+    write /sys/class/android_usb/android0/idProduct 4EE7
+    write /sys/class/android_usb/android0/functions adb
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state adb
+
+on property:sys.usb.ffs.ready=1 && property:sys.usb.config=mtp,adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0502
+    write /sys/class/android_usb/android0/idProduct 362E
+    write /sys/class/android_usb/android0/functions mtp,adb
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state mtp,adb
+
+on property:sys.usb.ffs.ready=1 && property:sys.usb.config=ptp,adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0502
+    write /sys/class/android_usb/android0/idProduct 3630
+    write /sys/class/android_usb/android0/functions ptp,adb
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state ptp,adb
+
+on property:sys.usb.config=mtp
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0502
+    write /sys/class/android_usb/android0/idProduct 362D
+    write /sys/class/android_usb/android0/functions mtp
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state mtp
+
+on property:sys.usb.config=ptp
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 0502
+    write /sys/class/android_usb/android0/idProduct 362F
+    write /sys/class/android_usb/android0/functions ptp
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state ptp
+
+on boot && property:persist.sys.usb.config=*
+    setprop sys.usb.config ${persist.sys.usb.config}

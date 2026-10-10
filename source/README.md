@@ -4,4 +4,6 @@ The published graphics component contains seven project namespace/ABI adapter so
 
 The GLES symbol header and i386 assembly are generated locally from the reviewed owner-supplied library by `tools/generate_gles.py`. They are intentionally not a captured Intel export-list snapshot in this repository. See [vendor inputs](../docs/VENDOR-INPUTS.md) for source acquisition and generation.
 
-This is not the complete device tree yet: the product/board definition, audio integration, lights, storage/resume policies, rootdir inputs, source-built private libcutils integration and kernel packaging remain required. Do not copy this component over an unrelated modified device tree or assume the public product is buildable merely because these modules are present.
+The additional public tree now contains product/board definitions, audio adapters, lights, storage/resume policy and rootdir inputs. The 34-file device index records current hashes and review scope; two GLES files remain local generation inputs. Source-built private library copy rules and a no-Google/no-automatic-network-ADB product are included. See [device staging and build integration](../docs/DEVICE-SOURCES.md).
+
+The staging procedure was exercised in a fresh Android workspace. That is not a complete Android build: the Python 2 host bootstrap, firmware/module staging, actual Make/Soong integration and OSIP packaging/installation still need completion. Do not copy this tree over an unrelated modified device tree or assume an installable ROM merely because the sources are present.

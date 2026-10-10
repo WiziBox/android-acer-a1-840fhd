@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: Apache-2.0
+# WiziBox Android 9 port configuration; modified 2026-10-11.
+# User-approved stock primary DRM access required by the legacy Intel EGL.
+/dev/dri/card0 0666 root graphics
+/dev/dri/controlD64 0660 root graphics
+/dev/graphics/fb0 0660 root graphics
+/dev/sw_sync 0660 system graphics
+/dev/input/* 0660 root input
+# Binder nodes are created by the multi-context candidate kernel.
+/dev/binder 0666 root root
+/dev/hwbinder 0666 root root
+/dev/vndbinder 0666 root root

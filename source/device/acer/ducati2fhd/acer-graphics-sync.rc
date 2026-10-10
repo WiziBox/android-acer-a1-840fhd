@@ -1,0 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# WiziBox Android 9 port configuration; modified 2026-10-11.
+# Intel HWC needs a real software sync timeline; never synthesize fences.
+on post-fs-data
+    chown system graphics /dev/sw_sync
+    chmod 0660 /dev/sw_sync
