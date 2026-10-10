@@ -45,4 +45,4 @@ On 2026-10-11, the private `boot-NATIVE-CHARGING-oct10.img` failed the boot audi
 
 ## What has actually been checked
 
-The pinned upstream manifest initialized successfully in an empty WSL directory; `repo list --all` resolved 709 projects. All 11 patches passed checks against their recorded base commits. Tooling tests passed on Windows and Linux. This evidence does not establish a complete source sync, clean Android build, bootability, or a successful installation/recovery cycle.
+The pinned upstream manifest initialized successfully in an empty WSL directory; `repo list --all` resolved 709 projects. On 2026-10-11, the separate verification workspace completed network fetching and local checkout, and the public patch tool checked and applied all 11 patches there. WebView LFS smudging was deliberately skipped and still needs materialization before a complete build. The local tooling suite now has 69 passing tests. This evidence does not establish a clean Android build, bootability, or a successful installation/recovery cycle.

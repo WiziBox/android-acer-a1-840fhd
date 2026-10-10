@@ -1,0 +1,72 @@
+{
+  "source": "https://android.googlesource.com/kernel/common/+/0ca4bf51323a447f8301fcc1ad51ed1b3188ea3f/fs/sdcardfs/",
+  "revision": "0ca4bf51323a447f8301fcc1ad51ed1b3188ea3f",
+  "tree": "f66d6ada3aa90a31b8e1a0c79ca8dd7d0fd7fb7c",
+  "files": [
+    {
+      "name": "Kconfig",
+      "git_blob": "a1c103316ac7946d1e5b03492d96bca69feeb640",
+      "sha256": "9902f4f1cd61c51468b7f244e839c48a7fe3f8c7b62c25c7a99ff7be87119da5"
+    },
+    {
+      "name": "Makefile",
+      "git_blob": "b84fbb2b45a47a7799f94c636110fd8024495303",
+      "sha256": "0dfa2552697a1b948861be3fceba40043bccfc88d44efdf72093b55b7e828878"
+    },
+    {
+      "name": "dentry.c",
+      "git_blob": "c8f3bcbfb183bfb2af1200b7da03b8917ab775ff",
+      "sha256": "284a1d450c9a5a5c71d76d229ca1f87a35ff3b21b0d803a3733e1afbd780ddb1"
+    },
+    {
+      "name": "derived_perm.c",
+      "git_blob": "5ee3dab6aa9f772875c7555de72a242506188b36",
+      "sha256": "58d4ff84b296bcfed0d28606499e4de50d023965c19cfcae2270da78d8cff9da"
+    },
+    {
+      "name": "file.c",
+      "git_blob": "06cd752b4915356dd369adb2f7bd82dc8a8d59b4",
+      "sha256": "7e402a3cb4784af91f3f1d6e69161191d6642376acd1cae15ee9ef4fcefb8d0b"
+    },
+    {
+      "name": "inode.c",
+      "git_blob": "771376cc3076c33fd10b43c262feaa5571b3c651",
+      "sha256": "4fd3f6fb40b000a58ca4a4cd62129bfd5bf36158324f33f3eaafdd5d84cda27d"
+    },
+    {
+      "name": "lookup.c",
+      "git_blob": "378b0b1d6d75b9f652f934c526f4223bd0b911bb",
+      "sha256": "1d1b81b422792e4c60c4bcfe500828003869c3b6ca8d61df1e5777564c679283"
+    },
+    {
+      "name": "main.c",
+      "git_blob": "379037e2f70dd28a335c49ee523195124fb28b02",
+      "sha256": "442a6b55bdf3d69a5f5d1fbae5527149485acac3d8c67eb85bf8207b1968862a"
+    },
+    {
+      "name": "mmap.c",
+      "git_blob": "96759ca827e37708df1e6082c565394c584cc34c",
+      "sha256": "757e7fb0945491f2d93f2dc3f025c2cbb6b1102da14350efc48273c2d387741c"
+    },
+    {
+      "name": "multiuser.h",
+      "git_blob": "85341e753f8c9e19288ce608efa8973f78ab8918",
+      "sha256": "41228a75dcf466ae605f36f931e1a18820b218f83fa580a69ec3b0dbbac61772"
+    },
+    {
+      "name": "packagelist.c",
+      "git_blob": "886d2f699b8042ccf3129f5637255cd274445829",
+      "sha256": "8bd26f943b4bb62e831e4c24539b77326518ac8bde5fe9cf73b8d447c72f9a1c"
+    },
+    {
+      "name": "sdcardfs.h",
+      "git_blob": "6bf23d53a541ed38f5096a3499f37cbf340f8ce0",
+      "sha256": "41c1751e3ae8c3bc5f66684a6e226a38774ba62b87987b165b78fd36c47c7312"
+    },
+    {
+      "name": "super.c",
+      "git_blob": "87d6f836592e8ff414f16070a8695a43b36c14c2",
+      "sha256": "2ed5986c8f3ff8f953b389f4d2880db117b84aaed091a42830b4014cc0166b05"
+    }
+  ]
+}

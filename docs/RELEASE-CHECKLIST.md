@@ -8,6 +8,9 @@ The requested deliverable is a final, usable distribution. It is not complete un
 - [x] Publish 11 reviewed upstream patch sets with base commits, hashes and preserved notices.
 - [ ] Publish the complete reviewed device tree and all remaining required port changes.
 - [ ] Provide the complete corresponding source, configuration, toolchain and build/installation inputs for the selected modified kernel, including changes temporarily applied during kernel build #18.
+  - [x] Reconstruct and verify 99 source modifications from the exact official archive, including all three build-time #18 overrides; preserve GPL/donor notices and the configuration.
+  - [x] Build a fresh kernel and matching BCM43241 module using the public tool, retaining signature enforcement and generating the signing key locally.
+  - [ ] Complete portable kernel/module/signing/OSIP build and installation integration and clean-build evidence.
 - [ ] Supply reviewed vendor components or an owner-extraction procedure with expected hashes.
   - [x] Provide and exercise a hash-checked importer for 32 stock graphics libraries, excluding two source-built inputs.
   - [x] Provide and exercise 55 stock audio inputs with two hash-checked transformations, excluding three source-built inputs.
@@ -35,7 +38,7 @@ The requested deliverable is a final, usable distribution. It is not complete un
 
 ## Current evidence
 
-As of 2026-10-11, fresh upstream initialization and 11 base-commit patch checks succeeded. The 26 existing tooling tests passed on Windows and Linux. The complete source sync, clean ROM build and release-artifact installation/recovery cycle have not been established. No final ROM is approved for publication yet.
+As of 2026-10-11, fresh upstream initialization, network fetching and local checkout succeeded; all 11 public patches were checked and applied in the separate verification tree. WebView LFS objects were not smudged and remain a build prerequisite. The local tooling suite has 69 passing tests. Clean ROM build and release-artifact installation/recovery have not been established. No final ROM is approved for publication yet.
 
 Final does not imply perfect application compatibility. It does require a usable, honestly documented build/download/install/recover path, with evidence rather than unchecked promises.
 

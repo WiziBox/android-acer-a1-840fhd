@@ -1,0 +1,66 @@
+{
+  "repository": "LineageOS/android_kernel_samsung_universal7580",
+  "revision": "3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5",
+  "files": [
+    {
+      "path": "drivers/android/Kconfig",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/drivers/android/Kconfig",
+      "sha256": "0e92b58610ca7899eccb3addecaefef464e3ed452e3ef6db9498235229ca6a35"
+    },
+    {
+      "path": "drivers/android/Makefile",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/drivers/android/Makefile",
+      "sha256": "f883a3a949ae852ab8a26b3db87e588ddf24c3b2a071a52e9a642cca8a304d80"
+    },
+    {
+      "path": "drivers/android/binder.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/drivers/android/binder.c",
+      "sha256": "55c81f2770996bb3ef00ea0fe69341dbe5a0fad766a3a705b6f8d59e09c4c085"
+    },
+    {
+      "path": "drivers/android/binder_alloc.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/drivers/android/binder_alloc.c",
+      "sha256": "982fb4c8a595d5a42b0292d8ff1bc493ccbb7f3f5ef81040f645aa08003fab8c"
+    },
+    {
+      "path": "drivers/android/binder_alloc.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/drivers/android/binder_alloc.h",
+      "sha256": "4a9e5ef7a65b8eaf2bc1c3bd84b0cc8afcf43fe20082dd4d1a8a76b8c8d4afd9"
+    },
+    {
+      "path": "drivers/android/binder_alloc_selftest.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/drivers/android/binder_alloc_selftest.c",
+      "sha256": "3b2a0ffbe3a5bc855186e30a698b5bd24e36ffdb8f62323dda9c26cbca4e3f2a"
+    },
+    {
+      "path": "drivers/android/binder_trace.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/drivers/android/binder_trace.h",
+      "sha256": "20e71d8941bc11c6045d76af7457f560fae458a32396201fcb97f5fa9cfe2a43"
+    },
+    {
+      "path": "include/uapi/linux/android/binder.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/include/uapi/linux/android/binder.h",
+      "sha256": "3f6110d809b237de63fc35a9cac7460951aa511591ff4c66ae91a6ad1f34616f"
+    },
+    {
+      "path": "kernel/seccomp.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/kernel/seccomp.c",
+      "sha256": "a7e2c7152dc8bbd50fae259985d69c7dc8be4aef0505046b71cf8c699a1e9bb8"
+    },
+    {
+      "path": "include/uapi/linux/seccomp.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/include/uapi/linux/seccomp.h",
+      "sha256": "056c8b349fa4c5b9fc3645809b0b3d968c94ba2f503ead30174346978a3df025"
+    },
+    {
+      "path": "include/linux/seccomp.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/include/linux/seccomp.h",
+      "sha256": "aade825e56cb320807d2eb29120a77d66e4313ffcb3c3550ffc9815a5fb6f90e"
+    },
+    {
+      "path": "kernel/fork.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/kernel/fork.c",
+      "sha256": "d95c35de827773e54eac4d50679c2f86b8e1e07975c126eccf9876a05f9948c7"
+    }
+  ]
+}

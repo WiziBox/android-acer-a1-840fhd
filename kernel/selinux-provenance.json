@@ -1,0 +1,314 @@
+{
+  "repository": "LineageOS/android_kernel_samsung_universal7580",
+  "revision": "3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5",
+  "selected_tree": "security/selinux_n/",
+  "applied": false,
+  "files": [
+    {
+      "path": "include/linux/selinux.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/include/linux/selinux.h",
+      "bytes": 1065,
+      "sha256": "e0f899de98eb49593de8f06ee1aa4133ddf45fea4f46eb2962f0fe3bfcace608"
+    },
+    {
+      "path": "security/selinux_n/Kconfig",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/Kconfig",
+      "bytes": 5220,
+      "sha256": "3df03cb85d1de359d6bdfae7ca4c6e26d681f69ad548692cea7115a33c5346a6"
+    },
+    {
+      "path": "security/selinux_n/Makefile",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/Makefile",
+      "bytes": 1289,
+      "sha256": "99bcc4bafddc9da62e4e8cf4587c96f871f1758f53356c7a70c5e4e48bbbccc6"
+    },
+    {
+      "path": "security/selinux_n/avc.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/avc.c",
+      "bytes": 33095,
+      "sha256": "5e364dc99463b2bd95c72c939e3e80a828e6a4d90780830b0c70d2f48a512af2"
+    },
+    {
+      "path": "security/selinux_n/exports.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/exports.c",
+      "bytes": 1071,
+      "sha256": "1b904b39dba7c3953d10a7f980a456eac5b2b4d7f8d78bb47147393d3617c8f8"
+    },
+    {
+      "path": "security/selinux_n/hooks.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/hooks.c",
+      "bytes": 173982,
+      "sha256": "95a74a802434d850f0100b7953b214dee5450e1d5f972b8f97a9a657de5ffdc8"
+    },
+    {
+      "path": "security/selinux_n/include/audit.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/include/audit.h",
+      "bytes": 2286,
+      "sha256": "328027c90202c13f5ee45edd5737c597b47bb88a386744179dc0323e20b688ae"
+    },
+    {
+      "path": "security/selinux_n/include/avc.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/include/avc.h",
+      "bytes": 5038,
+      "sha256": "dc6db3ba38322aaddb0cc4f5f10c3c4bd848e6874f8f5ffca2fce56b06a3f560"
+    },
+    {
+      "path": "security/selinux_n/include/avc_ss.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/include/avc_ss.h",
+      "bytes": 577,
+      "sha256": "61b8d718d8a88ee5a0513f6e7e5c3822cdccf9c7005e93ac0859cb2ed7e0f516"
+    },
+    {
+      "path": "security/selinux_n/include/classmap.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/include/classmap.h",
+      "bytes": 5627,
+      "sha256": "d0316e051498f4742955bc4d51d554d4ab886190bb26452608057044f1ff135c"
+    },
+    {
+      "path": "security/selinux_n/include/conditional.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/include/conditional.h",
+      "bytes": 617,
+      "sha256": "b314ef71c0263c9878064fdd0abd3a0f4a9d40ebdabc99d1d69ad979859051b9"
+    },
+    {
+      "path": "security/selinux_n/include/initial_sid_to_string.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/include/initial_sid_to_string.h",
+      "bytes": 557,
+      "sha256": "20e5f742f1858664d73855df7dadb047c06749e139e78b43b2698ee57d0728d5"
+    },
+    {
+      "path": "security/selinux_n/include/netif.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/include/netif.h",
+      "bytes": 802,
+      "sha256": "917630071836575d90e7ec5eaaeaad83a2585abcef26eadc5be1f1b46f9157d6"
+    },
+    {
+      "path": "security/selinux_n/include/netlabel.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/include/netlabel.h",
+      "bytes": 3784,
+      "sha256": "4621f96bdeee28ec60a0b99882dc02100f59853bf75ca1ff80defb1a2bfe4aee"
+    },
+    {
+      "path": "security/selinux_n/include/netnode.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/include/netnode.h",
+      "bytes": 995,
+      "sha256": "9915024fccd205f5b5af30464d515fa6eca8053b28c5783ce0a6249b01a43ef2"
+    },
+    {
+      "path": "security/selinux_n/include/netport.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/include/netport.h",
+      "bytes": 934,
+      "sha256": "baac8bf7f88d2718c6c282b654ae642f3a1035497ad56533d13039e65ab07a2d"
+    },
+    {
+      "path": "security/selinux_n/include/objsec.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/include/objsec.h",
+      "bytes": 3592,
+      "sha256": "4f77955643d051b1c3bbedfde97ccdd9c8cce2ccc556d21322e912840798e0b3"
+    },
+    {
+      "path": "security/selinux_n/include/security.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/include/security.h",
+      "bytes": 7784,
+      "sha256": "602300ed8372256c2e06677b08367bcdce6771adf01f6478c9fb7f6b39849989"
+    },
+    {
+      "path": "security/selinux_n/include/xfrm.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/include/xfrm.h",
+      "bytes": 2491,
+      "sha256": "42c9b7f83a8a6c27fe9b7d2b0def51851734c81c5131690c9828fc15038ebc8a"
+    },
+    {
+      "path": "security/selinux_n/netif.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/netif.c",
+      "bytes": 7320,
+      "sha256": "994aabd8251ebfca29146bca7b4091f7bbbc016b40ee3ae305420efc166ff638"
+    },
+    {
+      "path": "security/selinux_n/netlabel.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/netlabel.c",
+      "bytes": 12434,
+      "sha256": "84e5f94051a469e2d5892d077f2331e9a0159cd095d54dc5e901f7610ac7d4d5"
+    },
+    {
+      "path": "security/selinux_n/netlink.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/netlink.c",
+      "bytes": 2501,
+      "sha256": "bf90760ed79321bbdda2da1e184751d3b8155acf17d5edd10f337cf221605a13"
+    },
+    {
+      "path": "security/selinux_n/netnode.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/netnode.c",
+      "bytes": 8225,
+      "sha256": "8143162f41068af4061568f0aff76e9bd5fef99c8acaf22436bcc54c282a035f"
+    },
+    {
+      "path": "security/selinux_n/netport.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/netport.c",
+      "bytes": 6598,
+      "sha256": "5381b2b5529159bf6c9c95369b9b2e9391b95210c4b649f15e00f8972dabfdb0"
+    },
+    {
+      "path": "security/selinux_n/nlmsgtab.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/nlmsgtab.c",
+      "bytes": 6592,
+      "sha256": "472e44612dd413c7deef71b6ab10a6ad3f1dd69d28b14995976f175f2c360545"
+    },
+    {
+      "path": "security/selinux_n/selinuxfs.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/selinuxfs.c",
+      "bytes": 45161,
+      "sha256": "7ed229afdf486dc26836928bdc6455c684665b212fe93b14d8e825d707bede10"
+    },
+    {
+      "path": "security/selinux_n/ss/avtab.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/avtab.c",
+      "bytes": 17931,
+      "sha256": "d9efd62a4eca2a1ffebf34a44524707d483f895801305de1c283c54a3e6b7717"
+    },
+    {
+      "path": "security/selinux_n/ss/avtab.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/avtab.h",
+      "bytes": 3915,
+      "sha256": "cb3e1e323ff4069ee54b0dcf420f2c048b346b6fcfa708fe5321162652a0ba93"
+    },
+    {
+      "path": "security/selinux_n/ss/conditional.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/conditional.c",
+      "bytes": 14837,
+      "sha256": "c4daeb2386658aa8a75f6d9f60e8db9f6a791f2d6e0479e72325a5c30ebf4717"
+    },
+    {
+      "path": "security/selinux_n/ss/conditional.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/conditional.h",
+      "bytes": 2541,
+      "sha256": "d65f2702b57400e82112464be7958252a1289a3b4819aa98ea461c3bac0ef90b"
+    },
+    {
+      "path": "security/selinux_n/ss/constraint.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/constraint.h",
+      "bytes": 2123,
+      "sha256": "6a037d5afe62f0de9ade9618e040e484eaf1447954a89762d52e776578107629"
+    },
+    {
+      "path": "security/selinux_n/ss/context.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/context.h",
+      "bytes": 4065,
+      "sha256": "17cfa0c83e7ece27f8068cef11190e0eccb2b81f3bdc5a00eddb9613c112e667"
+    },
+    {
+      "path": "security/selinux_n/ss/ebitmap.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/ebitmap.c",
+      "bytes": 11441,
+      "sha256": "ee954d9710bcebccd2ce69d32c30bd7dcb74518b0f0821779ebe955d0912df5b"
+    },
+    {
+      "path": "security/selinux_n/ss/ebitmap.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/ebitmap.h",
+      "bytes": 4152,
+      "sha256": "5c560112149369de025ae3d3dbf52a0aeba6e8a22c85150b3b18f4c7d148da97"
+    },
+    {
+      "path": "security/selinux_n/ss/hashtab.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/hashtab.c",
+      "bytes": 2990,
+      "sha256": "e9ef2307e3d584492663fb7e606c6a0efdd8d787402aeb705c3ef513afbfd733"
+    },
+    {
+      "path": "security/selinux_n/ss/hashtab.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/hashtab.h",
+      "bytes": 2509,
+      "sha256": "52a9cb02ca02642c503b750966e20fab2faeff0df7a06df1057cd875f55172b7"
+    },
+    {
+      "path": "security/selinux_n/ss/mls.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/mls.c",
+      "bytes": 16154,
+      "sha256": "a00ae229001b4695590b3aeec7c1c9fea349a78c860c239afaf307e2979dcffb"
+    },
+    {
+      "path": "security/selinux_n/ss/mls.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/mls.h",
+      "bytes": 2514,
+      "sha256": "a6835d49675af836788c899ed527c800fb6735b5d742aeadc8a2f637825c6af5"
+    },
+    {
+      "path": "security/selinux_n/ss/mls_types.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/mls_types.h",
+      "bytes": 1259,
+      "sha256": "3ccc788f4fe5a753158000d5b79976a7c70f589272acaf76e8c084bb7dd8c60f"
+    },
+    {
+      "path": "security/selinux_n/ss/policydb.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/policydb.c",
+      "bytes": 72628,
+      "sha256": "9938a77f419440bffd543156c96441ee5b9a2b22356d7d53289abafeac6124ea"
+    },
+    {
+      "path": "security/selinux_n/ss/policydb.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/policydb.h",
+      "bytes": 10047,
+      "sha256": "2b38352d16ddbb039b58efd17bb1266e92e6f9c15c37e57b9b43f4c460ee28bd"
+    },
+    {
+      "path": "security/selinux_n/ss/services.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/services.c",
+      "bytes": 82546,
+      "sha256": "1604243c383630a8542849c76ab797414494380ad79cdd19d05fee9ea835757b"
+    },
+    {
+      "path": "security/selinux_n/ss/services.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/services.h",
+      "bytes": 469,
+      "sha256": "42a8c583cf5e77108e52786112a1708d5879cd9c9060e20a5e8046ab1a1ca537"
+    },
+    {
+      "path": "security/selinux_n/ss/sidtab.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/sidtab.c",
+      "bytes": 6011,
+      "sha256": "84b2d0d92e84d01b89cf2a0883cbdff76c8a666b8d533bcee77595b0e0d0f6b1"
+    },
+    {
+      "path": "security/selinux_n/ss/sidtab.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/sidtab.h",
+      "bytes": 1495,
+      "sha256": "481a00fdb96f15f0af3721ce0a44e1b58d4c02b3dbb56df86bd86f6f115e2a7b"
+    },
+    {
+      "path": "security/selinux_n/ss/status.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/status.c",
+      "bytes": 3614,
+      "sha256": "dfda008bccff1c230df9413349199feeeda54bac92468f936e265d180efdda22"
+    },
+    {
+      "path": "security/selinux_n/ss/symtab.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/symtab.c",
+      "bytes": 850,
+      "sha256": "9e2c90634ca6fa7b7a8f71fc31de999f46333b4d7884183706e57998e3fa9168"
+    },
+    {
+      "path": "security/selinux_n/ss/symtab.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/ss/symtab.h",
+      "bytes": 563,
+      "sha256": "a2c5b16484ef9f282b4c12a547bdfc2e327fd1937d3205a451f8a2970734afb5"
+    },
+    {
+      "path": "security/selinux_n/xfrm.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/selinux_n/xfrm.c",
+      "bytes": 12215,
+      "sha256": "641c57e50c515282a688b98fb982d3da3801403fa51328f66eaed2c4871d0b8a"
+    },
+    {
+      "path": "include/linux/lsm_audit.h",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/include/linux/lsm_audit.h",
+      "bytes": 2390,
+      "sha256": "d30fd3f8a4353770b8cce8ee5d621cfb43b7fa629b9b4ada010a310fc90c9488"
+    },
+    {
+      "path": "security/lsm_audit.c",
+      "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_universal7580/3bf673eabc8ee77e6d765a1fe8d4c6f7bab5e8e5/security/lsm_audit.c",
+      "bytes": 9931,
+      "sha256": "28d78c8312bbae1220692facbb7db9f1814eb475e8f90cd7771bc301c356ed21"
+    }
+  ]
+}

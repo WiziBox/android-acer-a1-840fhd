@@ -1,0 +1,713 @@
+{
+  "schema": 1,
+  "archive_sha256": "b6d205b5ea9816b57b84c651fcd9e0f3ac743b92af2fa606ea14e4d02722d86c",
+  "archive_bytes": 455836203,
+  "archive_member": "Ducati2FHD/kernel_src.tar.gz",
+  "baseline_files": 43628,
+  "changes": [
+    {
+      "path": "kernel/fs/Kconfig",
+      "base_sha256": "e1127d65286cb58e97389ba1feb99a0276a3b5fd92e13e20a2455ec82dead078",
+      "result_sha256": "f237e07f901d3d6228e2959b461f32f55429613036e0b52d35446907fdac8ff7",
+      "bytes": 6143,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/xattr.c",
+      "base_sha256": "4ac7a9c7ff6583af636ca509f657f11e8758df1cb1891559f32ec9ce47d7ec25",
+      "result_sha256": "447a9ffc4ffa36207d60f96e85a9f86cf78b004c619f25dc548ca2dc401c087b",
+      "bytes": 24134,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/inode.c",
+      "base_sha256": "f5436e5d8d41cf8c101a3f10bd230cba06d49abaab17344ca6812ccafd0ab170",
+      "result_sha256": "c94b84364ee1131f4a30b431b0d605c14c64d69bf83b56768ca15bf7682728b2",
+      "bytes": 49744,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/exec.c",
+      "base_sha256": "47ba7f23e8b9407a44599340b3214805d9f01cf723f86779440e5b132e194428",
+      "result_sha256": "1fc039c257b9e77f2fee98acac95e2306f95b83999283230966ff0bde84a5f21",
+      "bytes": 40188,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/pnode.c",
+      "base_sha256": "727de6c07227ed06abe3acb19ac3ca703b7754433191d44d027213a2ac0cdddb",
+      "result_sha256": "22fae393672ddc8553a513af754740681dc830b8ab2cb95e3a0861dfd629fd67",
+      "bytes": 9567,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/attr.c",
+      "base_sha256": "2fbf2f2381f52d49c7612fd4ec2ad59797550cb2b2e7e5871314177effc5ea08",
+      "result_sha256": "e76a8ccdb9e29dbc3966cf5090c89f19b40d11cfaf89ecb733e8702d61c35e91",
+      "bytes": 7456,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/timerfd.c",
+      "base_sha256": "bfb66f04ccd87c26bdb84c9120241eb7ba4b21237b7958df967e4f66f35a6056",
+      "result_sha256": "7d41fb77ebe1a10b6c3982cdbe87b27f0e09971d9a6ab57c60bb4b0b741380b6",
+      "bytes": 11669,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/super.c",
+      "base_sha256": "0076af15eb97ec0ab5adfd09f2334b6a1e13b1e1811194c5a32489869f64e6bd",
+      "result_sha256": "751c2dfedbc916ab7e8ad6f1cb9c9e1f07491ca1bbe8b473ac61a1b17d936490",
+      "bytes": 35988,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/open.c",
+      "base_sha256": "3a2d7b8d0d224ee3a14b2ecc4d19e7e7f39a0e09252d512df82ab45aa1ee8190",
+      "result_sha256": "21787e2e400016f32598cdbae0f5fc623636d27a0d4a0222f20178306f4f1f8a",
+      "bytes": 25591,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/notify/inotify/inotify_user.c",
+      "base_sha256": "f8ef0f07ba79b91358c866d7d5b3940688e50e22c50e3b53d455ce5e3431511b",
+      "result_sha256": "71501ec851c60083dfeed6235ef337c2b1645af02ef5a9321a36b04376dc2db0",
+      "bytes": 22453,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/notify/fanotify/fanotify_user.c",
+      "base_sha256": "19c79564e2fd98e96c6716ed796380f221c16e642ff43c221ab1b96ce72f1082",
+      "result_sha256": "8a3e1438141ad8716823178d4b921edc5da718e2eac9a176f8307cd609159856",
+      "bytes": 21771,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/internal.h",
+      "base_sha256": "a90cde85134024df61aba8d3fd69336dff5cb01e08f94394824389e63ece47e6",
+      "result_sha256": "49fa7d5f540d52e45e97530d8ea6dc0e7e79a6ce5b34f1e184eb9efeefb3c45f",
+      "bytes": 3506,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/proc_namespace.c",
+      "base_sha256": "9686610a90f3e06b595805d1041f4204c0207cf66d1b4e3de681505b9dcef906",
+      "result_sha256": "14b714a18ac9ef6dfeefa7e659753c3d01bf806f04f6bf4777f8236888dffd57",
+      "bytes": 7918,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/pnode.h",
+      "base_sha256": "85b59b30a1a6192c37f3a59380085a8e6293e9556b2a1ef871178bace0f426a3",
+      "result_sha256": "bbc7b85df7efc88fe8f4e781c4204bb25183e5fd5f750d62b78c6f2f6143ce05",
+      "bytes": 1523,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/Makefile",
+      "base_sha256": "fcd230bbf63771329fcb7b06fbf4bb00966ecef2a38ac06acdcc1049fc02adbf",
+      "result_sha256": "f36078223cb2788e93d28495d012505c35724d12b299be50c18ae9130c07f001",
+      "bytes": 4290,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/coredump.c",
+      "base_sha256": "e962da8a7b738081fc71a399374aa0fb1fba3ff440d53fbf0d69e1dcb3a963f1",
+      "result_sha256": "2421587776b7c636a3c45ff5b4155e64934e4a3b9ade7bdc4cc4013c843ee41a",
+      "bytes": 17912,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/utimes.c",
+      "base_sha256": "a76023faac9e670c7483533a0cf86ebc53496908892400b5097990c7378d4455",
+      "result_sha256": "6a426e92858e9f1cbf1991983aa7a0b4f2b65687d95983b72aafed7c2ce03053",
+      "bytes": 5910,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/namespace.c",
+      "base_sha256": "d9c3b9be69da1b0f4239734ffbaef22ff75b98eff895d84ed9788235497a7f9a",
+      "result_sha256": "bf0aad5fb66c23a37580f8bc7c26d0109be408d902a811dde03393a022893997",
+      "bytes": 71911,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/namei.c",
+      "base_sha256": "bd45b711e9c19f9d25dc0f1b3331afc666952c415e956520202f0cbf9aef2402",
+      "result_sha256": "1f87f4c46ce0d0d14d87fb4d96f0a0c5e431bdb9542faee54589d3513979099c",
+      "bytes": 104858,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/net/ipv4/fib_semantics.c",
+      "base_sha256": "b9e0f204fdaaa7578c97f61ad72584dbb6a4aa7a8c19f6fb5c82ce2a81408b87",
+      "result_sha256": "a5475bfac08fa8e68a8d646b9436bdf0eca1b8b11b03b317beb578270eddbd9e",
+      "bytes": 31743,
+      "build_time_override": true
+    },
+    {
+      "path": "kernel/include/linux/mount.h",
+      "base_sha256": "8c9213bd6939d2d0e13c1d861f16e466f42d69fb943e6eba5d462178ec58cd7c",
+      "result_sha256": "7716911d2340733b6690644ad10eaea0f532119fc7235b5bfedd29523512d627",
+      "bytes": 2445,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/include/linux/lsm_audit.h",
+      "base_sha256": "91544e4c24e20f5e34ba2d0ef082b19f7a3177ba4e9c654278a2a597f46808f2",
+      "result_sha256": "d30fd3f8a4353770b8cce8ee5d621cfb43b7fa629b9b4ada010a310fc90c9488",
+      "bytes": 2390,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/include/linux/selinux.h",
+      "base_sha256": "df9fbb20b183b267715c6034e69dec3f49a5934d4400006d181ab11b3937ef2c",
+      "result_sha256": "e0f899de98eb49593de8f06ee1aa4133ddf45fea4f46eb2962f0fe3bfcace608",
+      "bytes": 1065,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/include/linux/syscalls.h",
+      "base_sha256": "a722a964bab4adfd1b82b44f38f1550c3710bb474f2f21306237b9d8d41307a5",
+      "result_sha256": "955e951580b119b9af5efa4c7fe660c9c5463ca7d26a160c2bb5657a6b83b914",
+      "bytes": 37448,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/include/linux/seccomp.h",
+      "base_sha256": "560b40cc8cd7ca5c2b03b5508ef8a833f5d583f326f02ad41ab99ea2841fa36c",
+      "result_sha256": "4167406a181e61ec308a521db565b4793a61b9dc7735b713a5988c15357fa3a2",
+      "bytes": 2263,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/include/linux/dcache.h",
+      "base_sha256": "cdf970b67313f217fda4c427fc4412dc781addeffc993b7e8b054dd244248ee0",
+      "result_sha256": "3d2dffc8d9da41f3241475c60aab5cdabf5fa8babf7d56ad025c7234b0da0b4f",
+      "bytes": 12494,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/include/linux/namei.h",
+      "base_sha256": "4cbeb5a0cdcb887dc06dd4becb2639f97ba237e9ab4609d8745e4e6687e0fcd2",
+      "result_sha256": "5c5292be5587b7ff5383a5e1af39eb03d81ea6f54b4c68ff87f8de46a5356f27",
+      "bytes": 3562,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/include/linux/fs.h",
+      "base_sha256": "103602ea2fb8672e849c649ebf2d22881ce21f092ef4a666b3434c59cf525a8e",
+      "result_sha256": "d762b5fd012ba8279ab67408f95f939e356a5f12fed26668377d8112cfdb8973",
+      "bytes": 92548,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/include/uapi/linux/magic.h",
+      "base_sha256": "748260363e515a13d13b95adeebad620d89a1abcc8cc5cf0357997379902b8ca",
+      "result_sha256": "6f5144d15fdf804aabe9ad65ee1ad55743e524dfc01c2c1c7680a19ed166fc0a",
+      "bytes": 2822,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/include/uapi/linux/seccomp.h",
+      "base_sha256": "08a7061e7b102b2819f560c18260290f54eee2d90221a82ddc653af1ba7129d6",
+      "result_sha256": "056c8b349fa4c5b9fc3645809b0b3d968c94ba2f503ead30174346978a3df025",
+      "bytes": 1819,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/sound/soc/intel/effects.c",
+      "base_sha256": "734cb9d0544801d5a67b61cdf2246800c3bc669f4b00f7b5160293081cfe8a50",
+      "result_sha256": "de8a81d0a76040e2292c650b789f4d5032a64140b7f55be688c8fad39a6920e8",
+      "bytes": 9861,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/inode.c",
+      "base_sha256": "fea739ff2cd989568719c0c08ba0db21fd00d85065746938b104598cfee94134",
+      "result_sha256": "82379b10ac907c7db30ceef96ca0fafc58b2d9507e60f3c76222be9037e9b3a3",
+      "bytes": 6857,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/netnode.c",
+      "base_sha256": "a7a6d3c61f93080780be1ac8e8444ab5c962affdd4348a6340429f80bf88fd69",
+      "result_sha256": "8143162f41068af4061568f0aff76e9bd5fef99c8acaf22436bcc54c282a035f",
+      "bytes": 8225,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/exports.c",
+      "base_sha256": "7108cb0ab04d9efc28da031f4ffed40c7b6de748b4bde10b3c79998480626022",
+      "result_sha256": "1b904b39dba7c3953d10a7f980a456eac5b2b4d7f8d78bb47147393d3617c8f8",
+      "bytes": 1071,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/include/avc.h",
+      "base_sha256": "ca494ed05764b5b752ccdd89436267b178357f7065dccc3550d8f2f96fc11fab",
+      "result_sha256": "dc6db3ba38322aaddb0cc4f5f10c3c4bd848e6874f8f5ffca2fce56b06a3f560",
+      "bytes": 5038,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/include/xfrm.h",
+      "base_sha256": "e5b512cbda155742c7b9ff5350354b385be2f1a5baec3fb7cf53326d8de1596a",
+      "result_sha256": "42c9b7f83a8a6c27fe9b7d2b0def51851734c81c5131690c9828fc15038ebc8a",
+      "bytes": 2491,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/include/classmap.h",
+      "base_sha256": "6cd67e40a65d6c2f7b1ff5840a2dce89ea10f402de8f486681271d52c147b431",
+      "result_sha256": "d0316e051498f4742955bc4d51d554d4ab886190bb26452608057044f1ff135c",
+      "bytes": 5627,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/include/netport.h",
+      "base_sha256": "4cc48400796a60b75878470ef763c80f84c607fff07caab1785d2b248ab85613",
+      "result_sha256": "baac8bf7f88d2718c6c282b654ae642f3a1035497ad56533d13039e65ab07a2d",
+      "bytes": 934,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/include/netnode.h",
+      "base_sha256": "999cc75597d66433f81a93f6eb459148a3f622596a1f18fecfe4c7091df91005",
+      "result_sha256": "9915024fccd205f5b5af30464d515fa6eca8053b28c5783ce0a6249b01a43ef2",
+      "bytes": 995,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/include/netif.h",
+      "base_sha256": "6c91bf7230d5ab0a7c01c0565635d32c649e1add332f3528e13eef0ace6e953c",
+      "result_sha256": "917630071836575d90e7ec5eaaeaad83a2585abcef26eadc5be1f1b46f9157d6",
+      "bytes": 802,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/include/security.h",
+      "base_sha256": "8194e5f6f4fbdaf027434825a74878899246ac4b6d6121b9e3944ff90205acc2",
+      "result_sha256": "602300ed8372256c2e06677b08367bcdce6771adf01f6478c9fb7f6b39849989",
+      "bytes": 7784,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/include/objsec.h",
+      "base_sha256": "854eb00c7bc26966135066e6775a5224577f5a8b49d0699d86efa15260d673cf",
+      "result_sha256": "4f77955643d051b1c3bbedfde97ccdd9c8cce2ccc556d21322e912840798e0b3",
+      "bytes": 3592,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/avc.c",
+      "base_sha256": "ba5eeeb055e4da16c2be4b0517a34f9843d8226ee5ee11b95128c91122143320",
+      "result_sha256": "5e364dc99463b2bd95c72c939e3e80a828e6a4d90780830b0c70d2f48a512af2",
+      "bytes": 33095,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/selinuxfs.c",
+      "base_sha256": "920318838acb9a12edc09cccb22b7fe20072b13e3c31ba02a9634946883c182b",
+      "result_sha256": "3ae680e672d1ab5bdc400abbc5f7409887e90f2886d5941bec31a62d472c7af2",
+      "bytes": 45173,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/ss/status.c",
+      "base_sha256": "49b54bce084c385b562c77811d912aa286848f6ab21a942b96e94414a5328dc2",
+      "result_sha256": "dfda008bccff1c230df9413349199feeeda54bac92468f936e265d180efdda22",
+      "bytes": 3614,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/ss/avtab.h",
+      "base_sha256": "8fa7efec3a5c5ca9ef779ddb7dc3a68ca2f67fc766deb02997a1f07443910ffc",
+      "result_sha256": "cb3e1e323ff4069ee54b0dcf420f2c048b346b6fcfa708fe5321162652a0ba93",
+      "bytes": 3915,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/ss/policydb.h",
+      "base_sha256": "3f86adab513d4efe912749aadc8e556ff26045659ac98e505d975d6866078c25",
+      "result_sha256": "2b38352d16ddbb039b58efd17bb1266e92e6f9c15c37e57b9b43f4c460ee28bd",
+      "bytes": 10047,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/ss/conditional.c",
+      "base_sha256": "2297cfde66e6e21621f7bcc22427f8b6ea8cfc45f75b42514c2a23db9933f062",
+      "result_sha256": "c4daeb2386658aa8a75f6d9f60e8db9f6a791f2d6e0479e72325a5c30ebf4717",
+      "bytes": 14837,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/ss/services.c",
+      "base_sha256": "76038e3b775328dd7bceb417b391652750a80dbb5ebeb4d3b4a734c150308539",
+      "result_sha256": "1604243c383630a8542849c76ab797414494380ad79cdd19d05fee9ea835757b",
+      "bytes": 82546,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/ss/policydb.c",
+      "base_sha256": "0ee64f4ced26981cbbc99ab7eb0f06a75d6f2a61e194b2c5270a4d431ba1f97c",
+      "result_sha256": "9938a77f419440bffd543156c96441ee5b9a2b22356d7d53289abafeac6124ea",
+      "bytes": 72628,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/ss/conditional.h",
+      "base_sha256": "4af3aa7946fbd3950fcb1ec3095d0a816ab39b070deff8538032c5f0ffa80775",
+      "result_sha256": "d65f2702b57400e82112464be7958252a1289a3b4819aa98ea461c3bac0ef90b",
+      "bytes": 2541,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/ss/services.h",
+      "base_sha256": "bd8be7959a677795e10c0a294432279969cd566d39a7a6c83c3f2ef1ba50fc58",
+      "result_sha256": "42a8c583cf5e77108e52786112a1708d5879cd9c9060e20a5e8046ab1a1ca537",
+      "bytes": 469,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/ss/constraint.h",
+      "base_sha256": "c9a7b467c0dc4013cd2d5316e34a366c7d94ddcdd87a1956528d61d291da3d32",
+      "result_sha256": "6a037d5afe62f0de9ade9618e040e484eaf1447954a89762d52e776578107629",
+      "bytes": 2123,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/ss/avtab.c",
+      "base_sha256": "39b4e4cd2478d761425acee936acd22d7d4dcdeedaf2d513931c28bfb3cc2356",
+      "result_sha256": "d9efd62a4eca2a1ffebf34a44524707d483f895801305de1c283c54a3e6b7717",
+      "bytes": 17931,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/netif.c",
+      "base_sha256": "ebfe39afd955781f4fc4be95490d26e28fdbc2e98447abf241d07c344b0306df",
+      "result_sha256": "994aabd8251ebfca29146bca7b4091f7bbbc016b40ee3ae305420efc166ff638",
+      "bytes": 7320,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/xfrm.c",
+      "base_sha256": "77a8fd9a56194b48789624266ff2a50c6c24f495e7ba8f1fe55c979f4ebe4a19",
+      "result_sha256": "641c57e50c515282a688b98fb982d3da3801403fa51328f66eaed2c4871d0b8a",
+      "bytes": 12215,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/nlmsgtab.c",
+      "base_sha256": "7ad8296dc5c32c2dec9c1b46f7e1d4bef942b81b3f5c8771c9d7812314a9aa90",
+      "result_sha256": "249a9655c2b9249dda7f9bee9fa177c575e7e7598b210cdaf287bae5ead1c2a8",
+      "bytes": 6588,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/Makefile",
+      "base_sha256": "ec8c7fac78abe1e42ed2175d8dcd0f31a8ea0ecc92609590a28a3766bcf271c8",
+      "result_sha256": "c32242112c8bc51e92da1ec81f8609db4dcf91de4a3da78eab5d6b8324992e38",
+      "bytes": 999,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/hooks.c",
+      "base_sha256": "1afa3053bb34d17230d999b9300801ba174f3b7c627fabb27886fa566945371e",
+      "result_sha256": "95a74a802434d850f0100b7953b214dee5450e1d5f972b8f97a9a657de5ffdc8",
+      "bytes": 173982,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/netlabel.c",
+      "base_sha256": "17b03201298a386baaf3bb4d554747d42b0514d098dc40908a696e65068bb994",
+      "result_sha256": "84e5f94051a469e2d5892d077f2331e9a0159cd095d54dc5e901f7610ac7d4d5",
+      "bytes": 12434,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/selinux/netport.c",
+      "base_sha256": "1d93653bdf6c25aee2e9ab6948d6677f247f213aa8dd6e86819f443f2f90d18e",
+      "result_sha256": "5381b2b5529159bf6c9c95369b9b2e9391b95210c4b649f15e00f8972dabfdb0",
+      "bytes": 6598,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/security/lsm_audit.c",
+      "base_sha256": "6cd1e0ae06dfcb673833b50a931a751ac91c2157369eddf9b190c60bb168c8b6",
+      "result_sha256": "28d78c8312bbae1220692facbb7db9f1814eb475e8f90cd7771bc301c356ed21",
+      "bytes": 9931,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/kernel/sys_ni.c",
+      "base_sha256": "350e4867b747c43278393896baca32f961362a83fe86150afa0a1f800f997b92",
+      "result_sha256": "7bdde39ae10c3acb01232c50726afa2212cbe6cfb21c233a8d2e2bf0449db620",
+      "bytes": 6129,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/kernel/sysctl.c",
+      "base_sha256": "cdd65e10634d9618f82241899813b027b29215a4e947a9922235edf440e58f5e",
+      "result_sha256": "1f30873b7c154f0b8e309dd0a2e294586e1736124cd7492c0f0c2d110bea18d9",
+      "bytes": 63086,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/kernel/seccomp.c",
+      "base_sha256": "dcd7c98159cfe3e31cd86d7cbe7d90275714fc3ca5a1604884ae867e3c26446d",
+      "result_sha256": "a943dd8660b076ba4cdac508e6380d10cfff61ffd0ae6372520c4bf8b9dcc203",
+      "bytes": 22619,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/kernel/sys.c",
+      "base_sha256": "097810f9bae26a23f6ead608e87a13ccc682d27c06b14f5809ad36a80f97f6ce",
+      "result_sha256": "b7289e91199e4b21b047cf2531a44a17a03a5621f91b70672d09e0e4f7737793",
+      "bytes": 62401,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/kernel/fork.c",
+      "base_sha256": "516bed040384a819a68be43006ebbf1ec45dbe6e27dfb0b652670ac736225ada",
+      "result_sha256": "6625492cb4647bd3cc7db4dcdd0f4e979ec95106f35d1a3b31874ded9cba003d",
+      "bytes": 48258,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/ipc/mqueue.c",
+      "base_sha256": "98f6fa1f90c896b341587dbffdbecde48c74464c03c5285c61fdab9d49fda123",
+      "result_sha256": "d9d49c308075074b2d5d06ba3df3e8a41d0cbafdca85883a41898a017f503875",
+      "bytes": 36176,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/drivers/gpu/drm/i915/intel_display.c",
+      "base_sha256": "091f6793f5700dcac3238a948b7f87ebe1d9e7c91ed41b765abd9d2b298e76b2",
+      "result_sha256": "069da711b048ed86645080839069fb28215027634aa722c2c5b2971c2b3a685d",
+      "bytes": 355210,
+      "build_time_override": true
+    },
+    {
+      "path": "kernel/drivers/power/power_supply_charger.c",
+      "base_sha256": "da42012de097cd8f5fbbb9c0692b34d27fb5c0800f6fcbcec74d21b7f3742d3e",
+      "result_sha256": "3edb870fb25994db2aa25ed390a90ee7e7bbb04cf495e6e9eb7716d6e71e946e",
+      "bytes": 30504,
+      "build_time_override": true
+    },
+    {
+      "path": "kernel/drivers/usb/gadget/f_fs.c",
+      "base_sha256": "1d4c3366af1c2252e6ec661dc453c71b81458a2842b1a8a351f6711de339c979",
+      "result_sha256": "ed5b8119c2ff6ff8bea17d6af162986d145bd760e9f4c9ecfe34fbf42b9db8ad",
+      "bytes": 58752,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/drivers/Makefile",
+      "base_sha256": "53f7498bb4fe87f65fa92ab48f1ce1a0ee9b4ca88490b14712aa6a14bc35b94a",
+      "result_sha256": "d7f5ec7b065501d984a4c3f00807c148a18dabd37907ddc702499d7f92a7fb7a",
+      "bytes": 4508,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/drivers/staging/android/Kconfig",
+      "base_sha256": "3b4d6acafb0aa0316eb6efe003973ae54b14a60b3ee77b91bade4a4e432d5413",
+      "result_sha256": "cfb781e8e1894a37c6d3f9aadc3dae3ccb59c047aeda1260f906bf0d1879f6fc",
+      "bytes": 4101,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/drivers/staging/android/Makefile",
+      "base_sha256": "972104a177999f691f8a4737d94c14ce1297fae793621b8d8ab313b02b8a8564",
+      "result_sha256": "46f7663fabf62f148fcaf901f332f763ad891a53cac32a27330573eb6cc97035",
+      "bytes": 558,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/arch/x86/mm/mmap.c",
+      "base_sha256": "8de61fcb82fb7451b8764a282a973cf00ee9a950e2f5f9a8929d7be24dfac349",
+      "result_sha256": "fcb9c7a9cd14efa863f1cdab696dc695c5ac0bce15e31ca418a4751d0b697b78",
+      "bytes": 3594,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/arch/x86/syscalls/syscall_32.tbl",
+      "base_sha256": "2ecbd43e1cdd22c7a6709987b7eedbfe0a2cd07e4529b622745ce35421cfed94",
+      "result_sha256": "e6bebd39d950498a8dfd3c8fb5ec23dbe9cdebdd3bd847a84c7dcac0c6824085",
+      "bytes": 14406,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/drivers/android/Kconfig",
+      "base_sha256": null,
+      "result_sha256": "0e92b58610ca7899eccb3addecaefef464e3ed452e3ef6db9498235229ca6a35",
+      "bytes": 1728,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/drivers/android/Makefile",
+      "base_sha256": null,
+      "result_sha256": "4868e768b3cad7eeb83c0c258f9f86df1478a3203337957e901e7b520434ae18",
+      "bytes": 260,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/drivers/android/binder.c",
+      "base_sha256": null,
+      "result_sha256": "12c338f7b9f393746908165a7d81c88c1c8c2b736afcd0588db5f08d56f1d8c7",
+      "bytes": 175632,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/drivers/android/binder_alloc.c",
+      "base_sha256": null,
+      "result_sha256": "982fb4c8a595d5a42b0292d8ff1bc493ccbb7f3f5ef81040f645aa08003fab8c",
+      "bytes": 23045,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/drivers/android/binder_alloc.h",
+      "base_sha256": null,
+      "result_sha256": "4a9e5ef7a65b8eaf2bc1c3bd84b0cc8afcf43fe20082dd4d1a8a76b8c8d4afd9",
+      "bytes": 6093,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/drivers/android/binder_alloc_selftest.c",
+      "base_sha256": null,
+      "result_sha256": "3b2a0ffbe3a5bc855186e30a698b5bd24e36ffdb8f62323dda9c26cbca4e3f2a",
+      "bytes": 7329,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/drivers/android/binder_compat.h",
+      "base_sha256": null,
+      "result_sha256": "b82b6a06786ebd0b66928f2924e3136be562761f824b8c72729d641870ecb500",
+      "bytes": 1466,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/drivers/android/binder_trace.h",
+      "base_sha256": null,
+      "result_sha256": "20e71d8941bc11c6045d76af7457f560fae458a32396201fcb97f5fa9cfe2a43",
+      "bytes": 9813,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/sdcardfs/Kconfig",
+      "base_sha256": null,
+      "result_sha256": "9902f4f1cd61c51468b7f244e839c48a7fe3f8c7b62c25c7a99ff7be87119da5",
+      "bytes": 294,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/sdcardfs/Makefile",
+      "base_sha256": null,
+      "result_sha256": "0dfa2552697a1b948861be3fceba40043bccfc88d44efdf72093b55b7e828878",
+      "bytes": 221,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/sdcardfs/PROVENANCE.json",
+      "base_sha256": null,
+      "result_sha256": "b0f4eef72d18bba0d8abdacca36bb6e3bcae3780cab2077191953bc8447fb578",
+      "bytes": 2649,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/sdcardfs/dentry.c",
+      "base_sha256": null,
+      "result_sha256": "284a1d450c9a5a5c71d76d229ca1f87a35ff3b21b0d803a3733e1afbd780ddb1",
+      "bytes": 4856,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/sdcardfs/derived_perm.c",
+      "base_sha256": null,
+      "result_sha256": "58d4ff84b296bcfed0d28606499e4de50d023965c19cfcae2270da78d8cff9da",
+      "bytes": 13325,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/sdcardfs/file.c",
+      "base_sha256": null,
+      "result_sha256": "c1f9c3ae401855214ba8f2fd0f6934456a69ab2093486b08b9d9c652ac798cb5",
+      "bytes": 10881,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/sdcardfs/inode.c",
+      "base_sha256": null,
+      "result_sha256": "4fd3f6fb40b000a58ca4a4cd62129bfd5bf36158324f33f3eaafdd5d84cda27d",
+      "bytes": 23042,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/sdcardfs/lookup.c",
+      "base_sha256": null,
+      "result_sha256": "25c033d24a6a51de4d68893f8f92105a47a0b674cf789530e729641af506b085",
+      "bytes": 12481,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/sdcardfs/main.c",
+      "base_sha256": null,
+      "result_sha256": "442a6b55bdf3d69a5f5d1fbae5527149485acac3d8c67eb85bf8207b1968862a",
+      "bytes": 11760,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/sdcardfs/mmap.c",
+      "base_sha256": null,
+      "result_sha256": "757e7fb0945491f2d93f2dc3f025c2cbb6b1102da14350efc48273c2d387741c",
+      "bytes": 2297,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/sdcardfs/multiuser.h",
+      "base_sha256": null,
+      "result_sha256": "41228a75dcf466ae605f36f931e1a18820b218f83fa580a69ec3b0dbbac61772",
+      "bytes": 1850,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/sdcardfs/packagelist.c",
+      "base_sha256": null,
+      "result_sha256": "8bd26f943b4bb62e831e4c24539b77326518ac8bde5fe9cf73b8d447c72f9a1c",
+      "bytes": 23522,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/sdcardfs/sdcardfs.h",
+      "base_sha256": null,
+      "result_sha256": "41c1751e3ae8c3bc5f66684a6e226a38774ba62b87987b165b78fd36c47c7312",
+      "bytes": 18205,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/fs/sdcardfs/super.c",
+      "base_sha256": null,
+      "result_sha256": "2ed5986c8f3ff8f953b389f4d2880db117b84aaed091a42830b4014cc0166b05",
+      "bytes": 8793,
+      "build_time_override": false
+    },
+    {
+      "path": "kernel/include/uapi/linux/android/binder.h",
+      "base_sha256": null,
+      "result_sha256": "c61bef54f0c5ddc42c819fcc394ffdda53200733c2b859ac2b589e1816f85825",
+      "bytes": 15954,
+      "build_time_override": false
+    }
+  ],
+  "patch_sha256": "688bd75dbbd110badd9ce18b3fbeae2a383b01bb320b14daab2814dadba21772",
+  "clean_build_verified": true,
+  "clean_build_scope": "kernel and matching signed BCM43241 module only; see build-evidence.json",
+  "source_license_scope": "Linux kernel GPLv2; retain applicable per-file notices",
+  "image_publication_approved": false,
+  "config_sha256": "9257586072fc60e7fdbcfda5597638974895994141e5c94410dc06877617a2a5",
+  "toolchain": {
+    "repository": "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/x86/i686-linux-android-4.7",
+    "commit": "c7931763d41be602407ed9d71e2c0292c6597e00"
+  },
+  "source_patch_base_check_passed": true
+}

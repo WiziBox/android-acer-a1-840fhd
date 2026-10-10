@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "date": "2026-10-11",
+  "host": "Ubuntu 24.04 / WSL",
+  "source_prepared_from_official_archive": true,
+  "fresh_output_directory": true,
+  "kernel_and_wifi_built": true,
+  "toolchain_commit": "c7931763d41be602407ed9d71e2c0292c6597e00",
+  "source_patch_sha256": "688bd75dbbd110badd9ce18b3fbeae2a383b01bb320b14daab2814dadba21772",
+  "config_sha256": "9257586072fc60e7fdbcfda5597638974895994141e5c94410dc06877617a2a5",
+  "kernel": {
+    "bytes": 6354864,
+    "sha256": "bbb54057214f41b2a779882d0053260262b6178c8721f5d0c1b928bbf28b2774"
+  },
+  "wifi_module": {
+    "bytes": 712040,
+    "sha256": "3a4d8a0174a8e050c30cd3c35c45fa4cb8ce3b466a6d4f26e4e636883595ebd3",
+    "vermagic": "3.10.20+ SMP preempt mod_unload ATOM",
+    "signature_hash_algorithm": "sha256",
+    "fresh_local_signing_key": true
+  },
+  "private_key_published": false,
+  "binary_published": false,
+  "device_io": false,
+  "bootability_verified": false,
+  "whole_android_build_verified": false,
+  "image_publication_approved": false,
+  "note": "Hashes identify this verification build only. Locally generated signing keys make independent build hashes differ. Do not mix this kernel with a module signed by another build."
+}
