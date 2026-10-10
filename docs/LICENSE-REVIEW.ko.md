@@ -4,7 +4,7 @@
 
 ## 이번 공개 범위
 
-공유 작업 트리의 프레임워크 패치 5개, 원본 기준 커밋, 관련 고지사항, 출처 및 검토 문서만 공개합니다. 패치가 수정하는 11개 upstream 파일 모두에서 Apache-2.0 및 원본 copyright 헤더를 확인했습니다.
+처음에는 공유 작업 트리의 프레임워크 패치 5개를 공개했고, 2026-10-11에 필수 누락 변경분 6개 프로젝트를 추가했습니다. 현재 11개 프로젝트·23개 upstream 파일입니다. 처음 11개 파일과 추가 Apache 대상 11개 파일은 Apache-2.0, Skia 파일 1개는 원본 BSD-3-Clause 조건을 확인했습니다.
 
 - `LICENSES/Apache-2.0.txt`: Apache 공식 사이트의 영문 라이선스 전문
 - `third-party-notices/*.NOTICE`: 해당 upstream 프로젝트의 원본 NOTICE를 수정 없이 보존
@@ -12,7 +12,7 @@
 - `shared-workspace-patches/PROVENANCE.md`: upstream 저장소, 기준 커밋, 대상 파일, 변경 목적
 - 각 patch 앞부분: 개발 프로젝트에서 변경했음을 명시
 
-패치의 프로젝트 변경분은 Apache-2.0으로 배포합니다. 원본 고지사항은 유지하며, 이 선언을 제외된 파일이나 제삼자 바이너리에 확대 적용하지 않습니다. 원본 NOTICE에 이번 작은 패치와 무관한 항목이 포함될 수 있으므로 파일별 근거는 원본 헤더와 출처 목록도 함께 보세요.
+Apache 대상 패치의 프로젝트 변경분은 Apache-2.0으로, Skia 패치는 원본 BSD-3-Clause 조건으로 배포합니다. 원본 고지사항은 유지하며, 이 선언을 제외된 파일이나 제삼자 바이너리에 확대 적용하지 않습니다. 원본 NOTICE에 이번 작은 패치와 무관한 항목이 포함될 수 있으므로 파일별 근거는 원본 헤더와 출처 목록도 함께 보세요. 추가 6개 프로젝트의 기준 파일 해시·라이선스·출처는 `shared-workspace-patches/additional-provenance.json`에 있고 Skia 전문은 `LICENSES/Skia-BSD-3-Clause.txt`에 있습니다.
 
 ## 공개에서 제외한 항목
 

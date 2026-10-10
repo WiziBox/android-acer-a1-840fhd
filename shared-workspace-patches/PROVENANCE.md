@@ -1,6 +1,6 @@
 # Provenance, licensing and modification notice
 
-These are **modified** upstream sources distributed as textual patches, not unmodified upstream releases. Changes were made during the WiziBox dangol/Acer Android 9 development project. The patch changes are distributed under Apache-2.0; original copyrights and applicable notices remain in force. See `../LICENSES/Apache-2.0.txt` and `../third-party-notices/`.
+These are **modified** upstream sources distributed as textual patches, not unmodified upstream releases. Changes were made during the WiziBox dangol/Acer Android 9 development project. Apache-file patch changes are distributed under Apache-2.0; the Skia patch retains BSD-3-Clause. Original copyrights and applicable notices remain in force. See `../LICENSES/` and `../third-party-notices/`.
 
 | Patch | Upstream repository | Base commit |
 |---|---|---|
@@ -18,6 +18,6 @@ These are **modified** upstream sources distributed as textual patches, not unmo
 - system/core: `libsuspend/autosuspend_wakeup_count.cpp` (legacy resume handling)
 - system/netd: `server/TetherController.cpp` (legacy counter-chain initialization)
 
-All eleven base files carry Apache-2.0 headers. Their preserved headers and upstream project NOTICE files are included as attribution evidence. Patch application was checked against the current worktree without changing files; this is not a complete build or functional validation.
+The eleven files listed above belong to the first five projects and carry Apache-2.0 headers. Six more projects (twelve files) are recorded in additional-provenance.json, bringing the total to eleven projects and twenty-three files. Skia uses its original BSD-3-Clause license, not Apache-2.0. Original file headers and available upstream NOTICE/LICENSE files are preserved. All eleven patches were checked against their actual base commits using disposable Git indexes, with no live source or index changes. This is not a complete build or functional validation.
 
 No proprietary library implementation, firmware, Google APK, kernel binary or device backup is included. This subset must not be mistaken for a complete corresponding kernel source distribution or a complete ROM source tree.

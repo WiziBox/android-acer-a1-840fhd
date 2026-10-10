@@ -14,7 +14,7 @@
 
 현재 저장소는 배포 준비 문서입니다. 재현 가능한 전체 소스나 설치 가능한 ROM을 공개한 상태가 아닙니다.
 
-라이선스를 확인한 공유 작업 트리의 프레임워크 패치 5개만 추가 공개합니다. 기기 소스 스냅샷은 파일별 출처 확인이 부족해 이번 공개에서 제외했습니다. [라이선스 검토 결과](docs/LICENSE-REVIEW.ko.md)와 [패치 출처](shared-workspace-patches/PROVENANCE.md)를 먼저 확인하세요.
+라이선스를 확인한 공유 작업 트리의 패치 11개 프로젝트와 커밋 고정 upstream manifest를 공개합니다. 기기 소스 스냅샷은 파일별 출처 확인이 부족해 이번 공개에서 제외했습니다. [라이선스 검토 결과](docs/LICENSE-REVIEW.ko.md), [패치 출처](shared-workspace-patches/PROVENANCE.md), [소스 준비 절차](manifests/README.md)를 먼저 확인하세요.
 
 [다른 PC용 빌드·다운로드·플래싱 작업 현황](docs/PORTABLE-WORKFLOW.ko.md): boot 승인키 검사 도구와 Windows/Linux 단위 테스트를 추가했습니다. GitHub Actions도 이 도구만 검사하며 ROM을 빌드하거나 플래싱하지 않습니다.
 
