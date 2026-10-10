@@ -13,11 +13,13 @@ The requested deliverable is a final, usable distribution. It is not complete un
   - [x] Reconstruct and verify 99 source modifications from the exact official archive, including all three build-time #18 overrides; preserve GPL/donor notices and the configuration.
   - [x] Build a fresh kernel and matching BCM43241 module using the public tool, retaining signature enforcement and generating the signing key locally.
   - [ ] Complete portable kernel/module/signing/OSIP build and installation integration and clean-build evidence.
+  - [x] Provide and exercise offline OSIP packaging with real signed/unsigned templates and a sanitized legacy ramdisk, clearly separate from fresh-ROM boot verification.
 - [ ] Supply reviewed vendor components or an owner-extraction procedure with expected hashes.
   - [x] Provide and exercise a hash-checked importer for 32 stock graphics libraries, excluding two source-built inputs.
   - [x] Provide and exercise 55 stock audio inputs with two hash-checked transformations, excluding three source-built inputs.
   - [x] Exercise combined 87-input staging and generate a stock COPY_FILES Makefile.
   - [ ] Complete source-built private libraries, firmware, Wi-Fi module/calibration and full build integration.
+  - [x] Build all 12 selected port modules, verify private namespace copy hashes and exercise six owner firmware/module/calibration inputs in the separate workspace.
 - [ ] Resolve the provenance and licensing of generated Intel export/connection code.
 - [ ] Provide a build product that does not redistribute unapproved Google applications.
   - [x] Remove Google packages and automatic TCP ADB from the public source product; retain authenticated ADB defaults.

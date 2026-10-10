@@ -25,6 +25,7 @@ Published inputs currently include 709 commit-pinned upstream projects and revie
 - [Graphics adapter sources](source/README.md): namespace adapters and locally generated GLES bridge inputs.
 - [Device tree and Android build integration](docs/DEVICE-SOURCES.md): reviewed product/configuration sources, staging and source-built namespace library rules.
 - [Kernel source and build](kernel/README.md): official archive, verified 99-file port patch, configuration, donor provenance and exercised kernel/Wi-Fi-module build commands.
+- [OSIP boot packaging](docs/BOOT-PACKAGING.md): offline owner-template packaging, structural checks and explicit format/bootability limits.
 - [Build, download, installation and recovery status](docs/PORTABLE-WORKFLOW.md).
 - [License review and redistribution boundaries](docs/LICENSE-REVIEW.md).
 - [Private development candidate record](docs/CANDIDATES.md): identification only, not downloads or installation instructions.
