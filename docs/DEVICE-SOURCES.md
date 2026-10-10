@@ -32,7 +32,7 @@ bash tools/build_android.sh /path/to/android9-source /path/to/new-android-output
 bash tools/build_android.sh /path/to/android9-source /path/to/different-new-output libacer_legacy_runtime
 ```
 
-The output must be new and outside the source tree. This wrapper selects `lineage_ducati2fhd-userdebug`, uses the workspace JDK and defaults to `systemimage ramdisk`. It does not create an OSIP image, flash or reboot a device. Missing vendor/firmware/host inputs will stop the build; no complete build is claimed yet.
+The output must be new and outside the source tree. This wrapper selects `lineage_ducati2fhd-userdebug`, uses the workspace JDK and defaults to `systemimage ramdisk`. Compilation output is stored in `build.log`; failure prints the final 80 lines. Logs/output directories can contain local paths and must not be uploaded wholesale. The wrapper does not create an OSIP image, flash or reboot a device. Missing vendor/firmware/host inputs will stop the build; no complete build is claimed yet.
 
 ## Privacy and security defaults
 
@@ -40,6 +40,6 @@ The public product excludes Google packages and automatic network ADB, sets `ro.
 
 ## Recorded evidence
 
-On 2026-10-11 the public staging tool verified and installed 36 device inputs into the separate fresh Android verification workspace. The public importer verified and staged the combined 87 stock inputs there. Tests total 82 and pass locally. The initial wrapper exposed missing Python/zlib host configuration; the corrected wrapper built a new host extension, passed its zlib test, selected Android 9 / x86 / silvermont for `lineage_ducati2fhd-userdebug`, generated the build graph and began compiling the requested project runtime and its dependencies in a fresh output. Module completion is not yet recorded. Firmware, full Android build, OSIP packaging, installation and recovery remain unverified.
+On 2026-10-11 the public staging tool verified and installed 36 device inputs into the separate fresh Android verification workspace. The public importer verified and staged the combined 87 stock inputs there. Tests total 82 and pass locally. The corrected wrapper built a new host zlib extension, selected Android 9 / x86 / silvermont for `lineage_ducati2fhd-userdebug`, generated the build graph and successfully compiled/installed `libacer_legacy_runtime` and its dependencies in a fresh output. Its hash and ELF32 Intel80386 identity are recorded in [module build evidence](../source/android-build-evidence.json). This does not prove the remaining HAL/copy modules or complete ROM. Firmware, full Android build, OSIP packaging, installation and recovery remain unverified.
 
 Project source notices and file-level hashes are recorded in [device provenance](../source/acer-device-provenance.json). These license declarations do not grant redistribution rights for owner-supplied proprietary binaries. The older private snapshot commits remain outside the public branch's ancestry.

@@ -49,5 +49,9 @@ lunch lineage_ducati2fhd-userdebug
 if [[ $# -eq 0 ]]; then
     set -- systemimage ramdisk
 fi
-m -j"${BUILD_JOBS:-4}" "$@"
+if ! m -j"${BUILD_JOBS:-4}" "$@" > "$build_output/build.log" 2>&1; then
+    tail -n 80 "$build_output/build.log" >&2
+    echo 'Build failed; preserve the output and inspect build.log.' >&2
+    exit 1
+fi
 echo 'Host build completed. This is not an OSIP image, a release approval or a device installation.'

@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "date": "2026-10-11",
+  "host": "Ubuntu 24.04 / WSL",
+  "public_tool_revision": "013e2a9",
+  "fresh_upstream_workspace": true,
+  "fresh_output_directory": true,
+  "shared_patches_applied": 11,
+  "device_inputs_staged": 36,
+  "stock_graphics_audio_inputs_staged": 87,
+  "product": "lineage_ducati2fhd-userdebug",
+  "platform_version": "9",
+  "target_arch": "x86",
+  "target_cpu_variant": "silvermont",
+  "host_zlib_built_from_pinned_source": true,
+  "completed_targets": ["libacer_legacy_runtime"],
+  "runtime": {
+    "install": "system/legacy-hwc/lib/libacer_legacy_runtime.so",
+    "sha256": "81ad03a5495ad436341c403f77c6a319d96362c9cd47854611fc597090e8d537",
+    "elf_class": "ELF32",
+    "elf_machine": "Intel 80386"
+  },
+  "other_product_modules_verified": false,
+  "whole_rom_build_verified": false,
+  "device_io": false,
+  "image_publication_approved": false,
+  "binary_published": false
+}
