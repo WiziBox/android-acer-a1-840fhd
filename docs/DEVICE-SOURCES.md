@@ -24,7 +24,7 @@ Firmware and matching kernel/module staging are separate remaining requirements.
 
 ## Host build command
 
-The pinned Android 9 tree needs Linux build packages, Python 2.7 with `zlib`, and its pinned bundled JDK 8. Python 3 runs the distribution tools but is not a substitute for the Android tree's Python 2 build scripts. The portable Python 2 host bootstrap is still being completed.
+The pinned Android 9 tree needs Linux build packages, host GCC with multilib and 32-bit zlib development headers/libraries. The wrapper uses the pinned source tree's bundled Python 2.7.5 and JDK 8, compiles the tree's CPython zlib module into the new output directory, and tests compression/decompression before Android compilation. It does not copy a developer's zlib binary, change system Python, or download an unpinned interpreter. CPython's original source/license notices remain in its upstream tree; the small project compatibility header is Apache-2.0. Python 3 runs the distribution tools but is not a substitute for these old Android build scripts.
 
 ```sh
 bash tools/build_android.sh /path/to/android9-source /path/to/new-android-output
@@ -40,6 +40,6 @@ The public product excludes Google packages and automatic network ADB, sets `ro.
 
 ## Recorded evidence
 
-On 2026-10-11 the public staging tool verified and installed 36 device inputs into the separate fresh Android verification workspace. The public importer verified and staged the combined 87 stock inputs there. Tests total 82 and pass locally. The Android build wrapper passed Bash syntax checking but stopped at its missing Python 2.7 precondition before compilation. Firmware, full Android build, OSIP packaging, installation and recovery remain unverified.
+On 2026-10-11 the public staging tool verified and installed 36 device inputs into the separate fresh Android verification workspace. The public importer verified and staged the combined 87 stock inputs there. Tests total 82 and pass locally. The initial wrapper exposed missing Python/zlib host configuration; the corrected wrapper built a new host extension, passed its zlib test, selected Android 9 / x86 / silvermont for `lineage_ducati2fhd-userdebug`, generated the build graph and began compiling the requested project runtime and its dependencies in a fresh output. Module completion is not yet recorded. Firmware, full Android build, OSIP packaging, installation and recovery remain unverified.
 
 Project source notices and file-level hashes are recorded in [device provenance](../source/acer-device-provenance.json). These license declarations do not grant redistribution rights for owner-supplied proprietary binaries. The older private snapshot commits remain outside the public branch's ancestry.
