@@ -17,7 +17,7 @@ repo sync -j4
 
 The source commits are fixed, but the distribution tooling on `main` can change. Record the distribution repository commit for reproducibility; future releases will pin this as well.
 
-WebView prebuilt projects use Git LFS. A successful sync that leaves `webview.apk` as a short LFS pointer is not a valid build input. Exact object materialization and hash checks remain part of the build preparation work.
+WebView prebuilt projects use Git LFS. A successful sync that leaves `webview.apk` as a short LFS pointer is not a valid build input. Use the exercised [exact-object download and materialization workflow](../docs/WEBVIEW-INPUT.md) for the x86 product input.
 
 ## Check/apply port changes
 

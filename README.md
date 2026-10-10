@@ -19,6 +19,7 @@ Published inputs currently include 709 commit-pinned upstream projects and revie
 ## Manuals
 
 - [Source preparation](manifests/README.md): the working upstream initialization and patch workflow; not yet a complete Android build.
+- [Exact WebView input](docs/WEBVIEW-INPUT.md): exercised official download, hash verification and x86 source materialization.
 - [Owner-supplied vendor inputs](docs/VENDOR-INPUTS.md): verified stock graphics import; other vendor inputs remain in progress.
 - [Graphics adapter sources](source/README.md): namespace adapters and locally generated GLES bridge inputs.
 - [Kernel source and build](kernel/README.md): official archive, verified 99-file port patch, configuration, donor provenance and exercised kernel/Wi-Fi-module build commands.

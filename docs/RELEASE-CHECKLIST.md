@@ -38,7 +38,7 @@ The requested deliverable is a final, usable distribution. It is not complete un
 
 ## Current evidence
 
-As of 2026-10-11, fresh upstream initialization, network fetching and local checkout succeeded; all 11 public patches were checked and applied in the separate verification tree. WebView LFS objects were not smudged and remain a build prerequisite. The local tooling suite has 69 passing tests. Clean ROM build and release-artifact installation/recovery have not been established. No final ROM is approved for publication yet.
+As of 2026-10-11, fresh upstream initialization, network fetching and local checkout succeeded; all 11 public patches were checked and applied in the separate verification tree. The exact x86 WebView LFS object was materialized and its public download procedure was exercised. The local tooling suite has 78 passing tests. Clean ROM build and release-artifact installation/recovery have not been established. No final ROM is approved for publication yet.
 
 Final does not imply perfect application compatibility. It does require a usable, honestly documented build/download/install/recover path, with evidence rather than unchecked promises.
 
