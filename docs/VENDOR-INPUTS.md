@@ -48,8 +48,6 @@ python3 tools/prepare_audio_resampler.py --input /path/to/extracted-stock-system
 
 Its output must not already exist. It requires the exact reviewed input SHA256 and verifies the exact output SHA256 before writing. These checks remain enabled with Python optimization. This local transformation does not establish redistribution permission for the resulting library.
 
-## Generate GLES bridge inputs
-
 ## Prepare combined stock inputs for the build
 
 To stage all 87 graphics/audio inputs in one new directory:
@@ -60,7 +58,7 @@ python3 tools/import_vendor.py --device acer-a1-840fhd --manifest vendor-inputs/
 
 Omit `--apply` for a dry-run. The importer also creates `vendor-stock.mk`, listing the staged stock files under their intended `vendor/acer/ducati2fhd/` source prefix and system destinations. That generated Makefile must be integrated once by the complete product workflow; it does not stage the separate source-built libraries or replace all remaining vendor inputs. Do not inherit both this list and the earlier private development COPY_FILES lists for the same destinations.
 
-## Generate GLES bridge inputs (continued)
+## Generate GLES bridge inputs
 
 Use Linux/WSL with Python 3 and GNU `readelf` installed:
 
