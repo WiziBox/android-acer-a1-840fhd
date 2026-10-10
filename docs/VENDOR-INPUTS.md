@@ -72,7 +72,7 @@ For the actual baseline, generation produced 1,663 exports and byte-for-byte mat
 
 ## Remaining inputs
 
-Source-built private-library staging, firmware, the source-built Wi-Fi module, device-specific calibration handling and complete generated Makefile integration are still required. Google APKs are not accepted by this importer and will not be silently included in the public product. Separating those applications from the complete published product configuration remains part of completing the device tree; a separate local product candidate has been prepared without those applications or automatic network ADB.
+The public device product now includes the combined Makefile once and builds source-based private-library copy modules, which were exercised with matching output hashes. [Owner firmware/calibration and Wi-Fi-module staging](FIRMWARE-INPUTS.md) is also available and was exercised with six inputs. Google APKs are not accepted by this importer and are excluded from the public product, as is automatic network ADB. The complete system/ramdisk build has begun but is not yet established as successful; OSIP packaging, full-image review and installation/recovery remain required.
 
 ## Evidence recorded on 2026-10-11
 

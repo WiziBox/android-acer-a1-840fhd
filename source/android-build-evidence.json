@@ -2,7 +2,7 @@
   "schema": 1,
   "date": "2026-10-11",
   "host": "Ubuntu 24.04 / WSL",
-  "public_tool_revision": "013e2a9",
+  "public_tool_revision": "5a241a86e7339109559c583a95a62d8ff034f0f4",
   "fresh_upstream_workspace": true,
   "fresh_output_directory": true,
   "shared_patches_applied": 11,
@@ -13,14 +13,26 @@
   "target_arch": "x86",
   "target_cpu_variant": "silvermont",
   "host_zlib_built_from_pinned_source": true,
-  "completed_targets": ["libacer_legacy_runtime"],
+  "completed_targets": [
+    "hwcomposer.ducati2fhd", "gralloc.ducati2fhd", "libacer_legacy_loader",
+    "libGLES_intel7", "libacer_legacy_runtime", "audio.primary.ducati2fhd",
+    "lights.ducati2fhd", "acer_storage_policy", "acer_hwc_libcutils_copy",
+    "acer_audio_libcutils_copy", "acer_audio_linker_copy", "acer_audio_runtime_copy"
+  ],
   "runtime": {
     "install": "system/legacy-hwc/lib/libacer_legacy_runtime.so",
     "sha256": "81ad03a5495ad436341c403f77c6a319d96362c9cd47854611fc597090e8d537",
     "elf_class": "ELF32",
     "elf_machine": "Intel 80386"
   },
-  "other_product_modules_verified": false,
+  "other_product_modules_verified": true,
+  "namespace_copy_hashes": {
+    "libcutils.so": "9210e6280fab877727e44dcd5f429598de318868efd04a0fc081f6c64eeb5311",
+    "ld-android.so": "e11e60f15595009dd59edf3b05857c08580b6c9c246b591b07831f7c4a27261a",
+    "libacer_legacy_runtime.so": "81ad03a5495ad436341c403f77c6a319d96362c9cd47854611fc597090e8d537"
+  },
+  "namespace_copies_match_fresh_build_sources": true,
+  "owner_firmware_inputs_staged": 6,
   "whole_rom_build_verified": false,
   "device_io": false,
   "image_publication_approved": false,

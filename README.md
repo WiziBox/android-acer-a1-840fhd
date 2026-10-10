@@ -21,6 +21,7 @@ Published inputs currently include 709 commit-pinned upstream projects and revie
 - [Source preparation](manifests/README.md): the working upstream initialization and patch workflow; not yet a complete Android build.
 - [Exact WebView input](docs/WEBVIEW-INPUT.md): exercised official download, hash verification and x86 source materialization.
 - [Owner-supplied vendor inputs](docs/VENDOR-INPUTS.md): verified stock graphics import; other vendor inputs remain in progress.
+- [Firmware and matching Wi-Fi module](docs/FIRMWARE-INPUTS.md): checked private-build staging that preserves your device's calibration.
 - [Graphics adapter sources](source/README.md): namespace adapters and locally generated GLES bridge inputs.
 - [Device tree and Android build integration](docs/DEVICE-SOURCES.md): reviewed product/configuration sources, staging and source-built namespace library rules.
 - [Kernel source and build](kernel/README.md): official archive, verified 99-file port patch, configuration, donor provenance and exercised kernel/Wi-Fi-module build commands.

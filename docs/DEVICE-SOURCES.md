@@ -18,9 +18,9 @@ The destination `device/acer/ducati2fhd` must not exist. The tool validates all 
 
 Import the combined graphics/audio manifests into the new workspace's `vendor/acer/ducati2fhd` using `tools/import_vendor.py` and an owner-supplied stock-system extraction. The parent `vendor/acer` may need creating first. The generated `vendor-stock.mk` is inherited once; old `private-libraries.mk` and `private-audio.mk` snapshots are not additional inputs.
 
-The `source-copies.mk` rules install freshly built Android `libcutils`, `ld-android` and the project runtime in private legacy namespaces. They do not replace the main Android library with a KitKat library. These copy modules still require actual Android build verification; passing Python tests alone does not prove Make/Soong integration.
+The `source-copies.mk` rules install freshly built Android `libcutils`, `ld-android` and the project runtime in private legacy namespaces. They do not replace the main Android library with a KitKat library. All four copy modules built successfully in the separate fresh output, and destination hashes matched their newly built originals. This is module-level Make/Soong evidence, not complete-ROM operation.
 
-Firmware and matching kernel/module staging are separate remaining requirements. Do not substitute an old signed Wi-Fi module for the module generated with the new kernel's key. Do not copy another tablet's factory partitions or calibration/user data into this product.
+Prepare [owner firmware/calibration and the matching kernel module](FIRMWARE-INPUTS.md) before the complete ROM build. Do not substitute an old signed Wi-Fi module for the module generated with the new kernel's key. Do not copy another tablet's factory partitions or calibration/user data into this product.
 
 ## Host build command
 
