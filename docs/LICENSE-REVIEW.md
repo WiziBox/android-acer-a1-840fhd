@@ -16,6 +16,8 @@ Google applications and proprietary graphics, audio and Wi-Fi components have no
 
 ## Remaining obligations
 
+The public source components now also include seven project graphics namespace/ABI adapter files retaining their existing Apache-2.0 declarations and a project build definition. Their hashes are recorded in `source/acer-graphics-provenance.json`. Instead of redistributing the captured Intel export list or driver binary, the public generator recreates the project bridge inputs locally from an owner-supplied library. This does not grant rights to redistribute that library or approve a full ROM image. The earlier blanket withholding description applies to the remaining unreviewed snapshot files, not these separately reviewed additions.
+
 Establish authorship and exact origins of device sources; preserve applicable notices; provide the selected modified kernel's complete corresponding source and build/install inputs; resolve each vendor component's distribution conditions or provide a lawful owner-extraction procedure; and inspect all ROM contents before publishing images. Licensing review and device functionality testing are separate requirements.
 
 Reference materials: [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html), [GNU GPLv2 FAQ](https://www.gnu.org/licenses/old-licenses/gpl-2.0-faq.html), and [GitHub licensing guidance](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository). Original per-file licenses and notices control their respective components.

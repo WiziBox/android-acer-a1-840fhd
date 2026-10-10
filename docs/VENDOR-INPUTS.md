@@ -27,6 +27,18 @@ The previous private graphics package also contains Android 9 build outputs: `li
 
 Stock libraries must remain under the private legacy namespace. Do not replace Android 9's ordinary `system/lib/libui.so`, `libbinder.so` or other core libraries with the stock versions.
 
+## Generate GLES bridge inputs
+
+Use Linux/WSL with Python 3 and GNU `readelf` installed:
+
+```sh
+python3 tools/generate_gles.py --library /path/to/extracted-stock-system/lib/egl/libGLES_intel7.so --output /path/to/new-gles-generated
+```
+
+The library must match the reviewed SHA256 baseline and be a little-endian i386 shared ELF. The generator reads dynamic symbols without executing the library, filters defined C EGL/GLES functions, and emits project tail-call thunks plus their name header. It refuses an existing output directory. On a write failure inspect any new partial directory before retrying. The generated files are build inputs, not a runtime or redistribution approval.
+
+For the actual baseline, generation produced 1,663 exports and byte-for-byte matched both existing development build inputs: `gles_symbols.h` SHA256 `791b8ea2ec3740585d38b090c6d4139a2d7fd9143a01b8966bb33c3bc6319d22`, and `gles_exports_x86.S` SHA256 `7e9ddd21ac83330f429d2e0bffe7e6e090717857d2b5465d26ef604cc313efd0`. Six synthetic tests increased the local suite to 52 passing tests. The [graphics adapter sources](../source/README.md) still need integration into the complete device build workflow.
+
 ## Remaining inputs
 
 Audio dependencies/configuration and their required transformations, firmware, the source-built Wi-Fi module, device-specific calibration handling and complete generated Makefile integration are still required. Google APKs are not accepted by this importer and will not be silently included in the public product. Separating those applications from the full product configuration remains part of completing the device tree.

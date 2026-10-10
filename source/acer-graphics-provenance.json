@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "origin": "WiziBox Android 9 port graphics namespace adapters",
+  "files": [
+    {
+      "path": "source/device/acer/ducati2fhd/legacy-hwc/hwcomposer_namespace.c",
+      "sha256": "9c4ccfe1ea696d92aeb67e040750bdd5cf734d4766778992b96ab72ec01bc8a2",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "source/device/acer/ducati2fhd/legacy-hwc/legacy_loader.c",
+      "sha256": "d053ad984c57529fe3aa79979d7fd708de6b17ecf4abb1f407ff791ecd424b62",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "source/device/acer/ducati2fhd/legacy-hwc/legacy_loader.h",
+      "sha256": "6ed2bec652bf5264b41200ac16d69d5c274b9162d6937b733e1061c1ddcbe597",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "source/device/acer/ducati2fhd/legacy-hwc/gralloc_namespace.c",
+      "sha256": "846bc07eaf76a5c41928fc1ccf5267db6a5b61031ea490e04a43e780205c2420",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "source/device/acer/ducati2fhd/legacy-hwc/gralloc_perform_x86.S",
+      "sha256": "cc73c0f23991549732644c78c0e7c834f6470b3530c38d9de3f4afce7ab03cec",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "source/device/acer/ducati2fhd/legacy-hwc/gles_namespace.c",
+      "sha256": "75c990b6c011aae4d75151cd25334d9ad5e43241cdc58a12e20f68b2e721272f",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "source/device/acer/ducati2fhd/legacy-hwc/legacy_runtime.c",
+      "sha256": "5267cb0ea57f25b453b7b0ffb50d31d6ce45cec1f70e1b5e710d628f66df6353",
+      "license": "Apache-2.0"
+    }
+  ],
+  "generated_inputs": [
+    "gles_symbols.h",
+    "gles_exports_x86.S"
+  ],
+  "runtime_verified_for_public_release": false
+}

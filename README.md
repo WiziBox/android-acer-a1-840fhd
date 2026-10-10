@@ -20,6 +20,7 @@ Published inputs currently include 709 commit-pinned upstream projects and revie
 
 - [Source preparation](manifests/README.md): the working upstream initialization and patch workflow; not yet a complete Android build.
 - [Owner-supplied vendor inputs](docs/VENDOR-INPUTS.md): verified stock graphics import; other vendor inputs remain in progress.
+- [Graphics adapter sources](source/README.md): namespace adapters and locally generated GLES bridge inputs.
 - [Build, download, installation and recovery status](docs/PORTABLE-WORKFLOW.md).
 - [License review and redistribution boundaries](docs/LICENSE-REVIEW.md).
 - [Private development candidate record](docs/CANDIDATES.md): identification only, not downloads or installation instructions.
