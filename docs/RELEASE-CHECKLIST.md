@@ -10,7 +10,9 @@ The requested deliverable is a final, usable distribution. It is not complete un
 - [ ] Provide the complete corresponding source, configuration, toolchain and build/installation inputs for the selected modified kernel, including changes temporarily applied during kernel build #18.
 - [ ] Supply reviewed vendor components or an owner-extraction procedure with expected hashes.
   - [x] Provide and exercise a hash-checked importer for 32 stock graphics libraries, excluding two source-built inputs.
-  - [ ] Complete audio, firmware, Wi-Fi module/calibration and build integration.
+  - [x] Provide and exercise 55 stock audio inputs with two hash-checked transformations, excluding three source-built inputs.
+  - [x] Exercise combined 87-input staging and generate a stock COPY_FILES Makefile.
+  - [ ] Complete source-built private libraries, firmware, Wi-Fi module/calibration and full build integration.
 - [ ] Resolve the provenance and licensing of generated Intel export/connection code.
 - [ ] Provide a build product that does not redistribute unapproved Google applications.
 - [ ] Audit the complete ROM's licenses and contents; do not treat boot audit success as publication approval.

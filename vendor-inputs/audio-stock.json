@@ -1,0 +1,413 @@
+{
+  "schema": 1,
+  "device": "acer-a1-840fhd",
+  "scope": "stock audio libraries/configuration",
+  "redistribution_approved": false,
+  "files": [
+    {
+      "source": "etc/audio_policy.conf",
+      "destination": "audio-deployment/system/etc/audio_policy.conf",
+      "install": "system/etc/audio_policy.conf",
+      "bytes": 4627,
+      "sha256": "9e6bda18036bbdb38718b721722c9210971b7d05b841a7464685d45e4881837e"
+    },
+    {
+      "source": "etc/parameter-framework/ParameterFrameworkConfiguration.xml",
+      "destination": "audio-deployment/system/etc/parameter-framework/ParameterFrameworkConfiguration.xml",
+      "install": "system/etc/parameter-framework/ParameterFrameworkConfiguration.xml",
+      "bytes": 1206,
+      "sha256": "0ff9149aaf7b5ee12faa3de324f1a95efafc3e7ebd1d3184b18a30ee7d45dbf7",
+      "transform": "acer-audio-plugin-paths-v1",
+      "output_bytes": 1167,
+      "output_sha256": "fbf14702b9502a16f863d38cdfeba25ae9b52e4792571706f968125590dfbc08"
+    },
+    {
+      "source": "etc/parameter-framework/ParameterFrameworkConfigurationVibrator.xml",
+      "destination": "audio-deployment/system/etc/parameter-framework/ParameterFrameworkConfigurationVibrator.xml",
+      "install": "system/etc/parameter-framework/ParameterFrameworkConfigurationVibrator.xml",
+      "bytes": 737,
+      "sha256": "77dd10d1a3f493e59ceacd6f3cd31abe436b1153abc51bdbccfbc6ed182f3dc3"
+    },
+    {
+      "source": "etc/parameter-framework/Settings/Audio/AudioConfigurableDomains.xml",
+      "destination": "audio-deployment/system/etc/parameter-framework/Settings/Audio/AudioConfigurableDomains.xml",
+      "install": "system/etc/parameter-framework/Settings/Audio/AudioConfigurableDomains.xml",
+      "bytes": 161874,
+      "sha256": "3bef39e2c05800d48a440b5ea06330b00c19f8c3484c2037da3fe7e5472f4e5f"
+    },
+    {
+      "source": "etc/parameter-framework/Settings/Vibrator/VibratorConfigurableDomains.xml",
+      "destination": "audio-deployment/system/etc/parameter-framework/Settings/Vibrator/VibratorConfigurableDomains.xml",
+      "install": "system/etc/parameter-framework/Settings/Vibrator/VibratorConfigurableDomains.xml",
+      "bytes": 2771,
+      "sha256": "b76fa49a06079d5f6a7b0d19239b3ebb134288cb555c83ba1a0ae72b4c738034"
+    },
+    {
+      "source": "etc/parameter-framework/Structure/Audio/AudioClass.xml",
+      "destination": "audio-deployment/system/etc/parameter-framework/Structure/Audio/AudioClass.xml",
+      "install": "system/etc/parameter-framework/Structure/Audio/AudioClass.xml",
+      "bytes": 577,
+      "sha256": "44689dee4c65aabe85414f9599df423fa06fffcce29e1e9d9b1940f56bba2a20"
+    },
+    {
+      "source": "etc/parameter-framework/Structure/Audio/ConfigurationSubsystem.xml",
+      "destination": "audio-deployment/system/etc/parameter-framework/Structure/Audio/ConfigurationSubsystem.xml",
+      "install": "system/etc/parameter-framework/Structure/Audio/ConfigurationSubsystem.xml",
+      "bytes": 1485,
+      "sha256": "1c824d565821c918b9325fd382437da6ee5e6037d91152736adf386ec247f6c1"
+    },
+    {
+      "source": "etc/parameter-framework/Structure/Audio/IMCSubsystem.xml",
+      "destination": "audio-deployment/system/etc/parameter-framework/Structure/Audio/IMCSubsystem.xml",
+      "install": "system/etc/parameter-framework/Structure/Audio/IMCSubsystem.xml",
+      "bytes": 12987,
+      "sha256": "fb6e6c2d7ed6f3f0e6014e7f39f570ea3990c7b0644beae5773376be07f419f7"
+    },
+    {
+      "source": "etc/parameter-framework/Structure/Audio/IntelSSPSubsystem.xml",
+      "destination": "audio-deployment/system/etc/parameter-framework/Structure/Audio/IntelSSPSubsystem.xml",
+      "install": "system/etc/parameter-framework/Structure/Audio/IntelSSPSubsystem.xml",
+      "bytes": 783,
+      "sha256": "1bd0d7540eaa92a03cf195f2bcfc482371895173f9e0ac23f070a82161ddd83f"
+    },
+    {
+      "source": "etc/parameter-framework/Structure/Audio/LPEMixerSubsystem.xml",
+      "destination": "audio-deployment/system/etc/parameter-framework/Structure/Audio/LPEMixerSubsystem.xml",
+      "install": "system/etc/parameter-framework/Structure/Audio/LPEMixerSubsystem.xml",
+      "bytes": 941,
+      "sha256": "da61dda6e38c9d1d7ea2179cd8de75610c65c5f7e59b05cf5cd23e7c80c1cf55"
+    },
+    {
+      "source": "etc/parameter-framework/Structure/Audio/LPESubsystem.xml",
+      "destination": "audio-deployment/system/etc/parameter-framework/Structure/Audio/LPESubsystem.xml",
+      "install": "system/etc/parameter-framework/Structure/Audio/LPESubsystem.xml",
+      "bytes": 6047,
+      "sha256": "05a3329c68cc83736d9f437d15346404a8c56da826e1b64125e1d775f30039fd"
+    },
+    {
+      "source": "etc/parameter-framework/Structure/Audio/Realtek_RT5640Subsystem.xml",
+      "destination": "audio-deployment/system/etc/parameter-framework/Structure/Audio/Realtek_RT5640Subsystem.xml",
+      "install": "system/etc/parameter-framework/Structure/Audio/Realtek_RT5640Subsystem.xml",
+      "bytes": 24205,
+      "sha256": "36ea05843456e686f2e8dc74daef2614b91249d6708161ab71e62d121cb8b608"
+    },
+    {
+      "source": "etc/parameter-framework/Structure/Audio/SysfsPmdownTimeSubsystem.xml",
+      "destination": "audio-deployment/system/etc/parameter-framework/Structure/Audio/SysfsPmdownTimeSubsystem.xml",
+      "install": "system/etc/parameter-framework/Structure/Audio/SysfsPmdownTimeSubsystem.xml",
+      "bytes": 758,
+      "sha256": "a1612d7407bb756ada5acef0ea68f0a5c2782aa8a3b58bc1529c84f67a17b6c0"
+    },
+    {
+      "source": "etc/parameter-framework/Structure/Vibrator/MiscConfigurationSubsystem.xml",
+      "destination": "audio-deployment/system/etc/parameter-framework/Structure/Vibrator/MiscConfigurationSubsystem.xml",
+      "install": "system/etc/parameter-framework/Structure/Vibrator/MiscConfigurationSubsystem.xml",
+      "bytes": 522,
+      "sha256": "90032228cee047e870e93cbf963ac7916a8a1e64b26bab6a728f57d929cdfb9c"
+    },
+    {
+      "source": "etc/parameter-framework/Structure/Vibrator/SysfsVibratorClass.xml",
+      "destination": "audio-deployment/system/etc/parameter-framework/Structure/Vibrator/SysfsVibratorClass.xml",
+      "install": "system/etc/parameter-framework/Structure/Vibrator/SysfsVibratorClass.xml",
+      "bytes": 316,
+      "sha256": "1a1ab263e36edded0e49ec77bd6a0fd2cdbef769585d8975c79f5d3b2b93aa7c"
+    },
+    {
+      "source": "etc/parameter-framework/Structure/Vibrator/SysfsVibratorSubsystem.xml",
+      "destination": "audio-deployment/system/etc/parameter-framework/Structure/Vibrator/SysfsVibratorSubsystem.xml",
+      "install": "system/etc/parameter-framework/Structure/Vibrator/SysfsVibratorSubsystem.xml",
+      "bytes": 679,
+      "sha256": "4d365510c922b59a923fc54eedaa7f1037e1db267a2b3ee2f4a02a0029347b21"
+    },
+    {
+      "source": "lib/hw/audio.primary.ducati2fhd.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/hw/audio.primary.ducati2fhd.so",
+      "install": "system/legacy-audio/lib/hw/audio.primary.ducati2fhd.so",
+      "bytes": 466590,
+      "sha256": "9552003fbbbd46c4cb78b1ff904ca893245e90b544a6397f6043a3cfc4df3a95"
+    },
+    {
+      "source": "lib/libEGL.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libEGL.so",
+      "install": "system/legacy-audio/lib/libEGL.so",
+      "bytes": 811632,
+      "sha256": "46e9c7360fb570e1faf6711bfe82990be08fd4d70e002a1b4ed7523bebf08b0b"
+    },
+    {
+      "source": "lib/libGLES_trace.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libGLES_trace.so",
+      "install": "system/legacy-audio/lib/libGLES_trace.so",
+      "bytes": 801620,
+      "sha256": "c166500a24fe9bed0589a10ce47cc8d4ffed0447d1ed4e2b293d7d969d0a6ebc"
+    },
+    {
+      "source": "lib/libGLESv2.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libGLESv2.so",
+      "install": "system/legacy-audio/lib/libGLESv2.so",
+      "bytes": 68065,
+      "sha256": "96a7a55163df7fa5eba764981008c0be657d1dc5f0039539daa60daae70b7f91"
+    },
+    {
+      "source": "lib/libaudiohalutils.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libaudiohalutils.so",
+      "install": "system/legacy-audio/lib/libaudiohalutils.so",
+      "bytes": 19977,
+      "sha256": "b7ca56dcaac115aee11ffc3a585b217a22739a49234226f09526418b6e4ea858"
+    },
+    {
+      "source": "lib/libaudioresample.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libaudioresample.so",
+      "install": "system/legacy-audio/lib/libaudioresample.so",
+      "bytes": 791236,
+      "sha256": "f37a5cdef70a797da053b952153bd1c80b6bb0724ed0205cc09416117719765d",
+      "transform": "acer-resampler-pic-v1",
+      "output_bytes": 791236,
+      "output_sha256": "61acc00630b8ebd24dd9493afccf458f8bc0f33275936f239a8db5aa3146d8cb"
+    },
+    {
+      "source": "lib/libaudioutils.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libaudioutils.so",
+      "install": "system/legacy-audio/lib/libaudioutils.so",
+      "bytes": 19955,
+      "sha256": "e1b88c93fd051eb35f779abbbd4f206d27817cdc9ab4bf5b7fd5445876bdec11"
+    },
+    {
+      "source": "lib/libbinder.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libbinder.so",
+      "install": "system/legacy-audio/lib/libbinder.so",
+      "bytes": 413044,
+      "sha256": "2b428bbd8e1e1fdacd78667f6d0ac22856aeac2abc64a865f512abcce132deec"
+    },
+    {
+      "source": "lib/libcamera_client.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libcamera_client.so",
+      "install": "system/legacy-audio/lib/libcamera_client.so",
+      "bytes": 441728,
+      "sha256": "c5fb6cb6a0e871483082d0efedb2751db89b532d59200c5ee0e2dcbeec41791a"
+    },
+    {
+      "source": "lib/libcamera_metadata.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libcamera_metadata.so",
+      "install": "system/legacy-audio/lib/libcamera_metadata.so",
+      "bytes": 38877,
+      "sha256": "7b2378f1b1778bf629c6ff7c76a5f9dbc385ff61e86320775f3e556b9f0480f8"
+    },
+    {
+      "source": "lib/libcorkscrew.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libcorkscrew.so",
+      "install": "system/legacy-audio/lib/libcorkscrew.so",
+      "bytes": 53035,
+      "sha256": "ecf854d1b61e4874c3799baabd6100736ef83a1779f712ebf783a494de6caa64"
+    },
+    {
+      "source": "lib/libevent-listener.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libevent-listener.so",
+      "install": "system/legacy-audio/lib/libevent-listener.so",
+      "bytes": 11900,
+      "sha256": "acec57eea98fc8693d4c28dfdc7967881451855d4156a5cb65e4b3dc305367b3"
+    },
+    {
+      "source": "lib/libexpat.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libexpat.so",
+      "install": "system/legacy-audio/lib/libexpat.so",
+      "bytes": 222599,
+      "sha256": "a143843d8c4aec7dc47520eb7977fb80aaba15c30264328206ed38bab243f227"
+    },
+    {
+      "source": "lib/parameter-framework-plugins/Fs/libfs-subsystem.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libfs-subsystem.so",
+      "install": "system/legacy-audio/lib/libfs-subsystem.so",
+      "bytes": 97729,
+      "sha256": "56e4592aa63ea61b9fe8445895f8d937990f87622f9a97e9785d2f931943ea0e"
+    },
+    {
+      "source": "lib/libgabi++.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libgabi++.so",
+      "install": "system/legacy-audio/lib/libgabi++.so",
+      "bytes": 29596,
+      "sha256": "e55a50be2c40f91829c986fe7e62fa4e6304330aea9ebb1920bade08a314a1cf"
+    },
+    {
+      "source": "lib/libgccdemangle.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libgccdemangle.so",
+      "install": "system/legacy-audio/lib/libgccdemangle.so",
+      "bytes": 66700,
+      "sha256": "a7b0d36ae4736ed661f2163fd9e49e494019a7b4eaea9911da5d7ab2c6fa1efb"
+    },
+    {
+      "source": "lib/libgui.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libgui.so",
+      "install": "system/legacy-audio/lib/libgui.so",
+      "bytes": 589952,
+      "sha256": "589fe7b934b664279f1d57c4d007bc96cb9839a460814dc7538bd9af93bd278b"
+    },
+    {
+      "source": "lib/libhardware.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libhardware.so",
+      "install": "system/legacy-audio/lib/libhardware.so",
+      "bytes": 6653,
+      "sha256": "6ea61b0c49e6d305d4326165e9130386e5b6cadb0eebf536f68374db74896e8c"
+    },
+    {
+      "source": "lib/libhardware_legacy.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libhardware_legacy.so",
+      "install": "system/legacy-audio/lib/libhardware_legacy.so",
+      "bytes": 45567,
+      "sha256": "e51db3e45b2421e6101b2f324b7356d7b8c699978342a3375c0bc5055f57e7e7"
+    },
+    {
+      "source": "lib/libicuuc.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libicuuc.so",
+      "install": "system/legacy-audio/lib/libicuuc.so",
+      "bytes": 2097758,
+      "sha256": "e375821fce9f4ae22989ff47ea1aa3a23fba976ae4517b28a0a21b3bca01271e"
+    },
+    {
+      "source": "lib/parameter-framework-plugins/Audio/libimc-subsystem.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libimc-subsystem.so",
+      "install": "system/legacy-audio/lib/libimc-subsystem.so",
+      "bytes": 94671,
+      "sha256": "453c96aaa75a723dfb02f2302da165c1293226e227ae41e44749d9f61c337273"
+    },
+    {
+      "source": "lib/libinterface-provider-lib.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libinterface-provider-lib.so",
+      "install": "system/legacy-audio/lib/libinterface-provider-lib.so",
+      "bytes": 6429,
+      "sha256": "a04cbfc27a70eb818ed9a0a3d00d5e9924561459721cb9206b3147bdd3a28c78"
+    },
+    {
+      "source": "lib/parameter-framework-plugins/Audio/liblpe-subsystem.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/liblpe-subsystem.so",
+      "install": "system/legacy-audio/lib/liblpe-subsystem.so",
+      "bytes": 35140,
+      "sha256": "18d468d00571d7fe7d28492800309cdf1a6255aeeaa34c864fa4a37846ff1916"
+    },
+    {
+      "source": "lib/libmedia.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libmedia.so",
+      "install": "system/legacy-audio/lib/libmedia.so",
+      "bytes": 1212676,
+      "sha256": "4e21966c5210c0638a5fcd04d607b9a30188d61b31bcc5866371285014863b1a"
+    },
+    {
+      "source": "lib/libnetutils.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libnetutils.so",
+      "install": "system/legacy-audio/lib/libnetutils.so",
+      "bytes": 56577,
+      "sha256": "056cabd5b12c984f9afc64f315f9d2b5d2ff7cfaf683ba8e637e4d549bbf2a02"
+    },
+    {
+      "source": "lib/libparameter.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libparameter.so",
+      "install": "system/legacy-audio/lib/libparameter.so",
+      "bytes": 1598816,
+      "sha256": "2ff137f3832ee5e978393c369d7d85b2f3a161ec5dad94a9fc8fc4bc13f63092"
+    },
+    {
+      "source": "lib/libproperty.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libproperty.so",
+      "install": "system/legacy-audio/lib/libproperty.so",
+      "bytes": 71925,
+      "sha256": "825d3610f35ad5f0c92e9d361e8e3c3b0f820e11ff25d4f65ed0f11c72798313"
+    },
+    {
+      "source": "lib/libsonivox.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libsonivox.so",
+      "install": "system/legacy-audio/lib/libsonivox.so",
+      "bytes": 396295,
+      "sha256": "0d3785249b23664350e91cbc9c7d826fde894d8a0077f432eeae698c22a33e19"
+    },
+    {
+      "source": "lib/libspeexresampler.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libspeexresampler.so",
+      "install": "system/legacy-audio/lib/libspeexresampler.so",
+      "bytes": 29919,
+      "sha256": "48cb740ccee272e3367919cf756814a08e5284eaccf2b835453ea809d2e3e1bf"
+    },
+    {
+      "source": "lib/libstagefright_foundation.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libstagefright_foundation.so",
+      "install": "system/legacy-audio/lib/libstagefright_foundation.so",
+      "bytes": 166613,
+      "sha256": "03a3b2f8b5df0fc69b8fd9e69757e970b1cfb7ae414249af3e1aa0713063720b"
+    },
+    {
+      "source": "lib/libstdc++.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libstdc++.so",
+      "install": "system/legacy-audio/lib/libstdc++.so",
+      "bytes": 11247,
+      "sha256": "8fbd7f0dd7355a72b68a7108a4fcf3d7d754bab92acef352501c5c7a6d72923b"
+    },
+    {
+      "source": "lib/libstlport.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libstlport.so",
+      "install": "system/legacy-audio/lib/libstlport.so",
+      "bytes": 612388,
+      "sha256": "751a83ff8d69b16c042de0846d3379c2298d0c587a985855cc87aed770f66722"
+    },
+    {
+      "source": "lib/libsync.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libsync.so",
+      "install": "system/legacy-audio/lib/libsync.so",
+      "bytes": 6368,
+      "sha256": "d326196a6234b937c50b939c07aa09e02c53cec7e833eeb802a063fd6898a945"
+    },
+    {
+      "source": "lib/libtinyalsa.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libtinyalsa.so",
+      "install": "system/legacy-audio/lib/libtinyalsa.so",
+      "bytes": 29914,
+      "sha256": "d57b5ff970f37edc3c25c56e36dbc9cb71f3aa17ba54cadd6d4850c0e885d925"
+    },
+    {
+      "source": "lib/parameter-framework-plugins/Audio/libtinyalsactl-subsystem.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libtinyalsactl-subsystem.so",
+      "install": "system/legacy-audio/lib/libtinyalsactl-subsystem.so",
+      "bytes": 526826,
+      "sha256": "ad9d455c7f39e5d85f0befe5f7c363c298b0e82fbf8dfad9ec06b28e35f32d84"
+    },
+    {
+      "source": "lib/parameter-framework-plugins/Audio/libtinyamixer-subsystem.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libtinyamixer-subsystem.so",
+      "install": "system/legacy-audio/lib/libtinyamixer-subsystem.so",
+      "bytes": 552471,
+      "sha256": "14c8e1bc16ea6af123fc978d69060d9474b5ea76acc90164f42a9646b2b067d3"
+    },
+    {
+      "source": "lib/libui.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libui.so",
+      "install": "system/legacy-audio/lib/libui.so",
+      "bytes": 120024,
+      "sha256": "c8d3bff0c74b7535dda76bc853337c1574509af5c7a6f88bd7c44dc76151babe"
+    },
+    {
+      "source": "lib/libutils.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libutils.so",
+      "install": "system/legacy-audio/lib/libutils.so",
+      "bytes": 213279,
+      "sha256": "2f24687620e7074f68ec1a780736f112e1eacc2143a675db629d175e3a86e81d"
+    },
+    {
+      "source": "lib/libwpa_client.so",
+      "destination": "audio-deployment/system/legacy-audio/lib/libwpa_client.so",
+      "install": "system/legacy-audio/lib/libwpa_client.so",
+      "bytes": 20756,
+      "sha256": "fcc10468fee44b3316e50e52f8242117ff8fc4eb287a36881ff3871fa2a10168"
+    }
+  ],
+  "source_built_inputs": [
+    {
+      "destination": "system/legacy-audio/lib/ld-android.so",
+      "origin": "Android 9 build output; not stock extraction"
+    },
+    {
+      "destination": "system/legacy-audio/lib/libacer_legacy_runtime.so",
+      "origin": "Android 9 build output; not stock extraction"
+    },
+    {
+      "destination": "system/legacy-audio/lib/libcutils.so",
+      "origin": "Android 9 build output; not stock extraction"
+    }
+  ]
+}

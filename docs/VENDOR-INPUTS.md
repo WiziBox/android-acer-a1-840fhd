@@ -1,6 +1,6 @@
 # Owner-supplied vendor inputs
 
-The public repository does not include the proprietary stock libraries listed here. The published metadata does not grant permission to redistribute them. Use only inputs you are entitled to use. A complete vendor workflow is still being integrated; the implemented importer currently covers **32 stock graphics libraries**, not the entire device or ROM.
+The public repository does not include the proprietary stock libraries listed here. The published metadata does not grant permission to redistribute them. Use only inputs you are entitled to use. A complete vendor workflow is still being integrated; the implemented importer covers **32 stock graphics inputs and 55 stock audio inputs**, not the entire device or ROM.
 
 ## Input format
 
@@ -27,7 +27,40 @@ The previous private graphics package also contains Android 9 build outputs: `li
 
 Stock libraries must remain under the private legacy namespace. Do not replace Android 9's ordinary `system/lib/libui.so`, `libbinder.so` or other core libraries with the stock versions.
 
+## Import the audio inputs
+
+Use a separate new output directory and explicitly select the audio manifest:
+
+```sh
+python3 tools/import_vendor.py --device acer-a1-840fhd --manifest vendor-inputs/audio-stock.json --input-root /path/to/extracted-stock-system --output /path/to/new-audio-inputs
+python3 tools/import_vendor.py --device acer-a1-840fhd --manifest vendor-inputs/audio-stock.json --input-root /path/to/extracted-stock-system --output /path/to/new-audio-inputs --apply
+```
+
+The 55-file list includes stock audio libraries and parameter-framework configuration. Two entries require hash-checked transformations: the reviewed resampler's sole text relocation is converted to a register-preserving PIC GOT thunk, and plugin folders are redirected to the private audio namespace. Both input and transformed output hashes are checked before staging. The script does not execute supplied libraries or disable executable-page protections. Unknown inputs, transforms and output fingerprints are refused.
+
+The three audio namespace inputs `libacer_legacy_runtime.so`, modern `libcutils.so` and `ld-android.so` must come from the selected Android 9 build, not stock extraction. Old vendor-directory Google permission files and unrelated telephony inputs are excluded from the audio manifest.
+
+The resampler can also be prepared independently, preserving the input:
+
+```sh
+python3 tools/prepare_audio_resampler.py --input /path/to/extracted-stock-system/lib/libaudioresample.so --output /path/to/new-resampler.so
+```
+
+Its output must not already exist. It requires the exact reviewed input SHA256 and verifies the exact output SHA256 before writing. These checks remain enabled with Python optimization. This local transformation does not establish redistribution permission for the resulting library.
+
 ## Generate GLES bridge inputs
+
+## Prepare combined stock inputs for the build
+
+To stage all 87 graphics/audio inputs in one new directory:
+
+```sh
+python3 tools/import_vendor.py --device acer-a1-840fhd --manifest vendor-inputs/graphics-stock.json vendor-inputs/audio-stock.json --input-root /path/to/extracted-stock-system --output /path/to/new-combined-vendor --apply
+```
+
+Omit `--apply` for a dry-run. The importer also creates `vendor-stock.mk`, listing the staged stock files under their intended `vendor/acer/ducati2fhd/` source prefix and system destinations. That generated Makefile must be integrated once by the complete product workflow; it does not stage the separate source-built libraries or replace all remaining vendor inputs. Do not inherit both this list and the earlier private development COPY_FILES lists for the same destinations.
+
+## Generate GLES bridge inputs (continued)
 
 Use Linux/WSL with Python 3 and GNU `readelf` installed:
 
@@ -41,8 +74,10 @@ For the actual baseline, generation produced 1,663 exports and byte-for-byte mat
 
 ## Remaining inputs
 
-Audio dependencies/configuration and their required transformations, firmware, the source-built Wi-Fi module, device-specific calibration handling and complete generated Makefile integration are still required. Google APKs are not accepted by this importer and will not be silently included in the public product. Separating those applications from the full product configuration remains part of completing the device tree.
+Source-built private-library staging, firmware, the source-built Wi-Fi module, device-specific calibration handling and complete generated Makefile integration are still required. Google APKs are not accepted by this importer and will not be silently included in the public product. Separating those applications from the complete published product configuration remains part of completing the device tree; a separate local product candidate has been prepared without those applications or automatic network ADB.
 
 ## Evidence recorded on 2026-10-11
 
 All 32 stock graphics inputs matched the recorded dependency-package hashes. The importer passed a dry-run and created a separate local output from the actual extracted stock backup. Its 10 tests increased the Acer tooling suite to 46 passing local tests. This verifies this input-import stage, not a clean Android build, a ROM's redistribution rights or tablet functionality.
+
+Subsequently all 55 audio inputs were verified and staged from the actual stock extraction. Both transformations matched the development build inputs; the prepared resampler SHA256 is `61acc00630b8ebd24dd9493afccf458f8bc0f33275936f239a8db5aa3146d8cb`. Combined staging of all 87 inputs and Makefile generation also succeeded. The extended local tooling suite passed 61 tests. Neither the stock nor prepared proprietary files were uploaded.

@@ -7,14 +7,53 @@ live device or permits redistribution. Does not import source-built libraries.
 """
 import argparse
 import hashlib
+import importlib.util
 import json
 from pathlib import Path, PurePosixPath
 import re
 import shutil
 import sys
 import tempfile
+import xml.etree.ElementTree as ET
 
 MAX_FILE = 128 * 1024 * 1024
+
+
+def combine(manifests, device):
+    files, generated = [], []
+    for manifest in manifests:
+        if manifest.get('schema') != 1 or manifest.get('device') != device:
+            raise ValueError('manifest schema/device mismatch')
+        files.extend(manifest['files'])
+        generated.extend(manifest.get('source_built_inputs', []))
+    return {'schema': 1, 'device': device, 'files': files, 'source_built_inputs': generated}
+
+
+def transformed(data, entry):
+    operation = entry.get('transform')
+    if operation is None:
+        return data
+    if operation == 'acer-resampler-pic-v1':
+        spec = importlib.util.spec_from_file_location('acer_resampler', Path(__file__).with_name('prepare_audio_resampler.py'))
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        result = module.prepare(data)
+    elif operation == 'acer-audio-plugin-paths-v1':
+        text = data.decode('utf-8')
+        locations = ET.fromstring(text).findall('./SubsystemPlugins/Location')
+        if not locations:
+            raise ValueError('missing plugin locations')
+        for location in locations:
+            folder = location.attrib['Folder']
+            if not folder.startswith('/system/lib/parameter-framework-plugins/'):
+                raise ValueError('unexpected plugin folder')
+            text = text.replace('Folder="' + folder + '"', 'Folder="/system/legacy-audio/lib"')
+        result = text.encode('utf-8')
+    else:
+        raise ValueError('unsupported input transformation')
+    if len(result) != entry['output_bytes'] or hashlib.sha256(result).hexdigest() != entry['output_sha256']:
+        raise ValueError('transformed input checksum mismatch')
+    return result
 
 
 def relative(value):
@@ -42,6 +81,8 @@ def validate(manifest, root, device):
         source = relative(entry['source'])
         destination = relative(entry['destination'])
         install = relative(entry['install'])
+        if destination.parts[0] in {'import-receipt.json', 'vendor-stock.mk'}:
+            raise ValueError('reserved output name')
         if install.parts[0] != 'system':
             raise ValueError('unsupported install partition')
         if str(destination).lower() in destinations or str(install).lower() in installs:
@@ -57,15 +98,17 @@ def validate(manifest, root, device):
         path = root.joinpath(*source.parts)
         if not path.resolve().is_relative_to(root) or not path.is_file() or path.stat().st_size != size:
             raise ValueError('missing, unsafe or wrong-size input')
-        if hashlib.sha256(path.read_bytes()).hexdigest() != expected:
+        data = path.read_bytes()
+        if hashlib.sha256(data).hexdigest() != expected:
             raise ValueError('input checksum mismatch')
+        transformed(data, entry)
         # Source path values belong to a reviewed allowlist; block obvious
         # personal/authentication/application inputs even in a custom manifest.
         if any(part.lower() in {'data', 'factory', 'adb_keys', 'adbkey', 'adbkey.pub', '.ssh'} for part in source.parts):
             raise ValueError('personal/authentication input is forbidden')
         if source.suffix.lower() in {'.apk', '.pk8', '.pem', '.priv', '.jks', '.keystore'}:
             raise ValueError('application/signing input is forbidden')
-        planned.append((path, destination, install, expected, size))
+        planned.append((path, destination, install, expected, size, entry))
     return planned
 
 
@@ -87,11 +130,12 @@ def import_inputs(manifest, root, output, device, apply=False):
     with tempfile.TemporaryDirectory(prefix='.vendor-stage-', dir=output.parent) as folder:
         staging = Path(folder) / 'inputs'
         staging.mkdir()
-        for source, destination, _, expected, size in planned:
+        for source, destination, _, expected, size, entry in planned:
             # Recheck bytes during copying; do not accept a changed source.
             data = source.read_bytes()
             if len(data) != size or hashlib.sha256(data).hexdigest() != expected:
                 raise ValueError('input changed after preflight')
+            data = transformed(data, entry)
             path = staging.joinpath(*destination.parts)
             path.parent.mkdir(parents=True, exist_ok=True)
             with path.open('xb') as stream:
@@ -100,6 +144,12 @@ def import_inputs(manifest, root, output, device, apply=False):
             json.dump({'schema': 1, 'device': device, 'files': manifest['files'],
                        'redistribution_approved': False}, stream, indent=2)
             stream.write('\n')
+        with (staging / 'vendor-stock.mk').open('x', encoding='utf-8', newline='\n') as stream:
+            stream.write('# SPDX-License-Identifier: Apache-2.0\n')
+            stream.write('# Owner-supplied stock inputs; source-built inputs are separate.\n')
+            stream.write('PRODUCT_COPY_FILES += \\\n')
+            stream.write(' \\\n'.join('    vendor/acer/ducati2fhd/' + str(destination) + ':' + str(install)
+                        for _, destination, install, _, _, _ in planned) + '\n')
         # mkdir is exclusive. An output appearing during preflight is never
         # merged with, emptied or overwritten. Failure leaves explicit partial
         # output rather than deleting a user's directory.
@@ -112,18 +162,19 @@ def import_inputs(manifest, root, output, device, apply=False):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--manifest', type=Path, default=Path(__file__).parents[1] / 'vendor-inputs/graphics-stock.json')
+    parser.add_argument('--manifest', type=Path, nargs='+')
     parser.add_argument('--input-root', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--device', choices=['acer-a1-840fhd'], required=True)
     parser.add_argument('--apply', action='store_true')
     args = parser.parse_args(argv)
     try:
-        manifest = json.loads(args.manifest.read_text(encoding='utf-8'))
+        paths = args.manifest or [Path(__file__).parents[1] / 'vendor-inputs/graphics-stock.json']
+        manifest = combine([json.loads(path.read_text(encoding='utf-8')) for path in paths], args.device)
         report = import_inputs(manifest, args.input_root, args.output, args.device, args.apply)
         print(json.dumps(report, indent=2))
         return 0
-    except (ValueError, OSError, KeyError, TypeError):
+    except (ValueError, OSError, KeyError, TypeError, ET.ParseError):
         print(json.dumps({'error': 'vendor import refused or failed; inspect any new output before retrying',
                           'device_io': False, 'redistribution_approved': False}))
         return 2
