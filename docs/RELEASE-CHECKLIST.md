@@ -9,6 +9,8 @@ The requested deliverable is a final, usable distribution. It is not complete un
 - [ ] Publish the complete reviewed device tree and all remaining required port changes.
 - [ ] Provide the complete corresponding source, configuration, toolchain and build/installation inputs for the selected modified kernel, including changes temporarily applied during kernel build #18.
 - [ ] Supply reviewed vendor components or an owner-extraction procedure with expected hashes.
+  - [x] Provide and exercise a hash-checked importer for 32 stock graphics libraries, excluding two source-built inputs.
+  - [ ] Complete audio, firmware, Wi-Fi module/calibration and build integration.
 - [ ] Resolve the provenance and licensing of generated Intel export/connection code.
 - [ ] Provide a build product that does not redistribute unapproved Google applications.
 - [ ] Audit the complete ROM's licenses and contents; do not treat boot audit success as publication approval.

@@ -1,0 +1,243 @@
+{
+  "schema": 1,
+  "device": "acer-a1-840fhd",
+  "scope": "stock graphics inputs only",
+  "input_root": "extracted stock /system contents (lib/, etc/, vendor/)",
+  "redistribution_approved": false,
+  "files": [
+    {
+      "source": "lib/hw/hwcomposer.baytrail.so",
+      "destination": "legacy-hwc/lib/hw/hwcomposer.baytrail.so",
+      "install": "system/legacy-hwc/lib/hw/hwcomposer.baytrail.so",
+      "sha256": "f9fe2bb47c1ddf7399472bb884c95df18dac1299ece3430aca1b1712b7ccc2b3",
+      "bytes": 456176
+    },
+    {
+      "source": "lib/hw/gralloc.baytrail.so",
+      "destination": "legacy-hwc/lib/hw/gralloc.baytrail.so",
+      "install": "system/legacy-hwc/lib/hw/gralloc.baytrail.so",
+      "sha256": "6e9cfbf81a5fd886279cdb06e11b853b483ce5fe1df831d8e061d8b80542d825",
+      "bytes": 46316
+    },
+    {
+      "source": "lib/egl/libGLES_intel7.so",
+      "destination": "legacy-hwc/lib/egl/libGLES_intel7.so",
+      "install": "system/legacy-hwc/lib/egl/libGLES_intel7.so",
+      "sha256": "8090d2bd8775d8095167a2fe08fd0030c66a5c2e57113e56830cbcf5b51fc67c",
+      "bytes": 13434472
+    },
+    {
+      "source": "lib/libEGL.so",
+      "destination": "legacy-hwc/lib/libEGL.so",
+      "install": "system/legacy-hwc/lib/libEGL.so",
+      "sha256": "46e9c7360fb570e1faf6711bfe82990be08fd4d70e002a1b4ed7523bebf08b0b",
+      "bytes": 811632
+    },
+    {
+      "source": "lib/libGLESv1_CM.so",
+      "destination": "legacy-hwc/lib/libGLESv1_CM.so",
+      "install": "system/legacy-hwc/lib/libGLESv1_CM.so",
+      "sha256": "4199e0c562269e7cd0312e4713871bb63bbd52d5669674fbf2ac761fc3c7538e",
+      "bytes": 52449
+    },
+    {
+      "source": "lib/libGLESv2.so",
+      "destination": "legacy-hwc/lib/libGLESv2.so",
+      "install": "system/legacy-hwc/lib/libGLESv2.so",
+      "sha256": "96a7a55163df7fa5eba764981008c0be657d1dc5f0039539daa60daae70b7f91",
+      "bytes": 68065
+    },
+    {
+      "source": "lib/libutils.so",
+      "destination": "legacy-hwc/lib/libutils.so",
+      "install": "system/legacy-hwc/lib/libutils.so",
+      "sha256": "2f24687620e7074f68ec1a780736f112e1eacc2143a675db629d175e3a86e81d",
+      "bytes": 213279
+    },
+    {
+      "source": "lib/libbinder.so",
+      "destination": "legacy-hwc/lib/libbinder.so",
+      "install": "system/legacy-hwc/lib/libbinder.so",
+      "sha256": "2b428bbd8e1e1fdacd78667f6d0ac22856aeac2abc64a865f512abcce132deec",
+      "bytes": 413044
+    },
+    {
+      "source": "lib/libui.so",
+      "destination": "legacy-hwc/lib/libui.so",
+      "install": "system/legacy-hwc/lib/libui.so",
+      "sha256": "c8d3bff0c74b7535dda76bc853337c1574509af5c7a6f88bd7c44dc76151babe",
+      "bytes": 120024
+    },
+    {
+      "source": "lib/libdrm.so",
+      "destination": "legacy-hwc/lib/libdrm.so",
+      "install": "system/legacy-hwc/lib/libdrm.so",
+      "sha256": "3f7e2638c4e4ad341cad3432190a63d0b6184bc06b1d17ec16e4001f14cf5d94",
+      "bytes": 67009
+    },
+    {
+      "source": "lib/libdrm_intel.so",
+      "destination": "legacy-hwc/lib/libdrm_intel.so",
+      "install": "system/legacy-hwc/lib/libdrm_intel.so",
+      "sha256": "d147321b55e87c217d44cb58bab05858840f3dd26cc7795b87a31a1a81d434f6",
+      "bytes": 230288
+    },
+    {
+      "source": "lib/libhardware.so",
+      "destination": "legacy-hwc/lib/libhardware.so",
+      "install": "system/legacy-hwc/lib/libhardware.so",
+      "sha256": "6ea61b0c49e6d305d4326165e9130386e5b6cadb0eebf536f68374db74896e8c",
+      "bytes": 6653
+    },
+    {
+      "source": "lib/libgrallocclient.so",
+      "destination": "legacy-hwc/lib/libgrallocclient.so",
+      "install": "system/legacy-hwc/lib/libgrallocclient.so",
+      "sha256": "37753e22a69a9a42bb7c7077e6770d0688b6bf802740cba6637cc691d13b258e",
+      "bytes": 21628
+    },
+    {
+      "source": "lib/libsync.so",
+      "destination": "legacy-hwc/lib/libsync.so",
+      "install": "system/legacy-hwc/lib/libsync.so",
+      "sha256": "d326196a6234b937c50b939c07aa09e02c53cec7e833eeb802a063fd6898a945",
+      "bytes": 6368
+    },
+    {
+      "source": "lib/libivp.so",
+      "destination": "legacy-hwc/lib/libivp.so",
+      "install": "system/legacy-hwc/lib/libivp.so",
+      "sha256": "5645dcb64b21e19493f8f63cfb653a6883ef691c1d2e63df17da17b6abaafe67",
+      "bytes": 38008
+    },
+    {
+      "source": "lib/libhwcservice.so",
+      "destination": "legacy-hwc/lib/libhwcservice.so",
+      "install": "system/legacy-hwc/lib/libhwcservice.so",
+      "sha256": "c376736b9d2b122d7f460407b10124f0f8b83af951eb7f0f4974e996b00fc312",
+      "bytes": 218288
+    },
+    {
+      "source": "lib/libva.so",
+      "destination": "legacy-hwc/lib/libva.so",
+      "install": "system/legacy-hwc/lib/libva.so",
+      "sha256": "c59b081e20dcc24dcfaa0a329f713f694612fcf531bd61966110a22771d1cdb7",
+      "bytes": 123451
+    },
+    {
+      "source": "lib/libskuwa.so",
+      "destination": "legacy-hwc/lib/libskuwa.so",
+      "install": "system/legacy-hwc/lib/libskuwa.so",
+      "sha256": "13f07fb1c28e3f43b92dbb0f64a048f7e0a3c793605652a7bd8cc04b2cd22dc7",
+      "bytes": 25716
+    },
+    {
+      "source": "lib/libcoreuinterface.so",
+      "destination": "legacy-hwc/lib/libcoreuinterface.so",
+      "install": "system/legacy-hwc/lib/libcoreuinterface.so",
+      "sha256": "e1f770e2ea5c720d5367d9c006e88358afab8649ddc2d115ce5dead08173da3e",
+      "bytes": 25728
+    },
+    {
+      "source": "lib/libhwcwidi.so",
+      "destination": "legacy-hwc/lib/libhwcwidi.so",
+      "install": "system/legacy-hwc/lib/libhwcwidi.so",
+      "sha256": "af810fe1e9bbf1878e41305a8ceaf70cc276731bdc73e50c82953ca46393573e",
+      "bytes": 103750
+    },
+    {
+      "source": "lib/libmultidisplay.so",
+      "destination": "legacy-hwc/lib/libmultidisplay.so",
+      "install": "system/legacy-hwc/lib/libmultidisplay.so",
+      "sha256": "64c0010ae2a74bbfa8b628b0189e96281568de3cbc752ad12c6b8af47b933695",
+      "bytes": 463855
+    },
+    {
+      "source": "lib/libstdc++.so",
+      "destination": "legacy-hwc/lib/libstdc++.so",
+      "install": "system/legacy-hwc/lib/libstdc++.so",
+      "sha256": "8fbd7f0dd7355a72b68a7108a4fcf3d7d754bab92acef352501c5c7a6d72923b",
+      "bytes": 11247
+    },
+    {
+      "source": "lib/libgrallocgmm.so",
+      "destination": "legacy-hwc/lib/libgrallocgmm.so",
+      "install": "system/legacy-hwc/lib/libgrallocgmm.so",
+      "sha256": "36a1d57bf389586eaa425cf2e18c0de3345d551f80ac3e7bc0a55c9fd5f943e9",
+      "bytes": 119932
+    },
+    {
+      "source": "lib/libstlport.so",
+      "destination": "legacy-hwc/lib/libstlport.so",
+      "install": "system/legacy-hwc/lib/libstlport.so",
+      "sha256": "751a83ff8d69b16c042de0846d3379c2298d0c587a985855cc87aed770f66722",
+      "bytes": 612388
+    },
+    {
+      "source": "lib/libGLES_trace.so",
+      "destination": "legacy-hwc/lib/libGLES_trace.so",
+      "install": "system/legacy-hwc/lib/libGLES_trace.so",
+      "sha256": "c166500a24fe9bed0589a10ce47cc8d4ffed0447d1ed4e2b293d7d969d0a6ebc",
+      "bytes": 801620
+    },
+    {
+      "source": "lib/libcorkscrew.so",
+      "destination": "legacy-hwc/lib/libcorkscrew.so",
+      "install": "system/legacy-hwc/lib/libcorkscrew.so",
+      "sha256": "ecf854d1b61e4874c3799baabd6100736ef83a1779f712ebf783a494de6caa64",
+      "bytes": 53035
+    },
+    {
+      "source": "lib/libpciaccess.so",
+      "destination": "legacy-hwc/lib/libpciaccess.so",
+      "install": "system/legacy-hwc/lib/libpciaccess.so",
+      "sha256": "208f8d83158b483357c35fbda4dca1a52c2880a842d1b8e4a73725cbbfb206ef",
+      "bytes": 52273
+    },
+    {
+      "source": "lib/libva-android.so",
+      "destination": "legacy-hwc/lib/libva-android.so",
+      "install": "system/legacy-hwc/lib/libva-android.so",
+      "sha256": "9029c3deb6f9421085909254737884fbd75cde9a5144595c39ef7cfab86e9fd6",
+      "bytes": 11124
+    },
+    {
+      "source": "lib/libcoreuclient.so",
+      "destination": "legacy-hwc/lib/libcoreuclient.so",
+      "install": "system/legacy-hwc/lib/libcoreuclient.so",
+      "sha256": "2b35bbcef1732c3dc5d4ab8f4f4f61ed4737734355725be614d5496554a16946",
+      "bytes": 54448
+    },
+    {
+      "source": "lib/libgsmgr.so",
+      "destination": "legacy-hwc/lib/libgsmgr.so",
+      "install": "system/legacy-hwc/lib/libgsmgr.so",
+      "sha256": "47f51f6d8c8cd00f4f93f759a8831a0d8d3a3d59ebd09efb97bfdd50682c8851",
+      "bytes": 107640
+    },
+    {
+      "source": "lib/libvpp_setting.so",
+      "destination": "legacy-hwc/lib/libvpp_setting.so",
+      "install": "system/legacy-hwc/lib/libvpp_setting.so",
+      "sha256": "907295ec014ce1c8e1e6391f32846d44c08179ced329d66fa5692b3f99f4c8ec",
+      "bytes": 6539
+    },
+    {
+      "source": "lib/libgccdemangle.so",
+      "destination": "legacy-hwc/lib/libgccdemangle.so",
+      "install": "system/legacy-hwc/lib/libgccdemangle.so",
+      "sha256": "a7b0d36ae4736ed661f2163fd9e49e494019a7b4eaea9911da5d7ab2c6fa1efb",
+      "bytes": 66700
+    }
+  ],
+  "source_built_inputs": [
+    {
+      "destination": "system/legacy-hwc/lib/libacer_legacy_runtime.so",
+      "origin": "Android 9 build output; not a stock extraction input"
+    },
+    {
+      "destination": "system/legacy-hwc/lib/libcutils.so",
+      "origin": "Android 9 build output; not a stock extraction input"
+    }
+  ]
+}
