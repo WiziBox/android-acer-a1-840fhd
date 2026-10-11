@@ -42,6 +42,8 @@ def install(adb, serial, backup_dir, expected_sha256, remote_image, apply=False)
     if receipt_path.is_symlink() or not receipt_path.is_file() or receipt_path.stat().st_size > 65536:
         raise ValueError('private complete-scope receipt required')
     receipt = json.loads(receipt_path.read_text())
+    if not isinstance(receipt, dict):
+        raise ValueError('unsupported private receipt structure')
     if receipt.get('serial') != serial or receipt.get('includes_system') is not True:
         raise ValueError('same selected serial and system rollback backup required')
     checked = verify(backup_dir / 'acer-disk-header.bin', backup_dir / 'acer-reserved.img',
@@ -106,7 +108,8 @@ def main(argv=None):
         return 0
     except (OSError, ValueError, KeyError, TypeError, struct.error, subprocess.SubprocessError):
         print(json.dumps({'error': 'preflight refused or system write/readback incomplete',
-                          'device_write_may_have_started': args.apply,
+                          'partition_write_may_have_started': args.apply,
+                          'temporary_header_staging_enabled': args.legacy_header_staging,
                           'reboot': False, 'automatic_retry': False}))
         return 2
 

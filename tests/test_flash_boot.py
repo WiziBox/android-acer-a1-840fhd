@@ -1,5 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 import hashlib
+import contextlib
+import io
 import json
 from pathlib import Path
 import tempfile
@@ -129,4 +131,26 @@ class FlashBootTests(unittest.TestCase):
         client = Client()
         with self.assertRaises(ValueError):
             self.invoke(client)
+        self.assertEqual(client.calls, [])
+
+    def test_non_object_receipt_refused_without_traceback(self):
+        for value in ([], 'PRIVATE_FIXTURE_DO_NOT_PRINT', None, 7):
+            (self.root / 'private-backup-receipt.json').write_text(json.dumps(value))
+            client = Client()
+            with self.assertRaises(ValueError):
+                self.invoke(client)
+            self.assertEqual(client.calls, [])
+
+    def test_cli_failure_never_prints_receipt_or_paths(self):
+        (self.root / 'private-backup-receipt.json').write_text(json.dumps('PRIVATE_FIXTURE_DO_NOT_PRINT'))
+        output, errors = io.StringIO(), io.StringIO()
+        client = Client()
+        with patch.object(tool, 'Fastboot', return_value=client), contextlib.redirect_stdout(output), contextlib.redirect_stderr(errors):
+            code = tool.main(['--fastboot', 'unused', '--serial', 'SYNTHETIC',
+                              '--image', str(self.image), '--sha256', self.sha,
+                              '--owner-backup', str(self.root)])
+        self.assertEqual(code, 2)
+        self.assertNotIn('PRIVATE_FIXTURE_DO_NOT_PRINT', output.getvalue())
+        self.assertNotIn(str(self.root), output.getvalue())
+        self.assertEqual(errors.getvalue(), '')
         self.assertEqual(client.calls, [])

@@ -50,6 +50,8 @@ def install(client, image, expected_sha256, backup_dir, serial, apply=False,
     if receipt_path.is_symlink() or not receipt_path.is_file() or receipt_path.stat().st_size > 65536:
         raise ValueError('private owner backup receipt required')
     receipt = json.loads(receipt_path.read_text())
+    if not isinstance(receipt, dict):
+        raise ValueError('unsupported private receipt structure')
     if receipt.get('serial') != serial:
         raise ValueError('backup belongs to another selected serial')
     # Boot-only rollback scope. Do not claim a system or complete factory backup.

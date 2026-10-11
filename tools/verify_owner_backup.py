@@ -152,6 +152,8 @@ def verify(header_path, reserved_path, system_path=None, receipt_path=None):
         if receipt_path.is_symlink() or not receipt_path.is_file() or receipt_path.stat().st_size > 65536:
             raise ValueError('invalid private receipt')
         receipt = json.loads(receipt_path.read_text())
+        if not isinstance(receipt, dict) or not isinstance(receipt.get('files'), list) or not all(isinstance(item, dict) for item in receipt['files']):
+            raise ValueError('unsupported private receipt structure')
         if any(receipt.get(key) is not True for key in ('applied', 'model_checked', 'live_layout_checked')):
             raise ValueError('not a completed owner backup receipt')
         if receipt.get('layout') != verified_layout:
