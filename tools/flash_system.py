@@ -33,10 +33,12 @@ def require_unmounted(adb):
                 raise ValueError('system block alias is mounted')
 
 
-def require_cache_staging(adb, remote_image):
+def require_cache_staging(adb, remote_image=None):
     """Reject redirected cache paths and RAM/userdata/system staging."""
-    if adb.read('readlink -f /cache') != '/cache' or adb.read('readlink -f ' + remote_image) != remote_image:
+    if adb.read('readlink -f /cache') != '/cache':
         raise ValueError('cache staging path is redirected')
+    if remote_image is not None and adb.read('readlink -f ' + remote_image) != remote_image:
+        raise ValueError('cache image path is redirected')
     cache_mounts = []
     for line in adb.read('cat /proc/mounts').splitlines():
         fields = line.split()

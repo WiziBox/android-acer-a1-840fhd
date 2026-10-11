@@ -7,12 +7,26 @@ This tool writes only the A1-840FHD raw **system** partition. It is an implement
 1. Identify your own Acer Iconia Tab 8 A1-840FHD and create a fresh [owner backup](OWNER-BACKUP.md) with `--include-system`. Keep its original header, reserved backup, system backup and private receipt together, outside GitHub. An old backup without the supported receipt is not silently accepted.
 2. Prepare the matching boot/system/kernel-module pair. Validate and [expand the system image](SYSTEM-IMAGE-CHECK.md) into a new full 1887436800-byte raw file; independently record the **raw** SHA-256. Do not substitute the sparse input's hash or another model's image.
 3. Enter a supported root-ADB recovery yourself, with stable power and local access to Droidboot/recovery. The tool does not reboot, root, unmount or repair a device. The system partition must already be unmounted, even if its mount would be read-only. Close other update/staging operations.
-4. Stage the exact raw image into `/cache/acer-system-RAW_SHA256.raw.img`, replacing `RAW_SHA256` with the full lowercase checksum. Check sufficient cache capacity first. Staging is not automatic; do not overwrite a previous cache image or remove unrelated cache files. This full raw file needs about 1.8 GiB. If cache capacity or recovery identity cannot be established, stop instead of using userdata as an unchecked fallback.
+4. Stage the exact raw image into `/cache/acer-system-RAW_SHA256.raw.img`, replacing `RAW_SHA256` with the full lowercase checksum. Use the guarded staging command below; do not overwrite a previous cache image or remove unrelated cache files. This full raw file needs about 1.8 GiB plus a 16 MiB free-space reserve. If cache capacity or recovery identity cannot be established, stop instead of using userdata as an unchecked fallback.
 5. Run the preflight below. Only after a successful system write/readback, apply the matching [boot container](BOOT-INSTALLATION.md). Neither tool automatically reboots. Booting mismatched components can fail.
 
 This procedure does not currently supply a complete factory restoration workflow. The saved system/reserved files are not generic flashable containers. Keep local recovery available; never `dd` another tablet's GPT/reserved/factory data to this device.
 
 ## Default preflight
+
+First check the host raw image and recovery cache without uploading:
+
+```sh
+python3 tools/stage_system.py \
+  --adb /path/to/platform-tools/adb \
+  --serial YOUR_OWN_DEVICE_SERIAL \
+  --input /path/to/private/system.raw.img \
+  --raw-sha256 YOUR_RAW_IMAGE_LOWERCASE_SHA256
+```
+
+After a successful check, repeat with `--apply` to upload only the cache file, **not** to flash. The tool checks raw ext4 geometry/hash, exact model/layout, recovery, unmounted system and writable real cache. It requires `stat -f -c "%a:%S" /cache`; unsupported capacity queries cause refusal. It uploads into a newly created private cache directory, verifies size/hash, then uses a hard link that refuses an existing checksum-named destination. Successful staging removes only that owned temporary file and empty directory. Failure preserves partial files, performs no retry and does not flash/reboot. This staging backend has synthetic tests, not hardware acceptance. Legacy header acquisition requires the same explicit `--legacy-header-staging` option described below and writes a temporary header even without `--apply`.
+
+Then run the separate installation preflight:
 
 ```sh
 python3 tools/flash_system.py \
