@@ -10,7 +10,7 @@ The repository preserves license texts under `LICENSES/`, original project notic
 
 ## Withheld material
 
-The 21 Dangol and 59 Acer device/configuration snapshot files still need file-level provenance review. Missing headers alone do not establish infringement. Generated Intel export/connection code needs its generation and source conditions reviewed. Kernel/boot/system images and Wi-Fi modules are withheld pending corresponding-source and complete-content review.
+The 59 Acer device/configuration snapshot files still need file-level provenance review. Missing headers alone do not establish infringement. Generated Intel export/connection code needs its generation and source conditions reviewed. Kernel/boot/system images and Wi-Fi modules are withheld pending corresponding-source and complete-content review.
 
 Google applications and proprietary graphics, audio and Wi-Fi components have not been cleared for redistribution. Personal keys, approvals, user data and device-specific backups are never publication inputs. Earlier private local commits containing withheld material are not ancestors of the published branch.
 

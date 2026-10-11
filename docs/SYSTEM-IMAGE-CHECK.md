@@ -6,7 +6,7 @@ From this repository, use Python 3.9 or later:
 python3 tools/inspect_system.py --device acer-a1-840fhd /path/to/private/system.img
 ```
 
-The tool performs no device I/O, decompression to disk, mounting or file modification. It accepts raw or Android sparse v1.0 images covering **exactly** the known system partition size: 1887436800 bytes for A1-840FHD. A shared `--device dangol` profile uses 2147483648 bytes; that does not authorize applying a Dangol image to an Acer tablet.
+The tool performs no device I/O, decompression to disk, mounting or file modification. It accepts raw or Android sparse v1.0 images covering **exactly** the known system partition size: 1887436800 bytes for A1-840FHD.
 
 Sparse format facts were checked against `libsparse/sparse_format.h` in the pinned `system/core` checkout. The independently written inspector checks chunk lengths/types, block totals, bounds, trailers, any supplied CRC32 chunks and any nonzero header checksum. It computes a streaming SHA-256 and CRC32 of the logical expanded data. It also checks the ext4 superblock magic and declared filesystem size. Only canonical v1.0 headers are accepted; future extensions require review.
 

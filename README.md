@@ -52,4 +52,4 @@ The existing private development system contains Google applications and proprie
 
 Existing development settings include root access, SELinux permissive mode, broad GPU device-node access and automatic network ADB on TCP port 5555. These are not safe consumer defaults. Personal ADB approval keys and private signing keys must not be published; public defaults must keep ADB authentication enabled and network ADB opt-in.
 
-The device uses an OSIP/reserved-area boot layout. Do not use generic Android flashing commands, Dangol commands, or another tablet's factory backup. No device-writing command is presented here as approved until its model checks, backup, layout handling and recovery procedure are complete.
+The device uses an OSIP/reserved-area boot layout. Do not use generic Android flashing commands or another tablet's factory backup. No device-writing command is presented here as approved until its model checks, backup, layout handling and recovery procedure are complete.

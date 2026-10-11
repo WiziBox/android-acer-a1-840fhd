@@ -19,6 +19,6 @@ The tool checks the full base checksum, raw ext4 magic/partition length and read
 
 The success report includes the **private whole-image** checksum, not the calibration checksum or MAC. Keep the output, source calibration and report private. The added owner input makes the resulting image unsuitable for public upload. Publication approval always remains false. This bounded operation does not audit other base contents, establish licensing, verify a kernel/module pair, boot the device or supply restoration.
 
-The same implementation also supports the separate Dangol profile; do not select it for Acer. On 2026-10-11 the actual host-only composition completed for both private candidates, including calibration contents/permissions/label readback and filesystem checks. Nine synthetic tests cover dry-run, new outputs, owner confirmation, credentials, profile/hash/raw rejection, failed readback and non-disclosure. No device installation was exercised.
+On 2026-10-11 the actual host-only composition completed for the private Acer candidate, including calibration contents/permissions/label readback and filesystem checks. Nine synthetic tests cover dry-run, new outputs, owner confirmation, credentials, profile/hash/raw rejection, failed readback and non-disclosure. No device installation was exercised.
 
 Use the resulting new hash for [cache staging and system installation](SYSTEM-INSTALLATION.md), not the base hash. Those tools' hardware acceptance and complete rollback are still unfinished; this command does not authorize flashing.

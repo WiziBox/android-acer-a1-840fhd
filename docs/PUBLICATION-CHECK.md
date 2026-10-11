@@ -2,7 +2,7 @@
 
 Run `python tools/check_publication_inputs.py` from this repository before uploading.
 It checks tracked files for known binary/backup paths, private-key PEM headers and
-Dangol owner-backup receipt structure without printing suspect contents or paths.
+known private owner-backup receipt structures without printing suspect contents or paths.
 GitHub Actions runs it too, but that occurs **after** a push: it cannot prevent or
 remove secrets already uploaded. Review the exact staged files before publishing.
 
