@@ -9,6 +9,10 @@ Recorded 2026-10-10. This document identifies private development outputs; it is
 
 Selected-file comparison is not complete functional validation. Later individual changes, including Wi-Fi replacements, were applied on the development device; they must not be confused with validation of the whole listed system image.
 
+On 2026-10-11 the existing `a01c2807...` system image was expanded into a separate private raw file, without rebuilding or changing the original. Read-only filesystem inspection confirmed that seven files inside the image match the recorded installed fixes: `lib/libhwui.so`, `vendor/lib/libhwc2on1adapter.so`, `bin/acer_storage_policy`, `etc/init/acer-storage-policy.rc`, `lib/libandroid_runtime.so`, `bin/netd`, and `etc/init/acer-network-adb.rc`. Thus those specific graphics/storage/network fixes do not require recompilation. This does not establish every later fix, whole-image hardware testing or publication rights. In particular the automatic network-ADB file is a development default, not an approved public-release default; public tooling keeps network ADB opt-in.
+
+The complete bounded inventory scanned 2090 regular files and supported APK/JAR members; read-only filesystem consistency checks passed. The inventory flagged the automatic network-ADB directive, bundled Google applications, and an APK-internal `google.jks` filename. The filename finding alone is **not evidence of the owner's private RSA key**; its contents/type require separate review. An owner Wi-Fi calibration file is also present and has no publication clearance. Therefore the existing image remains private, irrespective of its selected-fix matches or filesystem pass. No user-data partition was scanned or published.
+
 Developer paths, IP addresses, device serial numbers and key contents are intentionally excluded. Sanitized or rebuilt replacements must receive new hashes and independent records.
 
 ## Separate sanitized candidate — 2026-10-11

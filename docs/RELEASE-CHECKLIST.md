@@ -50,4 +50,6 @@ As of 2026-10-11, fresh upstream initialization, network fetching and local chec
 
 Final does not imply perfect application compatibility. It does require a usable, honestly documented build/download/install/recover path, with evidence rather than unchecked promises.
 
-The earlier 92-test Windows/Linux CI pass remains separate from new local checks. Five new owner-template tests and seven new sparse-image tests passed locally. A current full local rerun encountered unrelated sandbox Git/hard-link permission errors and is not represented as a new all-tests pass. Tool tests and boot-key checks do not check off whole-ROM privacy or device-installation criteria.
+The latest 170-test local run passed outside the filesystem sandbox, and public Windows/Linux CI for commit `097dc8e9a78c11c3f8fdaeaf46793a7bb558f46b` passed. The public tools now include offline owner-backup verification, an explicit-consent boot-only Droidboot workflow, and verified host-only sparse-to-raw expansion. Boot-write testing is synthetic only; system installation and restoration integration remain incomplete. These tool tests and boot-key checks do not check off whole-ROM privacy or device-installation criteria.
+
+Further full recompilation and new build-disk creation are on hold at the owner's direction. Existing development artifacts are being reviewed first. Read-only inspection of the existing system image confirmed seven installed graphics/storage/network fixes by file checksum; that selected comparison is not full release acceptance. See [candidate evidence](CANDIDATES.md).
