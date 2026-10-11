@@ -42,6 +42,21 @@ This validates the supported OSIP descriptors, primary GPT header/table CRCs, pa
 
 ## Evidence and remaining work
 
+### Offline backup structure verification
+
+Use `tools/verify_owner_backup.py` on your private saved files, without contacting or writing a tablet:
+
+```sh
+python3 tools/verify_owner_backup.py \
+  --disk-header /path/to/private/acer-disk-header.bin \
+  --reserved-backup /path/to/private/acer-reserved.img \
+  --system-backup /path/to/private/acer-stock-system.img
+```
+
+For a new backup made by `backup_acer.py`, add `--receipt /path/to/private/private-backup-receipt.json` to compare recorded checksums. Optional `--private-report` must name a new file outside this repository; its hashes and filenames must remain private. Without a receipt, computing hashes does not establish that the backup matches an earlier capture.
+
+The checker validates supported primary GPT/OSIP structure, all three boot payload bounds, bounded ramdisk parsing and optional raw system size/format. The original unsigned recovery's homogeneous erased-FF partial-sector padding and duplicate archive paths are handled only for private legacy recovery inspection. Duplicate paths are counted, not extracted or interpreted as a final filesystem. New-ROM audits still refuse duplicate paths. The actual original owner header/reserved/system backup passed this offline check. This does not prove OEM signatures, filesystem integrity, complete backup coverage, restored boot, or redistribution rights.
+
 The offline layout parser passed against the actual original owner header and two saved post-flash headers, including recovery-invalidated alternate-slot Android metadata. Each confirmed reserved start 40 / 458752 sectors and system index 9 / 3686400 sectors. Seven synthetic layout tests cover CRC corruption, bounds, overlaps, incorrect roles and alternate-slot metadata. Seven backup tests cover model/live-layout refusal, writable mounts, dry-run/output preservation and binary-transfer/hash handling.
 
 The new live backup backend has **not yet been exercised on a connected tablet**. Its tests and the original-header checks do not prove a complete device backup or successful restoration. Installation/recovery integration and exact-artifact hardware verification remain mandatory; this document is not authorization for an unattended flash.
