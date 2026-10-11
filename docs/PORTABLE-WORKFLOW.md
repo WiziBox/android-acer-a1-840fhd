@@ -31,6 +31,8 @@ The output must not already exist. The tool removes named ADB public approval fi
 
 ## Completion requirements
 
+The [owner-backup tools](OWNER-BACKUP.md) now provide an implemented prerequisite: offline original-header checks and a dry-run-first Android 9 root-ADB backup backend. The live backend and restoration still require device exercise; it is not a generic fastboot flashing recipe.
+
 1. Supply the reviewed device tree, vendor input/extraction workflow, kernel source and toolchain, WebView LFS objects and boot-packaging inputs. Record exact revisions and hashes; do not rely on the developer's existing output directory or absolute paths.
 2. Preserve third-party licenses and notices. Exclude components without established redistribution permission; document lawful owner extraction when redistribution is unavailable.
 3. Package a new boot image without personal ADB approvals or private signing keys. Keep ADB authentication enabled and network ADB opt-in. Document root, SELinux and GPU-access limitations.
