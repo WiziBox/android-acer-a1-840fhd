@@ -25,7 +25,7 @@ def exact(stream, size):
     return data
 
 
-def inspect(stream, partition_bytes):
+def inspect(stream, partition_bytes, expanded_output=None):
     checksum, expanded_hash, prefix, expanded = 0, hashlib.sha256(), bytearray(), 0
 
     def consume(data):
@@ -37,6 +37,8 @@ def inspect(stream, partition_bytes):
             prefix.extend(data[:2048 - len(prefix)])
         checksum = zlib.crc32(data, checksum)
         expanded_hash.update(data)
+        if expanded_output is not None:
+            expanded_output.write(data)
 
     def consume_repeat(pattern, count):
         buffer = pattern * (BUFFER // len(pattern))
