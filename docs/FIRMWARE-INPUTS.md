@@ -4,7 +4,7 @@ This stage is for a private A1-840FHD build. It does not grant firmware redistri
 
 ## Inputs
 
-- Your extracted stock `system` directory, containing `etc/firmware/fw_sst_0f28.bin`, `aac_dec_0f28.bin` and `mp3_dec_0f28.bin`.
+- Your extracted stock `system` directory, containing `etc/firmware/fw_sst_0f28.bin`, `aac_dec_0f28.bin` and `mp3_dec_0f28.bin`. The [allowlisted owner-backup extractor](VENDOR-INPUTS.md) now supplies these and your calibration without a developer's pre-existing stock folder.
 - The exact BCM43241 B4 production Wi-Fi firmware used by this port: SHA256 `0e53e2eadb22610c298df18b631f571d216a3eca3d537812a6f074337fb38eca`. Its development provenance is the official linux-firmware project, path `brcm/brcmfmac43241b4-sdio.bin`. Obtain that exact input under its upstream terms; do not substitute an arbitrary similarly named firmware. Firmware is not bundled here.
 - Your own device's `bcmdhd_aob.cal_43241_b4`. Keep its MAC, country, RF power and calibration values unchanged. Do not use another device's factory partition or calibration file. The tool checks the reviewed profile `boardtype=0x5ef`, `boardrev=0x1100`, `sromrev=9`, but that is not a substitute for knowing the file belongs to your device.
 - The new kernel build directory containing `build-receipt.json`, the kernel, configuration, public certificate and its freshly signed `wifi/bcm43241.ko`. Private `obj/signing_key.priv` is never copied by this tool.

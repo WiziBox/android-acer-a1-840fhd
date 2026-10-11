@@ -6,7 +6,31 @@ The public repository does not include the proprietary stock libraries listed he
 
 Provide a directory containing extracted stock `/system` contents, with `lib/`, `etc/` and `vendor/` directly beneath it. It must not be a dump of `/data` or another tablet's factory partition. `vendor-inputs/graphics-stock.json` records the exact relative source paths, build-input destinations, intended system destinations, sizes and SHA256 checksums for the reviewed stock baseline. A different firmware revision may fail these checks; do not suppress hash failures or substitute arbitrary files.
 
-The tool uses no ADB, executes none of the supplied binaries, and does not extract a raw image. Raw/sparse-image extraction and the full build integration remain separate work. No automatic device write is performed.
+The importer uses no ADB and executes none of the supplied libraries. A separate raw-image extractor is implemented below. Live backup acquisition and the complete installation/recovery path remain separate work. No automatic device write is performed.
+
+## Extract allowlisted inputs from your own original backup
+
+On Linux/WSL, use Python 3.9+ and `debugfs` from `e2fsprogs`. The input must be your original A1-840FHD **raw ext4 system backup**, exactly 1887436800 bytes, not the new LineageOS image, a sparse container or another owner's backup. Output must be a new directory under an existing private parent.
+
+```sh
+# Read-only preflight; no output directory is created.
+python3 tools/extract_vendor.py \
+  --system-image /path/to/private/your-stock-system.img \
+  --output /path/to/private/new-stock-inputs
+
+# After preflight succeeds, create only the allowlisted private inputs.
+python3 tools/extract_vendor.py \
+  --system-image /path/to/private/your-stock-system.img \
+  --output /path/to/private/new-stock-inputs --apply
+```
+
+The extractor verifies all 87 graphics/audio input entries, including the required importer transformations, before writing. Shared source files are extracted once: 75 unique graphics/audio paths plus three DSP firmware files and your own calibration file, 79 files total. It does not copy Google applications, `/data`, private keys, the whole system or unrelated factory files. Stock symlinks are resolved only within the image, including `/system/` targets; loops and unsupported paths are refused. No filesystem is mounted or extracted wholesale and no `debugfs -w` is used.
+
+Calibration bytes stay unchanged. Its contents, MAC and fingerprint are not included in the receipt, which contains only counts and status. Linux output permissions restrict the private files. Keep the resulting directory and any build image containing it out of public Git/Releases. Extraction does not grant redistribution permission.
+
+Use this new directory as `--input-root` for the combined importer and as `--stock-system` for firmware staging. Its `lib/egl/libGLES_intel7.so` is also the owner input for the GLES generator. Its `etc/firmware/bcmdhd_aob.cal_43241_b4` is the staging calibration path. The selected production Wi-Fi firmware is acquired **separately** under its upstream terms; this extractor does not substitute stock test firmware for it.
+
+The actual original backup passed preflight and 79-file extraction. The resulting directory passed all 87 combined importer checks, and its Intel library generated the expected 1663-export bridge inputs and both recorded source hashes. Ten synthetic tests cover duplicate source paths, incorrect fingerprints/profiles, refused applications, output preservation, private receipts and symlink handling. These are input-preparation checks, not device tests.
 
 ## Verify, then import to a new directory
 
