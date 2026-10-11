@@ -73,6 +73,13 @@ class FirmwareTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     tool.stage(source, stock, build, wifi, nvram, True)
 
+    def test_saved_networks_never_accepted_as_calibration(self):
+        for field in (b'ssid=PRIVATE_SYNTHETIC', b'PSK=PRIVATE_SYNTHETIC',
+                      b'password=PRIVATE_SYNTHETIC', b'passphrase=PRIVATE_SYNTHETIC',
+                      b'network={'):
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                tool.calibration(self.CAL + field + b'\n')
+
     def test_bad_module_writes_nothing(self):
         with tempfile.TemporaryDirectory() as folder:
             source, stock, build, wifi, nvram, vendor, audio = self.fixture(folder)

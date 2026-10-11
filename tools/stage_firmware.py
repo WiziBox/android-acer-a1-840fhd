@@ -39,6 +39,8 @@ def calibration(data):
     if not 0 < len(data) <= 65536 or b'\0' in data:
         raise ValueError('invalid calibration size/encoding')
     text = data.decode('ascii')
+    if re.search(r'(?im)^\s*(?:ssid|psk|password|passwd|passphrase)\s*=|\bnetwork\s*=\s*\{', text):
+        raise ValueError('saved networks and credentials are not calibration')
     if 'PRIVATE KEY' in text or 'adbkey' in text or 'adb_keys' in text:
         raise ValueError('authentication material is not calibration')
     fields = {}
