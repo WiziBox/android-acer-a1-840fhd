@@ -33,6 +33,30 @@ def require_unmounted(adb):
                 raise ValueError('system block alias is mounted')
 
 
+def require_cache_staging(adb, remote_image):
+    """Reject redirected cache paths and RAM/userdata/system staging."""
+    if adb.read('readlink -f /cache') != '/cache' or adb.read('readlink -f ' + remote_image) != remote_image:
+        raise ValueError('cache staging path is redirected')
+    cache_mounts = []
+    for line in adb.read('cat /proc/mounts').splitlines():
+        fields = line.split()
+        if len(fields) != 6:
+            raise ValueError('unsupported mount inventory')
+        if fields[1].startswith('/cache/'):
+            raise ValueError('nested cache mount is unsupported')
+        if fields[1] == '/cache':
+            cache_mounts.append(fields)
+    if len(cache_mounts) != 1:
+        raise ValueError('one explicit cache mount required')
+    source, _, filesystem, options, _, _ = cache_mounts[0]
+    if filesystem != 'ext4' or 'rw' not in options.split(','):
+        raise ValueError('writable ext4 cache required')
+    if not re.fullmatch(r'/dev/[A-Za-z0-9_./:-]+', source):
+        raise ValueError('unsupported cache block alias')
+    if adb.read('readlink -f ' + source) != '/dev/block/mmcblk0p7':
+        raise ValueError('cache differs from reviewed partition')
+
+
 def install(adb, serial, backup_dir, expected_sha256, remote_image, apply=False):
     if not re.fullmatch(r'[0-9a-f]{64}', expected_sha256):
         raise ValueError('explicit raw-image SHA-256 required')
@@ -58,6 +82,7 @@ def install(adb, serial, backup_dir, expected_sha256, remote_image, apply=False)
     if adb.read('readlink -f /dev/block/platform/intel/by-label/system') != '/dev/block/mmcblk0p9':
         raise ValueError('system alias differs from reviewed partition')
     require_unmounted(adb)
+    require_cache_staging(adb, remote_image)
     if adb.read('test -f ' + remote_image + ' && test ! -L ' + remote_image + ' && echo REGULAR') != 'REGULAR':
         raise ValueError('regular pre-staged file required')
     stat = adb.read('stat -t ' + remote_image).split()
@@ -69,6 +94,7 @@ def install(adb, serial, backup_dir, expected_sha256, remote_image, apply=False)
     report = {'device': 'acer-a1-840fhd', 'backup_checksums_matched': True,
               'current_layout_checked': True, 'recovery_context_checked': True,
               'system_unmounted_checked': True, 'remote_raw_checksum_checked': True,
+              'cache_staging_mount_checked': True,
               'applied': False, 'system_readback_verified': False, 'boot_written': False,
               'gpt_written': False, 'userdata_erased': False, 'reboot': False,
               'installation_boot_verified': False, 'publication_approved': False}
@@ -78,6 +104,7 @@ def install(adb, serial, backup_dir, expected_sha256, remote_image, apply=False)
     if adb.header() != header:
         raise ValueError('disk header changed before write')
     require_unmounted(adb)
+    require_cache_staging(adb, remote_image)
     # No unchecked adb push, implicit mount change, erase or retry. Caller
     # must prevent concurrent staging/partition changes throughout operation.
     result = adb.run(['shell', adb.root('set -e; dd if=' + remote_image +

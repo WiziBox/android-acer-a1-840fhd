@@ -21,7 +21,7 @@ class Recovery(FakeADB):
     def __init__(self):
         super().__init__()
         self.writes = []
-        self.mounts = ''
+        self.mounts = '/dev/block/mmcblk0p7 /cache ext4 rw,relatime 0 0'
         self.mode = 'recovery'
         self.source_hash = self.readback_hash = HASH
     def read(self, command):
@@ -29,6 +29,9 @@ class Recovery(FakeADB):
                   'test -f /tmp/recovery.log && echo RECOVERY': 'RECOVERY',
                   'readlink -f /dev/block/platform/intel/by-label/system': '/dev/block/mmcblk0p9',
                   'cat /proc/mounts': self.mounts,
+                  'readlink -f /cache': '/cache',
+                  'readlink -f ' + IMAGE: IMAGE,
+                  'readlink -f /dev/block/mmcblk0p7': '/dev/block/mmcblk0p7',
                   'test -f ' + IMAGE + ' && test ! -L ' + IMAGE + ' && echo REGULAR': 'REGULAR',
                   'stat -t ' + IMAGE: IMAGE + ' ' + str(tool.SYSTEM_BYTES) + ' other-fields',
                   'sha256sum ' + IMAGE: self.source_hash + ' ' + IMAGE}
@@ -150,6 +153,40 @@ class SystemFlashTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 self.invoke(adb, True)
             self.assertEqual(adb.writes, [])
+    def test_cache_mount_constraints_refuse_before_write(self):
+        for mounts in ('', '/dev/block/mmcblk0p7 /cache ext4 ro 0 0',
+                       'tmpfs /cache tmpfs rw 0 0',
+                       '/dev/block/mmcblk0p9 /cache ext4 rw 0 0',
+                       '/dev/block/mmcblk0p7 /cache ext4 rw 0 0\n/dev/block/mmcblk0p7 /cache ext4 rw 0 0',
+                       '/dev/block/mmcblk0p7 /cache ext4 rw 0 0\ntmpfs /cache/nested tmpfs rw 0 0'):
+            with self.subTest(mounts=mounts):
+                adb = Recovery()
+                adb.mounts = mounts
+                with self.assertRaises(ValueError):
+                    self.invoke(adb, True)
+                self.assertEqual(adb.writes, [])
+    def test_redirected_cache_or_image_refused(self):
+        for command in ('readlink -f /cache', 'readlink -f ' + IMAGE):
+            adb = Recovery()
+            original = adb.read
+            with patch.object(adb, 'read', side_effect=lambda value: '/data/redirected' if value == command else original(value)):
+                with self.assertRaises(ValueError):
+                    self.invoke(adb, True)
+            self.assertEqual(adb.writes, [])
+    def test_cache_disappears_before_write_refused(self):
+        adb = Recovery()
+        original = adb.read
+        checks = 0
+        def changing(command):
+            nonlocal checks
+            if command == 'readlink -f /cache':
+                checks += 1
+                if checks > 1:
+                    return '/data/cache'
+            return original(command)
+        with patch.object(adb, 'read', side_effect=changing), self.assertRaises(ValueError):
+            self.invoke(adb, True)
+        self.assertEqual(adb.writes, [])
     def test_cli_failure_never_prints_receipt_or_paths(self):
         (self.root / 'private-backup-receipt.json').write_text(json.dumps('PRIVATE_FIXTURE_DO_NOT_PRINT'))
         output, errors = io.StringIO(), io.StringIO()

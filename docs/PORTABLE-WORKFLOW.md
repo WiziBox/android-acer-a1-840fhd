@@ -39,7 +39,7 @@ The [guarded boot-only installation tool](BOOT-INSTALLATION.md) checks an owner 
 2. Preserve third-party licenses and notices. Exclude components without established redistribution permission; document lawful owner extraction when redistribution is unavailable.
 3. Package a new boot image without personal ADB approvals or private signing keys. Keep ADB authentication enabled and network ADB opt-in. Document root, SELinux and GPU-access limitations.
 4. Audit the complete ROM, including sparse/ext4 system contents and bundled applications. A ramdisk-only audit is insufficient.
-5. Complete a clean build in a separate workspace and record its exact inputs and output hashes.
+5. Preserve build reproducibility evidence and record exact inputs and output hashes. The separate Acer clean build has already completed; another full build is not required merely to package existing outputs. Prefer the existing fixed image when its contents match the intended release. Follow [existing-image release preparation](EXISTING-IMAGE-RELEASE.md); compile again only for a specifically identified missing code change.
 6. Provide release downloads, checksums and model/layout checks, followed by explicit installation consent, per-device backup and OSIP-aware recovery instructions. `baylake` alone is not sufficient identification of an A1-840FHD.
 7. Record device regression results for the exact published artifacts and distinguish known limitations from untested behavior. See [final release acceptance criteria](RELEASE-CHECKLIST.md).
 
