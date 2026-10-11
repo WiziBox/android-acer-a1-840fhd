@@ -46,7 +46,7 @@
     "system_sparse_chunks": 18,
     "system_dont_care_bytes": 825344000,
     "system_embedded_crc_chunks": 0,
-    "system_filesystem_integrity_verified": false,
+    "system_filesystem_integrity_verified": true,
     "ramdisk_bytes": 1995233,
     "fresh_ramdisk_osip_packaging_verified": true,
     "new_osip_bytes": 8365056,
@@ -59,6 +59,19 @@
     "installed_or_boot_tested": false
   },
   "whole_rom_build_verified": true,
+  "limited_system_inventory": {
+    "regular_files": 2065,
+    "directories": 221,
+    "scanned_file_bytes": 1056537589,
+    "symlinks_not_followed": 370,
+    "key_credential_findings": 0,
+    "notice_html_gz_present": true,
+    "image_converted_logical_hash_match": true,
+    "read_only_e2fsck_completed_exit_zero": true,
+    "known_owner_calibration_files_present": 1,
+    "owner_calibration_clearance_verified": false,
+    "complete_license_review_verified": false
+  },
   "device_io": false,
   "image_publication_approved": false,
   "binary_published": false

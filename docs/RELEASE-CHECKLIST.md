@@ -25,6 +25,8 @@ The requested deliverable is a final, usable distribution. It is not complete un
   - [x] Remove Google packages and automatic TCP ADB from the public source product; retain authenticated ADB defaults.
   - [ ] Verify those exclusions/defaults in the complete built artifacts.
 - [ ] Audit the complete ROM's licenses and contents; do not treat boot audit success as publication approval.
+  - [x] Exercise bounded offline file/APK/JAR privacy inventory and read-only ext4 consistency checks on the exact newly built system image; record no limited key/credential findings and flag the known calibration path separately.
+  - [ ] Resolve vendor/calibration redistribution rights and complete the wider content/license review; the limited scanner does not approve publication.
 
 ## Privacy and security
 

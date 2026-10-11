@@ -27,6 +27,7 @@ Published inputs include 709 commit-pinned upstream projects, reviewed patches f
 - [Kernel source and build](kernel/README.md): official archive, verified 99-file port patch, configuration, donor provenance and exercised kernel/Wi-Fi-module build commands.
 - [OSIP boot packaging](docs/BOOT-PACKAGING.md): offline owner-template packaging, structural checks and explicit format/bootability limits.
 - [Offline system image checks](docs/SYSTEM-IMAGE-CHECK.md): streaming sparse/raw size and checksum checks, with freshly built image evidence and clear content-audit limits.
+- [Full system-image privacy inventory](docs/SYSTEM-CONTENT-AUDIT.md): exercised offline regular-file and APK/JAR scanning, redacted findings and explicit licensing/calibration limits.
 - [Build, download, installation and recovery status](docs/PORTABLE-WORKFLOW.md).
 - [License review and redistribution boundaries](docs/LICENSE-REVIEW.md).
 - [Private development candidate record](docs/CANDIDATES.md): identification only, not downloads or installation instructions.
