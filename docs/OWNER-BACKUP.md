@@ -8,6 +8,8 @@ These tools are for your own **Acer Iconia Tab 8 A1-840FHD**, not any device ide
 
 Default backup scope is the first 40 disk sectors plus `reserved` (234881024 bytes). These contain the OSIP/GPT header and boot/recovery/Droidboot area. `--include-system` adds the 1887436800-byte raw system partition. A writable system mount is refused, including recognized block aliases. Source hashes are compared after streaming each partition; the full header/layout is checked again at the end. This is not an atomic snapshot under concurrent privileged partition writes: stop OTA/update operations first.
 
+The OSIP validator supports the observed Android slots at LBA 36050 and 68050, and the main descriptor's recovery-invalidated `(0, 0)` load/entry pair. It still rejects arbitrary locations, mixed invalidated address pairs, overlaps and unrecognized recovery/Droidboot geometry. The original saved header is never rewritten during backup. Template extraction later normalizes only the exported Android container descriptor; see [packaging](BOOT-PACKAGING.md).
+
 **This is not a complete device backup.** Userdata, factory, config, FWUP, eMMC boot hardware areas and the alternate GPT are not all copied. Do not erase those regions or assume these backups recover every possible failure. A system backup of a running LineageOS port is a rollback copy of that port, not the original stock image required by vendor extraction.
 
 ## Read-only preflight
@@ -40,6 +42,6 @@ This validates the supported OSIP descriptors, primary GPT header/table CRCs, pa
 
 ## Evidence and remaining work
 
-The offline layout parser passed against the actual original owner header, confirming reserved start 40 / 458752 sectors and system index 9 / 3686400 sectors. Six synthetic layout tests cover CRC corruption, bounds, overlaps and incorrect roles. Seven backup tests cover model/live-layout refusal, writable mounts, dry-run/output preservation and binary-transfer/hash handling.
+The offline layout parser passed against the actual original owner header and two saved post-flash headers, including recovery-invalidated alternate-slot Android metadata. Each confirmed reserved start 40 / 458752 sectors and system index 9 / 3686400 sectors. Seven synthetic layout tests cover CRC corruption, bounds, overlaps, incorrect roles and alternate-slot metadata. Seven backup tests cover model/live-layout refusal, writable mounts, dry-run/output preservation and binary-transfer/hash handling.
 
 The new live backup backend has **not yet been exercised on a connected tablet**. Its tests and the original-header checks do not prove a complete device backup or successful restoration. Installation/recovery integration and exact-artifact hardware verification remain mandatory; this document is not authorization for an unattended flash.

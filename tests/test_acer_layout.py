@@ -4,7 +4,7 @@ import struct
 import sys
 import unittest
 import zlib
-from test_extract_boot_template import disk_header
+from test_extract_boot_template import disk_header, checksum
 
 ROOT = Path(__file__).parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
@@ -54,6 +54,15 @@ class LayoutTests(unittest.TestCase):
         header[512 + 16] ^= 1
         with self.assertRaises(ValueError):
             tool.layout(bytes(header))
+
+    def test_alternate_android_slot_does_not_change_gpt_roles(self):
+        header = owner_header()
+        struct.pack_into('<III', header, 36, 68050, 0, 0)
+        header[52] = 1
+        checksum(header)
+        report = tool.layout(bytes(header))
+        self.assertEqual(report['reserved']['start_sector'], 40)
+        self.assertEqual(report['system']['start_sector'], 5791784)
 
     def test_table_crc_refused(self):
         header = owner_header()

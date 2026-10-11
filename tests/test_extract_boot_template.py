@@ -60,6 +60,51 @@ class TemplateExtractTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             tool.records(bytes(header), tool.RESERVED_BYTES)
 
+    def test_alternate_slot_and_recovery_invalidated_main(self):
+        header = disk_header(100)
+        struct.pack_into('<III', header, 36, 68050, 0, 0)
+        header[52] = 1
+        checksum(header)
+        entries = tool.records(bytes(header), tool.RESERVED_BYTES)
+        self.assertEqual(entries[0][2:5], (68050, 0, 0))
+        self.assertEqual(entries[0][-2], (68050 - 40) * 512)
+
+    def test_mixed_invalidated_addresses_refused(self):
+        for offset in (40, 44, 64, 68):
+            header = disk_header(100)
+            struct.pack_into('<I', header, offset, 0)
+            checksum(header)
+            with self.assertRaises(ValueError):
+                tool.records(bytes(header), tool.RESERVED_BYTES)
+
+    def test_relocated_signed_slot_refused(self):
+        header = disk_header(100)
+        struct.pack_into('<I', header, 36, 68050)
+        checksum(header)
+        with self.assertRaises(ValueError):
+            tool.records(bytes(header), tool.RESERVED_BYTES)
+
+    def test_relocated_payload_normalized_not_rewritten(self):
+        owner = template(False)
+        payload = owner[512:]
+        header = disk_header(len(payload) // 512)
+        struct.pack_into('<III', header, 36, 68050, 0, 0)
+        header[52] = 1
+        checksum(header)
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / 'header.bin').write_bytes(header)
+            with (root / 'reserved.img').open('wb') as stream:
+                stream.truncate(tool.RESERVED_BYTES)
+                stream.seek((68050 - 40) * 512)
+                stream.write(payload)
+            report = tool.extract(root / 'header.bin', root / 'reserved.img', root / 'template.img')
+            result = (root / 'template.img').read_bytes()
+            self.assertEqual(result[512:], payload)
+            self.assertEqual(struct.unpack_from('<III', result, 36), (36050, *tool.LOAD_ENTRY))
+            self.assertTrue(report['descriptor_normalized'])
+            self.assertTrue(report['source_main_invalidated'])
+
     def test_wrong_layout_and_overlap_refused(self):
         for offset, value in ((36, 12345), (48, 32000 * 2)):
             header = disk_header(100)

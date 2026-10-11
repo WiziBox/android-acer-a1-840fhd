@@ -17,6 +17,11 @@ from pack_boot import template_prefix
 HEADER_BYTES = 40 * 512
 RESERVED_BYTES = 234881024
 LAYOUT = ((36050, (0, 1)), (100050, (13,)), (4050, (14,)))
+# Both Android slots were observed in owner backups after Droidboot writes.
+# Recovery can invalidate ONLY the main load/entry pair to (0, 0); official
+# intel_mid_osip.c restores it to the constants below on normal reboot.
+ANDROID_SLOTS = (36050, 68050)
+LOAD_ENTRY = (0x1100000, 0x1101000)
 
 
 def records(header, reserved_bytes):
@@ -33,7 +38,9 @@ def records(header, reserved_bytes):
     entries, intervals = [], []
     for index, (expected_lba, attributes) in enumerate(LAYOUT):
         minor, major, lba, load, entry, sectors, attribute = struct.unpack_from('<HHIIIIB', header, 32 + index * 24)
-        if (lba, load, entry) != (expected_lba, 0x1100000, 0x1101000) or attribute not in attributes:
+        slot_valid = lba in ANDROID_SLOTS if index == 0 else lba == expected_lba
+        addresses_valid = (load, entry) == LOAD_ENTRY or (index == 0 and (load, entry) == (0, 0))
+        if not slot_valid or not addresses_valid or attribute not in attributes or (index == 0 and lba == 68050 and attribute != 1):
             raise ValueError('different OSIP layout')
         start, length = (lba - 40) * 512, sectors * 512
         if not 0 < length <= 32000 * 512 or start < 0 or start + length > reserved_bytes:
@@ -65,7 +72,11 @@ def extract(header_path, reserved_path, output):
     container[7] = 0
     container[8:10] = b'\x01\x01'
     struct.pack_into('<H', container, 10, 56)
-    struct.pack_into('<HHIIIIB3x', container, 32, *android[:7])
+    # A canonical Droidboot input descriptor is not a raw eMMC write recipe.
+    # Payload bytes remain exact; the source location may be the alternate
+    # slot and the source load/entry may have been invalidated by recovery.
+    canonical = (android[0], android[1], 36050, *LOAD_ENTRY, android[5], android[6])
+    struct.pack_into('<HHIIIIB3x', container, 32, *canonical)
     for value in container[:56]:
         container[7] ^= value
     result = bytes(container) + payload
@@ -76,6 +87,9 @@ def extract(header_path, reserved_path, output):
         stream.write(result)
     output.chmod(0o600)
     return {'template_bytes': len(result), 'template_sha256': hashlib.sha256(result).hexdigest(),
+            'source_android_lba': android[2],
+            'source_main_invalidated': android[3:5] == (0, 0),
+            'descriptor_normalized': tuple(android[:7]) != canonical,
             'android_payload_preserved': True, 'old_ramdisk_preserved': True,
             'only_android_descriptor_exported': True, 'device_io': False,
             'backup_modified': False, 'whole_backup_integrity_verified': False,
