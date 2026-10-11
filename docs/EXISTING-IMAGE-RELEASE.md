@@ -31,3 +31,5 @@ Where vendor redistribution cannot be established, provide lawful owner extracti
 Record original and replacement identities privately, review the complete replacement contents, and test the exact replacement boot/system pair with per-device backup and recovery available. Previously tested originals do not establish that sanitized replacements boot. The guarded installation tools remain unexercised on hardware; complete restoration is still unfinished. See [release acceptance](RELEASE-CHECKLIST.md).
 
 No new full build, flash, reboot or binary publication is authorized by this document.
+
+After preparing and auditing a calibration-free base, the [owner-image composition tool](OWNER-IMAGE-COMPOSITION.md) can create a separate private calibrated copy without compiling. This does not clear the base's vendor licensing or establish release/hardware acceptance.
