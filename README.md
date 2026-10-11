@@ -38,6 +38,10 @@ Earlier `*.ko.md` reports are retained as historical Korean records. The English
 
 ## Development observations and limitations
 
+Earlier ports worked on the developer's device. That does not guarantee operation on your device, even with the same model name. No additional on-device installation or recovery testing will be performed for the newly published tools or repackaged candidates. Synthetic tests and historical development observations are not presented as hardware validation of a final release.
+
+This project is provided without warranty. Build, flash, restore and use it at your own risk. You are responsible for evaluating compatibility and maintaining your own original backups and recovery access. The developer and contributors disclaim liability for data loss, failure to boot, device damage and other losses to the extent permitted by the applicable licenses and law. This notice does not grant redistribution rights for third-party binaries.
+
 Development-device work has covered booting, graphics, navigation buttons, backlight, sleep/resume, storage permissions and networking. The selected graphics path does not include the separate imported-framebuffer experiment. These observations are not a claim that the entire newest image has passed a release regression test.
 
 A production Wi-Fi firmware replacement was used after firmware crashes; long-term stability remains unproven. Charging input improved with a different cable; charging safety limits were not bypassed. Camera, DRM playback and compatibility with every application are not guaranteed.
