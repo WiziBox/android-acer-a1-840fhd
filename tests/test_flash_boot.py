@@ -90,6 +90,49 @@ class FlashBootTests(unittest.TestCase):
             self.invoke(client)
         self.assertEqual(client.calls, [])
 
+    def restore_fixture(self, signed=False):
+        self.image.write_bytes(fixtures.template(signed))
+        self.sha = hashlib.sha256(self.image.read_bytes()).hexdigest()
+        data = self.image.read_bytes()
+        return patch.object(tool, 'extract_owner_boot', side_effect=lambda header, reserved, output: output.write_bytes(data))
+
+    def test_restore_exact_owner_boot_dry_run_preserves_old_policy(self):
+        for signed in (False, True):
+            with self.restore_fixture(signed):
+                client = Client()
+                result = self.invoke(client, restore_owner_boot=True)
+                self.assertTrue(result['saved_owner_boot_restore'])
+                self.assertTrue(result['old_owner_security_policy_preserved'])
+                self.assertFalse(result['complete_factory_restore'])
+                self.assertEqual(len(client.calls), 2)
+
+    def test_restore_exact_owner_boot_only_with_risk_acceptance(self):
+        with self.restore_fixture(True):
+            client = Client()
+            result = self.invoke(client, restore_owner_boot=True, apply=True, accept_no_live_layout=True)
+            self.assertTrue(result['boot_write_acknowledged'])
+            self.assertEqual(client.calls[-1][0:2], ['flash', 'boot'])
+            self.assertFalse(result['reboot'])
+
+    def test_restore_never_accepts_an_arbitrary_old_policy_image(self):
+        with self.restore_fixture():
+            changed = bytearray(self.image.read_bytes())
+            changed[-1] = 1
+            self.image.write_bytes(changed)
+            self.sha = hashlib.sha256(changed).hexdigest()
+            client = Client()
+            with self.assertRaises(ValueError):
+                self.invoke(client, restore_owner_boot=True)
+            self.assertEqual(client.calls, [])
+
+    def test_restore_owner_payload_difference_refused_before_device_io(self):
+        with self.restore_fixture():
+            client = Client()
+            with patch.object(tool, 'extract_owner_boot', side_effect=lambda h, r, output: output.write_bytes(b'DIFFERENT_OWNER_BACKUP')):
+                with self.assertRaises(ValueError):
+                    self.invoke(client, restore_owner_boot=True)
+            self.assertEqual(client.calls, [])
+
     def test_incomplete_acknowledgement_not_success(self):
         client = Client(acknowledgement=False)
         with self.assertRaises(ValueError):
@@ -125,6 +168,16 @@ class FlashBootTests(unittest.TestCase):
             client = Client()
             self.assertTrue(self.invoke(client)['backup_checksums_matched'])
             self.assertEqual(len(client.calls), 2)
+
+            original = self.root / 'exact-owner-rollback.img'
+            tool.extract_owner_boot(hp, rp, original)
+            original_sha = hashlib.sha256(original.read_bytes()).hexdigest()
+            restore_client = Client()
+            restored = tool.install(restore_client, original, original_sha,
+                                    self.root, 'SYNTHETIC', restore_owner_boot=True)
+            self.assertTrue(restored['saved_owner_boot_restore'])
+            self.assertFalse(restored['applied'])
+            self.assertEqual(len(restore_client.calls), 2)
 
     def test_wrong_receipt_serial_before_device_io(self):
         (self.root / 'private-backup-receipt.json').write_text(json.dumps({'serial': 'OTHER'}))

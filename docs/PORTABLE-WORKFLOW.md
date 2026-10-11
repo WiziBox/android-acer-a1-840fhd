@@ -33,6 +33,8 @@ The output must not already exist. The tool removes named ADB public approval fi
 
 The [owner-backup tools](OWNER-BACKUP.md) now provide an implemented prerequisite: offline original-header checks and a dry-run-first Android 9 root-ADB backup backend. The live backend and restoration still require device exercise; it is not a generic fastboot flashing recipe.
 
+[Owner boot/system rollback components](OWNER-ROLLBACK.md) now include exact saved-boot comparison and the guarded system backend. They remain hardware-unexercised and do not restore every factory region; they are not evidence of a completed recovery workflow.
+
 The [guarded boot-only installation tool](BOOT-INSTALLATION.md) checks an owner backup receipt, the exact boot candidate hash/format and matching Droidboot serial/product before any opt-in boot write. The separate [system installation tool](SYSTEM-INSTALLATION.md) checks a current recovery layout and unmounted system against a system-inclusive owner backup, and compares complete raw readback after an explicit write. Its legacy header-staging mode requires separate opt-in for temporary device-file writes. These backends have synthetic coverage only; they do not establish actual boot or complete restoration, and the full release workflow below remains unfinished.
 
 1. Supply the reviewed device tree, vendor input/extraction workflow, kernel source and toolchain, WebView LFS objects and boot-packaging inputs. Record exact revisions and hashes; do not rely on the developer's existing output directory or absolute paths.

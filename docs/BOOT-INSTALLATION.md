@@ -2,6 +2,8 @@
 
 This component supports the Acer Iconia Tab 8 A1-840FHD's Android **boot** container through Droidboot. It is not the complete ROM installer: system installation, exact-artifact boot testing and OSIP-aware recovery remain separate requirements. The new tool has synthetic tests, including an actual synthetic backup/receipt parser integration, but has **not been exercised on a tablet**. Do not treat its acknowledgement as readback or successful boot.
 
+The instructions below are for normal new-ROM installation. A separate explicit [exact-owner boot rollback mode](OWNER-ROLLBACK.md) accepts only the container independently extracted from the same checked private backup. It preserves that saved firmware's security policy and supported signature wrapper; it does not relax normal candidate requirements or provide complete factory restoration.
+
 ## Prerequisites
 
 - Your own new unsigned OSIP boot candidate from [boot packaging](BOOT-PACKAGING.md), its independently recorded SHA-256, and the matching installed system/kernel-module pair. Mixing versions can prevent boot.

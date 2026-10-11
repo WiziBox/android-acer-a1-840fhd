@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 """Guarded Acer Android boot-only Droidboot workflow; dry-run by default.
 
-Does not install system, restore a backup, erase data or reboot. A backup
+Does not install system, restore factory regions, erase data or reboot. A backup
 receipt identifies the previously checked tablet, not its current GPT layout.
 """
 import argparse
@@ -13,10 +13,12 @@ import re
 import subprocess
 import struct
 import sys
+import tempfile
 import zlib
 from audit_boot import audit_bytes, MAX_IMAGE
 from pack_boot import template_prefix, MAX_PAYLOAD
 from verify_owner_backup import verify
+from extract_boot_template import extract as extract_owner_boot
 
 
 class Fastboot:
@@ -35,7 +37,7 @@ class Fastboot:
 
 
 def install(client, image, expected_sha256, backup_dir, serial, apply=False,
-            accept_no_live_layout=False):
+            accept_no_live_layout=False, restore_owner_boot=False):
     if not re.fullmatch(r'[0-9a-f]{64}', expected_sha256):
         raise ValueError('explicit lowercase SHA-256 required')
     if image.is_symlink() or not image.is_file() or not 0 < image.stat().st_size <= min(MAX_IMAGE, MAX_PAYLOAD + 512):
@@ -44,7 +46,7 @@ def install(client, image, expected_sha256, backup_dir, serial, apply=False,
     if hashlib.sha256(data).hexdigest() != expected_sha256:
         raise ValueError('image checksum mismatch')
     _, attribute = template_prefix(data)
-    if attribute != 1 or not audit_bytes(data, 'acer-a1-840fhd')['boot_key_audit_passed']:
+    if not restore_owner_boot and (attribute != 1 or not audit_bytes(data, 'acer-a1-840fhd')['boot_key_audit_passed']):
         raise ValueError('new unsigned secure-ADB image required')
     receipt_path = backup_dir / 'private-backup-receipt.json'
     if receipt_path.is_symlink() or not receipt_path.is_file() or receipt_path.stat().st_size > 65536:
@@ -59,6 +61,16 @@ def install(client, image, expected_sha256, backup_dir, serial, apply=False,
                       receipt_path=receipt_path)
     if not verified['saved_receipt_checksums_matched']:
         raise ValueError('matching backup checksums required')
+    if restore_owner_boot:
+        # Restoration is not an arbitrary bypass of the new-ROM key audit.
+        # Only the exact canonical container extracted from the matching
+        # checked owner backup is accepted, including any old signed wrapper.
+        with tempfile.TemporaryDirectory(prefix='private-owner-rollback-') as folder:
+            original = Path(folder) / 'owner-boot.img'
+            extract_owner_boot(backup_dir / 'acer-disk-header.bin',
+                               backup_dir / 'acer-reserved.img', original)
+            if original.read_bytes() != data:
+                raise ValueError('restore image is not the exact saved owner boot')
     for variable, expected in (('product', 'baylake'), ('serialno', serial)):
         response = client.run(['getvar', variable])
         found = re.findall(r'(?m)^(?:\(bootloader\)\s*)?' + variable + r':\s*(\S+)\s*$', response)
@@ -70,6 +82,9 @@ def install(client, image, expected_sha256, backup_dir, serial, apply=False,
               'boot_write_acknowledged': False, 'boot_readback_verified': False,
               'system_written': False, 'data_erased': False, 'reboot': False,
               'installation_boot_verified': False, 'publication_approved': False}
+    report['saved_owner_boot_restore'] = restore_owner_boot
+    report['old_owner_security_policy_preserved'] = restore_owner_boot
+    report['complete_factory_restore'] = False
     if not apply:
         return report
     if not accept_no_live_layout:
@@ -94,11 +109,13 @@ def main(argv=None):
     parser.add_argument('--owner-backup', required=True, type=Path)
     parser.add_argument('--apply', action='store_true')
     parser.add_argument('--accept-no-live-layout-readback', action='store_true')
+    parser.add_argument('--restore-owner-boot', action='store_true',
+                        help='accept ONLY the exact boot extracted from the matching private owner backup')
     args = parser.parse_args(argv)
     try:
         report = install(Fastboot(args.fastboot, args.serial), args.image, args.sha256,
                          args.owner_backup, args.serial, args.apply,
-                         args.accept_no_live_layout_readback)
+                         args.accept_no_live_layout_readback, args.restore_owner_boot)
         print(json.dumps(report, indent=2))
         return 0
     except (OSError, ValueError, KeyError, TypeError, EOFError, struct.error, zlib.error, subprocess.SubprocessError):
