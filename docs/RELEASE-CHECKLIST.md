@@ -8,7 +8,7 @@ The requested deliverable is a final, usable distribution. It is not complete un
 - [x] Publish 11 reviewed upstream patch sets with base commits, hashes and preserved notices.
 - [ ] Publish the complete reviewed device tree and all remaining required port changes.
   - [x] Publish and exercise staging of 34 indexed device files plus two locally generated GLES inputs, with product/board/rootdir/audio/lights/storage integration.
-  - [ ] Verify source-built namespace library copy modules and remaining firmware/kernel packaging in the full Android build.
+  - [x] Verify the four source-built namespace library copies and paired Wi-Fi module in the full Android build; package its new ramdisk with the new kernel.
 - [ ] Provide the complete corresponding source, configuration, toolchain and build/installation inputs for the selected modified kernel, including changes temporarily applied during kernel build #18.
   - [x] Reconstruct and verify 99 source modifications from the exact official archive, including all three build-time #18 overrides; preserve GPL/donor notices and the configuration.
   - [x] Build a fresh kernel and matching BCM43241 module using the public tool, retaining signature enforcement and generating the signing key locally.
@@ -35,7 +35,7 @@ The requested deliverable is a final, usable distribution. It is not complete un
 
 ## Build and installation
 
-- [ ] Complete a clean build outside the original development tree using only documented inputs.
+- [x] Complete a clean build outside the original development tree using the documented pinned source, staged owner inputs and public build tools; verify full outputs and new ramdisk packaging.
 - [ ] Provide downloadable, reviewed release artifacts, their SHA256 checksums and exact source/tooling revisions.
 - [ ] Provide an English installation manual and device-aware tools with model/layout checks and explicit write consent.
 - [ ] Provide per-device backup and recovery steps for the OSIP/reserved-area layout without writing another tablet's factory data.
@@ -44,8 +44,8 @@ The requested deliverable is a final, usable distribution. It is not complete un
 
 ## Current evidence
 
-As of 2026-10-11, fresh upstream initialization, network fetching and local checkout succeeded; all 11 public patches were checked and applied in the separate verification tree. The exact x86 WebView LFS object was materialized and its public download procedure was exercised. The local tooling suite has 78 passing tests. Clean ROM build and release-artifact installation/recovery have not been established. No final ROM is approved for publication yet.
+As of 2026-10-11, fresh upstream initialization, network fetching and local checkout succeeded; all 11 public patches were checked and applied in the separate verification tree. The exact x86 WebView LFS object was materialized and its public download procedure was exercised. The fresh kernel/module and full `systemimage ramdisk` build completed. The new system image passed sparse/ext4 declared-size checks, and the fresh ramdisk was packaged into an OSIP candidate that passed the limited key audit. Four namespace copies match fresh library sources, and the system Wi-Fi module matches the new kernel build's signed module. `system/etc/NOTICE.html.gz` is present; its presence alone does not complete licensing review. Full-image privacy/licensing review and release-artifact installation/recovery are not established. No final ROM is approved for publication yet.
 
 Final does not imply perfect application compatibility. It does require a usable, honestly documented build/download/install/recover path, with evidence rather than unchecked promises.
 
-The subsequent unsigned-boot sanitizer adds 10 synthetic tests (36 total per repository). Local tests passed and a separate Acer candidate passed the limited boot-key audit with its kernel allocation preserved. This does not check off the whole-ROM privacy, clean-build or device-installation criteria.
+The earlier 92-test Windows/Linux CI pass remains separate from new local checks. Five new owner-template tests and seven new sparse-image tests passed locally. A current full local rerun encountered unrelated sandbox Git/hard-link permission errors and is not represented as a new all-tests pass. Tool tests and boot-key checks do not check off whole-ROM privacy or device-installation criteria.

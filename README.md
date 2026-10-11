@@ -14,18 +14,19 @@ An unofficial Android 9 / LineageOS 16.0 port for the **Acer Iconia Tab 8 A1-840
 
 The required deliverable is a complete distribution: build from a fresh workspace, download verified images, and install or recover using this repository's documented tools. **That end-to-end deliverable is not complete yet. There is no approved final ROM download in this repository.** The repository will not be labelled final merely because its documentation or tooling tests pass.
 
-Published inputs currently include 709 commit-pinned upstream projects and reviewed patches for 11 projects (23 source files). Device/vendor inputs, complete corresponding kernel source, boot packaging and the end-to-end installation path still need completion. See the [final release acceptance criteria](docs/RELEASE-CHECKLIST.md).
+Published inputs include 709 commit-pinned upstream projects, reviewed patches for 11 projects (23 source files), the staged device tree, owner vendor/firmware input tools, corresponding kernel reconstruction/build tools and OSIP packaging. The independent kernel/module and Android builds have progressed; full image review, fresh-ramdisk packaging and the end-to-end installation/recovery path remain incomplete. See the [final release acceptance criteria](docs/RELEASE-CHECKLIST.md).
 
 ## Manuals
 
 - [Source preparation](manifests/README.md): the working upstream initialization and patch workflow; not yet a complete Android build.
 - [Exact WebView input](docs/WEBVIEW-INPUT.md): exercised official download, hash verification and x86 source materialization.
-- [Owner-supplied vendor inputs](docs/VENDOR-INPUTS.md): verified stock graphics import; other vendor inputs remain in progress.
+- [Owner-supplied vendor inputs](docs/VENDOR-INPUTS.md): checked graphics/audio import; these private inputs are not redistributed.
 - [Firmware and matching Wi-Fi module](docs/FIRMWARE-INPUTS.md): checked private-build staging that preserves your device's calibration.
 - [Graphics adapter sources](source/README.md): namespace adapters and locally generated GLES bridge inputs.
 - [Device tree and Android build integration](docs/DEVICE-SOURCES.md): reviewed product/configuration sources, staging and source-built namespace library rules.
 - [Kernel source and build](kernel/README.md): official archive, verified 99-file port patch, configuration, donor provenance and exercised kernel/Wi-Fi-module build commands.
 - [OSIP boot packaging](docs/BOOT-PACKAGING.md): offline owner-template packaging, structural checks and explicit format/bootability limits.
+- [Offline system image checks](docs/SYSTEM-IMAGE-CHECK.md): streaming sparse/raw size and checksum checks, with freshly built image evidence and clear content-audit limits.
 - [Build, download, installation and recovery status](docs/PORTABLE-WORKFLOW.md).
 - [License review and redistribution boundaries](docs/LICENSE-REVIEW.md).
 - [Private development candidate record](docs/CANDIDATES.md): identification only, not downloads or installation instructions.
