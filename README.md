@@ -29,6 +29,7 @@ Published inputs include 709 commit-pinned upstream projects, reviewed patches f
 - [Offline system image checks](docs/SYSTEM-IMAGE-CHECK.md): streaming sparse/raw size and checksum checks, with freshly built image evidence and clear content-audit limits.
 - [Full system-image privacy inventory](docs/SYSTEM-CONTENT-AUDIT.md): exercised offline regular-file and APK/JAR scanning, redacted findings and explicit licensing/calibration limits.
 - [Owner backup before installation](docs/OWNER-BACKUP.md): model/sysfs/OSIP/GPT checks, explicit private backup creation and current backend/verification limits.
+- [System installation](docs/SYSTEM-INSTALLATION.md), [boot installation](docs/BOOT-INSTALLATION.md) and [owner rollback](docs/OWNER-ROLLBACK.md): guarded, hardware-unverified procedures; read the prerequisites before making device writes.
 - [Build, download, installation and recovery status](docs/PORTABLE-WORKFLOW.md).
 - [License review and redistribution boundaries](docs/LICENSE-REVIEW.md).
 - [Private development candidate record](docs/CANDIDATES.md): identification only, not downloads or installation instructions.
