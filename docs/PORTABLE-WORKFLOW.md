@@ -21,7 +21,7 @@ A pass is not complete forensic assurance: system/vendor contents, embedded kern
 
 ## Create a separate sanitized boot candidate
 
-For the supported unsigned Android v0 or single-descriptor Acer OSIP layouts:
+For the supported unsigned single-descriptor OSIP layout:
 
 ```sh
 python3 tools/sanitize_boot.py --device acer-a1-840fhd --input /path/to/private-boot.img --output /path/to/new-candidate.img

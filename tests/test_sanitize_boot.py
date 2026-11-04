@@ -90,11 +90,11 @@ class SanitizeTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             source = Path(folder) / 'source.img'
             output = Path(folder) / 'output.img'
-            source.write_bytes(android(self.entries))
+            source.write_bytes(unsigned_osip(self.entries))
             output.write_bytes(b'KEEP')
-            self.assertEqual(sanitizer.main(['--device', 'dangol', '--input', str(source), '--output', str(output)]), 2)
+            self.assertEqual(sanitizer.main(['--device', 'acer-a1-840fhd', '--input', str(source), '--output', str(output)]), 2)
             self.assertEqual(output.read_bytes(), b'KEEP')
-            self.assertEqual(source.read_bytes(), android(self.entries))
+            self.assertEqual(source.read_bytes(), unsigned_osip(self.entries))
 
 
 if __name__ == '__main__':
