@@ -12,12 +12,12 @@ These are **modified** upstream sources distributed as textual patches, not unmo
 
 ## Modified files and purposes
 
-- frameworks/native: `libs/ui/Gralloc2.cpp` (allocation diagnostics), `services/inputflinger/InputReader.cpp` (legacy touch rotation), `services/surfaceflinger/SurfaceFlinger.cpp` (legacy display compatibility and client composition)
+- frameworks/native: `libs/ui/Gralloc2.cpp` (allocation diagnostics), `services/surfaceflinger/SurfaceFlinger.cpp` (legacy display compatibility and client composition)
 - frameworks/base: `core/jni/fd_utils.cpp` (isolated-process optional trace access), `libs/hwui/Properties.cpp` (SystemUI renderer selection), `services/core/java/com/android/server/display/ColorFade.java` (legacy display capture guard), `services/core/java/com/android/server/net/NetworkPolicyManagerService.java` (legacy network compatibility)
 - frameworks/av: `media/libstagefright/ACodec.cpp` (legacy codec extension/crop handling), `media/libstagefright/colorconversion/SoftwareRenderer.cpp` (software rendering compatibility)
 - system/core: `libsuspend/autosuspend_wakeup_count.cpp` (legacy resume handling)
 - system/netd: `server/TetherController.cpp` (legacy counter-chain initialization)
 
-The eleven files listed above belong to the first five projects and carry Apache-2.0 headers. Six more projects (twelve files) are recorded in additional-provenance.json, bringing the total to eleven projects and twenty-three files. Skia uses its original BSD-3-Clause license, not Apache-2.0. Original file headers and available upstream NOTICE/LICENSE files are preserved. All eleven patches were checked against their actual base commits using disposable Git indexes, with no live source or index changes. This is not a complete build or functional validation.
+The ten files listed above belong to the first five projects and carry Apache-2.0 headers. Six more projects (twelve files) are recorded in additional-provenance.json, bringing the total to eleven projects and twenty-two files. Skia uses its original BSD-3-Clause license, not Apache-2.0. Original file headers and available upstream NOTICE/LICENSE files are preserved. The earlier patch set was checked against base commits using disposable Git indexes; this does not establish a complete build or functional validation.
 
 No proprietary library implementation, firmware, Google APK, kernel binary or device backup is included. This subset must not be mistaken for a complete corresponding kernel source distribution or a complete ROM source tree.

@@ -31,33 +31,6 @@ index 918251f9dc4b283d4f57073a3c99e53c4866a7c3..3b63114c8ce3da14df27563ecdac36b9
      return (ret.isOk()) ? error : kTransactionError;
  }
  
-diff --git a/services/inputflinger/InputReader.cpp b/services/inputflinger/InputReader.cpp
-index 59337bb3b02e54456723efa9b3dc29f81126dfba..07eb492757ad3e417e02377c3bebbbdd6ffdbb71 100644
---- a/services/inputflinger/InputReader.cpp
-+++ b/services/inputflinger/InputReader.cpp
-@@ -43,6 +43,7 @@
- #define DEBUG_STYLUS_FUSION 0
- 
- #include "InputReader.h"
-+#include <cutils/properties.h>
- 
- #include <errno.h>
- #include <inttypes.h>
-@@ -3560,6 +3561,14 @@ void TouchInputMapper::configureSurface(nsecs_t when, bool* outResetNeeded) {
-     } else {
-         newViewport.setNonDisplayViewport(rawWidth, rawHeight);
-     }
-+    // TAB4418's primary display is installed at 270 degrees, but its
-+    // Goodix sensor still reports the portrait panel's native coordinates.
-+    if (getDeviceName() == String8("goodix_ts") && mParameters.hasAssociatedDisplay) {
-+        const int installRotation = property_get_int32("debug.input.dangol_install_rotation", 0);
-+        if (installRotation >= 0 && installRotation <= 3) {
-+            newViewport.orientation = (newViewport.orientation + installRotation) % 4;
-+        }
-+    }
-     bool viewportChanged = mViewport != newViewport;
-     if (viewportChanged) {
-         mViewport = newViewport;
 diff --git a/services/surfaceflinger/SurfaceFlinger.cpp b/services/surfaceflinger/SurfaceFlinger.cpp
 index f513b9fd7f4bb931bb1b60b2805769b59d463618..93c0c9ed5c242ec221235dc9921fc9268c7415da 100644
 --- a/services/surfaceflinger/SurfaceFlinger.cpp
@@ -112,16 +85,4 @@ index f513b9fd7f4bb931bb1b60b2805769b59d463618..93c0c9ed5c242ec221235dc9921fc926
                      mPreviousPresentFence != Fence::NO_FENCE &&
                      (mPreviousPresentFence->getSignalTime() ==
                              Fence::SIGNAL_TIME_PENDING);
-@@ -2580,6 +2605,12 @@ void SurfaceFlinger::processDisplayChangesLocked() {
- 
-                     hwcId = state.type;
-                     dispSurface = new FramebufferSurface(*getBE().mHwc, hwcId, bqConsumer);
-+                    // Old Mali EGL may enqueue ahead while drawing. A synchronous
-+                    // framebuffer queue can block SF before it consumes the queue.
-+                    if (property_get_bool("debug.sf.dangol_async_fb", false)) {
-+                        const status_t asyncStatus = bqProducer->setAsyncMode(true);
-+                        ALOGI("Dangol async framebuffer queue: %d", asyncStatus);
-+                    }
-                     producer = bqProducer;
-                 }
  

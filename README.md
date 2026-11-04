@@ -14,7 +14,7 @@ An unofficial Android 9 / LineageOS 16.0 port for the **Acer Iconia Tab 8 A1-840
 
 The required deliverable is a complete distribution: build from a fresh workspace, download verified images, and install or recover using this repository's documented tools. **That end-to-end deliverable is not complete yet. There is no approved final ROM download in this repository.** The repository will not be labelled final merely because its documentation or tooling tests pass.
 
-Published inputs include 709 commit-pinned upstream projects, reviewed patches for 11 projects (23 source files), the staged device tree, owner vendor/firmware input tools, corresponding kernel reconstruction/build tools and OSIP packaging. The independent kernel/module and Android builds have progressed; full image review, fresh-ramdisk packaging and the end-to-end installation/recovery path remain incomplete. See the [final release acceptance criteria](docs/RELEASE-CHECKLIST.md).
+Published inputs include 709 commit-pinned upstream projects, reviewed patches for 11 projects (22 source files), the staged device tree, owner vendor/firmware input tools, corresponding kernel reconstruction/build tools and OSIP packaging. The independent kernel/module and Android builds have progressed; full image review, fresh-ramdisk packaging and the end-to-end installation/recovery path remain incomplete. See the [final release acceptance criteria](docs/RELEASE-CHECKLIST.md).
 
 ## Manuals
 
