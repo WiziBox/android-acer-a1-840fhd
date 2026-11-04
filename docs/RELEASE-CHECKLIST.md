@@ -41,8 +41,8 @@ The requested deliverable is a final, usable distribution. It is not complete un
 - [ ] Provide downloadable, reviewed release artifacts, their SHA256 checksums and exact source/tooling revisions.
 - [ ] Provide an English installation manual and device-aware tools with model/layout checks and explicit write consent.
 - [ ] Provide per-device backup and recovery steps for the OSIP/reserved-area layout without writing another tablet's factory data.
-- [ ] Exercise the documented installation/recovery path and record evidence for the exact published artifacts.
-- [ ] Record boot, display, touch, navigation, audio/video, Wi-Fi, storage and sleep/resume regression results, plus known limitations.
+- [ ] Document that the installation/recovery path for these published tools and artifacts has not been tested on a device. The project owner declined additional hardware testing; historical results are not evidence for these exact artifacts.
+- [ ] Document known boot, display, touch, navigation, audio/video, Wi-Fi, storage and sleep/resume limitations from the available historical evidence, without claiming a new regression test.
 
 ## Current evidence
 
