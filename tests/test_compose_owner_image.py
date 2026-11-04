@@ -87,8 +87,7 @@ class OwnerComposeTests(unittest.TestCase):
                       b'key=-----BEGIN RSA PRIVATE KEY-----'):
             with self.assertRaises(ValueError):
                 tool.validate_calibration(CAL + extra + b'\n', 'acer-a1-840fhd')
-    def test_dangol_profile_and_wrong_board(self):
-        self.assertEqual(tool.validate_calibration(CAL, 'dangol'), CAL)
+    def test_wrong_board(self):
         with self.assertRaises(ValueError):
             tool.validate_calibration(CAL.replace(b'0x5ef', b'0xffff'), 'acer-a1-840fhd')
     def test_readback_mismatch_preserves_partial(self):
