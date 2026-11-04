@@ -50,7 +50,7 @@ class ImportVendorTests(unittest.TestCase):
 
     def test_wrong_device(self):
         with self.assertRaises(ValueError):
-            tool.import_inputs(self.manifest, self.root, self.output, 'dangol')
+            tool.import_inputs(self.manifest, self.root, self.output, 'unsupported-device')
 
     def test_wrong_checksum(self):
         self.manifest['files'][0]['sha256'] = '0' * 64
@@ -117,7 +117,7 @@ class ImportVendorTests(unittest.TestCase):
         self.assertEqual(len(combined['files']), 87)
         self.assertEqual(len({item['install'] for item in combined['files']}), 87)
         with self.assertRaises(ValueError):
-            tool.combine(manifests, 'dangol')
+            tool.combine(manifests, 'unsupported-device')
 
 
 if __name__ == '__main__':
