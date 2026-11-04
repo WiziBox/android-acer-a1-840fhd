@@ -24,13 +24,6 @@ def archive(entries):
     return bytes(result)
 
 
-def android(entries):
-    ramdisk = gzip.compress(archive(entries), mtime=0)
-    header = bytearray(2048)
-    header[:8] = b'ANDROID!'
-    struct.pack_into('<9I', header, 8, 4, 0, len(ramdisk), 0, 0, 0, 0, 2048, 0)
-    return bytes(header) + b'KERN' + bytes(2044) + ramdisk
-
 
 def osip(entries):
     ramdisk = gzip.compress(archive(entries), mtime=0)
@@ -48,8 +41,8 @@ def osip(entries):
 
 
 class AuditTests(unittest.TestCase):
-    def test_clean_android(self):
-        result = audit.audit_bytes(android([('default.prop', b'ro.adb.secure=1\nro.secure=1\n')]), 'dangol')
+    def test_clean_osip(self):
+        result = audit.audit_bytes(osip([('default.prop', b'ro.adb.secure=1\nro.secure=1\n')]), 'acer-a1-840fhd')
         self.assertTrue(result['boot_key_audit_passed'])
         self.assertFalse(result['publication_approved'])
 
@@ -57,20 +50,20 @@ class AuditTests(unittest.TestCase):
         self.assertTrue(audit.audit_bytes(osip([('default.prop', b'ro.adb.secure=1\n')]), 'acer-a1-840fhd')['boot_key_audit_passed'])
 
     def test_adb_keys_rejected_even_empty(self):
-        result = audit.audit_bytes(android([('default.prop', b'ro.adb.secure=1\n'), ('./adb_keys', b'')]), 'dangol')
+        result = audit.audit_bytes(osip([('default.prop', b'ro.adb.secure=1\n'), ('./adb_keys', b'')]), 'acer-a1-840fhd')
         self.assertFalse(result['boot_key_audit_passed'])
 
     def test_private_key_without_key_filename(self):
-        result = audit.audit_bytes(android([('default.prop', b'ro.adb.secure=1\n'), ('notes', b'-----BEGIN PRIVATE KEY-----\nplaceholder')]), 'dangol')
+        result = audit.audit_bytes(osip([('default.prop', b'ro.adb.secure=1\n'), ('notes', b'-----BEGIN PRIVATE KEY-----\nplaceholder')]), 'acer-a1-840fhd')
         self.assertFalse(result['boot_key_audit_passed'])
         self.assertNotIn('placeholder', str(result))
 
     def test_root_default_rejected(self):
-        result = audit.audit_bytes(android([('default.prop', b'ro.adb.secure=1\nro.secure=0\n')]), 'dangol')
+        result = audit.audit_bytes(osip([('default.prop', b'ro.adb.secure=1\nro.secure=0\n')]), 'acer-a1-840fhd')
         self.assertFalse(result['boot_key_audit_passed'])
 
     def test_authentication_required(self):
-        self.assertFalse(audit.audit_bytes(android([]), 'dangol')['boot_key_audit_passed'])
+        self.assertFalse(audit.audit_bytes(osip([]), 'acer-a1-840fhd')['boot_key_audit_passed'])
 
     def test_path_traversal(self):
         with self.assertRaises(ValueError):
@@ -92,12 +85,12 @@ class AuditTests(unittest.TestCase):
 
     def test_wrong_device(self):
         with self.assertRaises(ValueError):
-            audit.audit_bytes(osip([]), 'dangol')
+            audit.audit_bytes(osip([]), 'unsupported-device')
 
     def test_hidden_adb_public_key(self):
         public_fixture = struct.pack('<I', 64) + bytes(520)
         encoded = base64.b64encode(public_fixture)
-        result = audit.audit_bytes(android([('default.prop', b'ro.adb.secure=1\n'), ('unexpected', encoded)]), 'dangol')
+        result = audit.audit_bytes(osip([('default.prop', b'ro.adb.secure=1\n'), ('unexpected', encoded)]), 'acer-a1-840fhd')
         self.assertFalse(result['boot_key_audit_passed'])
 
     def test_absolute_archive_path(self):
@@ -109,7 +102,7 @@ class AuditTests(unittest.TestCase):
         try:
             audit.MAX_RAMDISK = 64
             with self.assertRaises(ValueError):
-                audit.audit_bytes(android([('data', bytes(1024))]), 'dangol')
+                audit.audit_bytes(osip([('data', bytes(1024))]), 'acer-a1-840fhd')
         finally:
             audit.MAX_RAMDISK = original_limit
 
@@ -118,7 +111,7 @@ class AuditTests(unittest.TestCase):
             audit.audit_bytes(osip([]) + bytes(512), 'acer-a1-840fhd')
 
     def test_no_private_content_in_report(self):
-        result = audit.audit_bytes(android([('default.prop', b'ro.adb.secure=1\n'), ('adb_keys', b'PRIVATE_HOST_MARKER')]), 'dangol')
+        result = audit.audit_bytes(osip([('default.prop', b'ro.adb.secure=1\n'), ('adb_keys', b'PRIVATE_HOST_MARKER')]), 'acer-a1-840fhd')
         self.assertNotIn('PRIVATE_HOST_MARKER', str(result))
 
 

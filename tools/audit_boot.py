@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Read-only Android v0 / Acer OSIP ramdisk publication audit.
+"""Read-only Acer OSIP ramdisk publication audit.
 
 Never extracts archive paths, contacts a device, prints key contents or modifies
 an image. This is a limited boot audit, NOT an entire-ROM license/security gate.
@@ -27,15 +27,7 @@ def align(value, boundary):
 def ramdisk_from_boot(image, device):
     if len(image) > MAX_IMAGE:
         raise ValueError('boot image exceeds inspection size limit')
-    if device == 'dangol':
-        if len(image) < 1632 or image[:8] != b'ANDROID!':
-            raise ValueError('expected Android boot v0 image')
-        kernel_size, _, ramdisk_size, _, _, _, _, page, version = struct.unpack_from('<9I', image, 8)
-        if version != 0 or page != 2048 or not kernel_size:
-            raise ValueError('unsupported dangol header version/page size')
-        start = page + align(kernel_size, page)
-        kind = 'android-v0'
-    elif device == 'acer-a1-840fhd':
+    if device == 'acer-a1-840fhd':
         if len(image) < 0x3200 or image[:4] != b'$OS$':
             raise ValueError('expected Acer OSIP boot container')
         checksum = 0

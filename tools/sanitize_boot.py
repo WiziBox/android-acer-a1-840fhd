@@ -72,42 +72,7 @@ def clean_archive(raw):
 
 
 def repackage(image, compressed, device):
-    if device == 'dangol':
-        kernel_size = struct.unpack_from('<I', image, 8)[0]
-        old_size = struct.unpack_from('<I', image, 16)[0]
-        second_size = struct.unpack_from('<I', image, 24)[0]
-        # v0 unused field must stay zero; do not rewrite legacy external DT layouts.
-        if struct.unpack_from('<I', image, 44)[0]:
-            raise ValueError('unsupported Android boot header extension')
-        page = 2048
-        start = page + align(kernel_size, page)
-        second_start = start + align(old_size, page)
-        if not second_size and second_start > len(image):
-            # Some unsigned v0 files omit the final zero padding.
-            second_start = len(image)
-        second_end = second_start + second_size
-        if second_end > len(image):
-            raise ValueError('second payload exceeds Android image')
-        padding = image[start + old_size:second_start]
-        tail = image[second_end:]
-        if any(padding) or any(tail):
-            raise ValueError('nonzero padding/signature or unknown Android trailer')
-        kernel = image[page:page + kernel_size]
-        second = image[second_start:second_end]
-        result = bytearray(image[:start])
-        result += compressed + bytes((-len(compressed)) % page)
-        result += second + bytes((-len(second)) % page)
-        struct.pack_into('<I', result, 16, len(compressed))
-        digest = hashlib.sha1()
-        for payload in (kernel, compressed, second):
-            digest.update(payload)
-            digest.update(struct.pack('<I', len(payload)))
-        result[576:608] = digest.digest() + bytes(12)
-        if result[page:start] != image[page:start] or result[start + align(len(compressed), page):][:second_size] != second:
-            raise ValueError('kernel/second preservation failed')
-        preserved = {'kernel_sha256': hashlib.sha256(kernel).hexdigest(),
-                     'second_sha256': hashlib.sha256(second).hexdigest()}
-    else:
+    if device == 'acer-a1-840fhd':
         # One unsigned OSIP image descriptor, matching the known Acer container.
         if image[8:10] != b'\x01\x01' or struct.unpack_from('<H', image, 10)[0] != 56 or image[52] != 1:
             raise ValueError('unsupported or signed OSIP descriptor')
@@ -131,6 +96,8 @@ def repackage(image, compressed, device):
         if check != image[:start]:
             raise ValueError('OSIP stub/kernel preservation failed')
         preserved = {'kernel_allocation_sha256': hashlib.sha256(image[0x3200:start]).hexdigest()}
+    else:
+        raise ValueError('unsupported device')
     if len(result) > MAX_IMAGE:
         raise ValueError('sanitized image exceeds size limit')
     return bytes(result), preserved
