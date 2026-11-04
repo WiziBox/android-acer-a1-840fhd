@@ -28,7 +28,7 @@ Where vendor redistribution cannot be established, provide lawful owner extracti
 
 ## Acceptance after repackaging
 
-Record original and replacement identities privately, review the complete replacement contents, and test the exact replacement boot/system pair with per-device backup and recovery available. Previously tested originals do not establish that sanitized replacements boot. The guarded installation tools remain unexercised on hardware; complete restoration is still unfinished. See [release acceptance](RELEASE-CHECKLIST.md).
+Record original and replacement identities privately and review the complete replacement contents. The owner declined additional device testing, so the exact replacement boot/system pair and guarded installation tools remain hardware-unverified. Previously tested originals do not establish that sanitized replacements boot. Complete restoration is still unfinished. See [release acceptance](RELEASE-CHECKLIST.md).
 
 No new full build, flash, reboot or binary publication is authorized by this document.
 
