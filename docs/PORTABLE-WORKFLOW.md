@@ -31,7 +31,7 @@ The output must not already exist. The tool removes named ADB public approval fi
 
 ## Completion requirements
 
-The [owner-backup tools](OWNER-BACKUP.md) now provide an implemented prerequisite: offline original-header checks and a dry-run-first Android 9 root-ADB backup backend. The live backend and restoration still require device exercise; it is not a generic fastboot flashing recipe.
+The [owner-backup tools](OWNER-BACKUP.md) provide offline original-header checks and a dry-run-first Android 9 root-ADB backup backend. The owner declined further device testing, so the live backend and restoration remain hardware-unverified; this is not a generic fastboot flashing recipe.
 
 [Owner boot/system rollback components](OWNER-ROLLBACK.md) now include exact saved-boot comparison and the guarded system backend. They remain hardware-unexercised and do not restore every factory region; they are not evidence of a completed recovery workflow.
 
