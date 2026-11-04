@@ -31,9 +31,11 @@ def inspect_file(name, data):
             value = json.loads(data)
         except (ValueError, UnicodeError):
             return None
-        if isinstance(value, dict) and value.get('device') == 'dangol' and value.get('schema') == 1:
+        if isinstance(value, dict):
             files = value.get('files')
-            if isinstance(files, dict) and 'dangol-system.img' in files:
+            if isinstance(files, list) and any(isinstance(item, dict) and item.get('file') == 'acer-reserved.img' for item in files):
+                return 'private-owner-backup-receipt'
+            if value.get('serial') and isinstance(value.get('layout'), dict) and isinstance(files, list):
                 return 'private-owner-backup-receipt'
     return None
 

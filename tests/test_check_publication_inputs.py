@@ -20,7 +20,9 @@ class PublicationTests(unittest.TestCase):
     def test_code_mentions_not_secret(self):
         self.assertIsNone(inspect_file('tools/check.py', b"pattern = b'-----BEGIN RSA PRIVATE KEY-----'\n"))
     def test_backup_receipt(self):
-        self.assertEqual(inspect_file('receipt.json', b'{"schema":1,"device":"dangol","files":{"dangol-system.img":{}}}'),
+        self.assertEqual(inspect_file('receipt.json', b'{"files":[{"file":"acer-reserved.img"}]}'),
+                         'private-owner-backup-receipt')
+        self.assertEqual(inspect_file('receipt.json', b'{"serial":"fixture","layout":{},"files":[]}'),
                          'private-owner-backup-receipt')
     def test_public_text(self):
         self.assertIsNone(inspect_file('README.md', b'Public instructions'))
